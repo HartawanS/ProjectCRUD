@@ -26,3 +26,5 @@ Route::post('/project/insert', 'projectListController@insert')->name('project.in
 Route::get('/project/edit/{id}', 'projectListController@edit')->name('project.edit');
 Route::post('/project/update/{id}', 'projectListController@update')->name('project.update');
 Route::get('/project/delete/{id}', 'projectListController@delete')->name('project.delete');
+
+Route::get('/project/buildlist/{id}', 'projectListController@buildlist')->name('project.buildlist');

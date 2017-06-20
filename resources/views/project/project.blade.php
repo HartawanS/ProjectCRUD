@@ -111,7 +111,7 @@
                             <i class="fa fa-ellipsis-v"></i>
                           </span>
                          
-                          <span class="text"><a href="#">{{$project->project_name}}</a></span>
+                          <span class="text"><a href="{{ route('project.buildlist', $project->id) }}">{{$project->project_name}}</a></span>
                   
                         <div class="tools">
                           <a href="{{ route('project.edit', $project->id) }}" class="label label-warning"> Edit </a>

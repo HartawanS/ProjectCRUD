@@ -84,4 +84,12 @@ class projectListController extends Controller
 
         return redirect()->route('project.project');
     }
+
+        public function buildlist($id){
+        //fetch post data
+        $projectlist = Projectlist::find($id);
+        
+        //pass posts data to view and load list view
+        return view('project.details', ['projectlist' => $projectlist]);
+    }
 }
