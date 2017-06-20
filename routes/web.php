@@ -12,5 +12,17 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
+
+Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/home', 'projectListController@index')->name('home');
+// Route::get('/project/details/{id}', 'projectListController@details')->name('project.details');
+Route::get('/project/add', 'projectListController@add')->name('project.add');
+Route::post('/project/insert', 'projectListController@insert')->name('project.insert');
+Route::get('/project/edit/{id}', 'projectListController@edit')->name('project.edit');
+Route::post('/project/update/{id}', 'projectListController@update')->name('project.update');
+Route::get('/project/delete/{id}', 'projectListController@delete')->name('project.delete');
