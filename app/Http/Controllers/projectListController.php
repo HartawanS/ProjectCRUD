@@ -18,7 +18,7 @@ class projectListController extends Controller
     
     public function details($id){
         //fetch post data
-        $projectlist = Projectlist::find($id);
+        $projectlist = projectlist::find($id);
         
         //pass posts data to view and load list view
         return view('project.details', ['projectlist' => $projectlist]);
@@ -40,7 +40,7 @@ class projectListController extends Controller
         $postData = $request->all();
         
         //insert post data
-        Projectlist::create($postData);
+        projectlist::create($postData);
         
         //store status message
         Session::flash('success_msg', 'Post added successfully!');
@@ -50,7 +50,7 @@ class projectListController extends Controller
     
     public function edit($id){
         //get post data by id
-        $projectlist = Projectlist::find($id);
+        $projectlist = projectlist::find($id);
         
         //load form view
         return view('project.project-edit', ['projectlist' => $projectlist]);
@@ -67,7 +67,7 @@ class projectListController extends Controller
         $postData = $request->all();
         
         //update post data
-        Projectlist::find($id)->update($postData);
+        projectlist::find($id)->update($postData);
         
         //store status message
         Session::flash('success_msg', 'Post updated successfully!');
@@ -77,7 +77,7 @@ class projectListController extends Controller
     
     public function delete($id){
         //update post data
-        Projectlist::find($id)->delete();
+        projectlist::find($id)->delete();
         
         //store status message
         Session::flash('success_msg', 'Post deleted successfully!');
@@ -85,11 +85,5 @@ class projectListController extends Controller
         return redirect()->route('project.project');
     }
 
-        public function buildlist($id){
-        //fetch post data
-        $projectlist = Projectlist::find($id);
-        
-        //pass posts data to view and load list view
-        return view('project.details', ['projectlist' => $projectlist]);
-    }
+      
 }
