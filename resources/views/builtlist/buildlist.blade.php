@@ -27,7 +27,7 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="template/dist/img/user.jpg" class="img-circle" style="margin: 5px 0px;" alt="User Image">
+          <img src="{{asset('template/dist/img/user.jpg')}}" class="img-circle" style="margin: 5px 0px;" alt="User Image">
         </div>
         <div class="pull-left info">
           <p>{{'Username'}}</p>
@@ -104,21 +104,21 @@
             <div class="box-body">
               <ul class="todo-list ui-sortable">
               
-              @for($i =0; $i <= 15; $i++)
+              @foreach($buildlists as $buildlist)
                 <li>
                       <span class="handle ui-sortable-handle">
                         <i class="fa fa-ellipsis-v"></i>
                         <i class="fa fa-ellipsis-v"></i>
                       </span>
                   {{-- <input type="checkbox" value=""> --}}
-                  <span class="text"> <a href="{{'#'}}"> Let theme shine like a star</a></span>
-                  <small class="label label-default"><i class="fa fa-clock-o"></i> 1 month</small>
+                  <span class="text"> <a href="{{'#',$buildlist->idbuilt}}"> {{$buildlist->type}}</a></span>
+                  <small class="label label-default"><i class="fa fa-clock-o"></i> {{$buildlist->date->diffForHumans()}}</small>
                   <div class="tools">
-                    <a href="{{'#'}}"><i class="fa fa-edit"> Edit </i></a>
-                     <a href="{{'#'}}"><i class="fa fa-trash-o"> Delete </i></a>
+                    <a href="{{'#',$buildlist->idbuilt}}"><i class="fa fa-edit"> Edit </i></a>
+                     <a href="{{'#',$buildlist->idbuilt}}"><i class="fa fa-trash-o"> Delete </i></a>
                   </div>
                 </li>
-              @endfor
+              @endforeach
 
               </ul>
             </div>
