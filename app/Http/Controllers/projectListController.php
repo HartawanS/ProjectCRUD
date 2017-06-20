@@ -26,14 +26,13 @@ class projectListController extends Controller
     
     public function add(){
         //load form view
-        return view('project.new');
+        return view('project.project-new');
     }
     
     public function insert(Request $request){
         //validate post data
         $this->validate($request, [
-            'title' => 'required',
-            'content' => 'required'
+            'project-name' => 'required'
         ]);
         
         //get post data

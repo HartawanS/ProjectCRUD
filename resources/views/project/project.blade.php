@@ -39,31 +39,9 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
         <li class="header">MAIN NAVIGATION</li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-user"></i> <span>User</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li class=""><a href="{{'#'}}"><i class="fa fa-circle-o"></i>Create User</a></li>
-            <li class=""><a href="{{'#'}}"><i class="fa fa-circle-o"></i> Manage User</a></li>
-          </ul>
-        </li>
-       <li class="active treeview">
-          <a href="#">
-            <i class="fa fa-files-o"></i> <span>Projects</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li class=""><a href="{{'#'}}"><i class="fa fa-circle-o"></i>Create Project</a></li>
-            <li class="active"><a href="{{'#'}}"><i class="fa fa-circle-o"></i> Manage Project</a></li>
-          </ul>
-        </li>
-             <li><a href="{{'#'}}"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
+          <li><a href="home.user"><i class="fa fa-circle-o"></i> <span>User</span></a></li>
+          <li><a href="#"><i class="fa fa-circle-o"></i> <span>Projects</span></a></li>
+          <li><a href="{{ route('logout') }}"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -93,9 +71,9 @@
 
               <h3 class="box-title">Manage Projects</h3>
               <div class="box-tools">
-              <form method="post" action="{{ /*route('project.new')*/'#' }}">
-               <button type="submit" class="btn btn-default pull-right"><i class="fa fa-plus"></i> New project</button>
-               </form>
+              <div class="pull-right">
+                <a class="btn btn-success" href="{{ route('project.add') }}"> New Project</a>
+            </div>
               </div>
             </div>
             <!-- /.box-header -->
@@ -111,7 +89,7 @@
                             <i class="fa fa-ellipsis-v"></i>
                           </span>
                          
-                          <span class="text"><a href="{{ route('project.buildlist', $project->id) }}">{{$project->project_name}}</a></span>
+                          <span class="text"><a href="{{ route('project.buildlist', $project->idproject) }}">{{$project->project_name}}</a></span>
                   
                         <div class="tools">
                           <a href="{{ route('project.edit', $project->id) }}" class="label label-warning"> Edit </a>

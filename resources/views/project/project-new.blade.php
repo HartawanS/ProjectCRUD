@@ -100,9 +100,10 @@
               
               @yield('error')
 
-              <form class="col-md-4 col-md-offset-4 " action="#" method="post">
+              <form class="col-md-4 col-md-offset-4 " method="post" action="{{ route('project.insert') }}">
+                {{ csrf_field() }}
                 <div class="form-group">
-                  <input type="text" class="form-control" name="username" placeholder="Project Name">
+                  <input type="text" class="form-control" name="project-name" placeholder="Project Name">
                 </div>
 
 
