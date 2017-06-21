@@ -14,9 +14,8 @@ class CreateBuiltListsTable extends Migration
     public function up()
     {
         Schema::create('builtList', function (Blueprint $table) {
-            $table->increments('idbuilt');
+            $table->increments('id');
             $table->integer('idproject');
-            $table->datetime('date');
             $table->string('type');
             $table->text('note');
             $table->string('link_file_APK');

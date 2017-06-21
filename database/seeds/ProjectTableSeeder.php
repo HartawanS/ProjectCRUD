@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\User;
-class DatabaseSeeder extends Seeder
+use App\Project;
+class ProjectTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,7 +11,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(UserTableSeeder::class);
-        $this->call(ProjectTableSeeder::class);
+        Project::create([
+        	'name' => 'Susu Sapi Nasional',
+        	]);
     }
 }

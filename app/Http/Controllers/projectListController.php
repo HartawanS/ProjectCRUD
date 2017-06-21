@@ -1,16 +1,16 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Projectlist;
+use App\Project;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Session;
 
-class projectListController extends Controller
+class ProjectListController extends Controller
 {
     public function index(){
         //fetch all posts data
-        $projectlists = projectlist::orderBy('created_at','desc')->get();
+        $projectlists = Project::orderBy('created_at','desc')->get();
         
         //pass posts data to view and load list view
         return view('project.project', ['projectlists' => $projectlists]);
@@ -18,7 +18,7 @@ class projectListController extends Controller
     
     public function details($id){
         //fetch post data
-        $projectlist = projectlist::find($id);
+        $projectlist = Project::find($id);
         
         //pass posts data to view and load list view
         return view('project.details', ['projectlist' => $projectlist]);
@@ -39,7 +39,7 @@ class projectListController extends Controller
         $postData = $request->all();
         
         //insert post data
-        projectlist::create($postData);
+        Project::create($postData);
         
         //store status message
         Session::flash('success_msg', 'Post added successfully!');
@@ -49,34 +49,34 @@ class projectListController extends Controller
     
     public function edit($id){
         //get post data by id
-        $projectlist = projectlist::find($id);
+        $projectlist = Project::find($id);
         
         //load form view
         return view('project.project-edit', ['projectlist' => $projectlist]);
     }
     
-    public function update($id, Request $request){
-        //validate post data
-        $this->validate($request, [
-            'title' => 'required',
-            'content' => 'required'
-        ]);
+    // public function update($id, Request $request){
+    //     //validate post data
+    //     $this->validate($request, [
+    //         'title' => 'required',
+    //         'content' => 'required'
+    //     ]);
         
-        //get post data
-        $postData = $request->all();
+    //     //get post data
+    //     $postData = $request->all();
         
-        //update post data
-        projectlist::find($id)->update($postData);
+    //     //update post data
+    //     Project::find($id)->update($postData);
         
-        //store status message
-        Session::flash('success_msg', 'Post updated successfully!');
+    //     //store status message
+    //     Session::flash('success_msg', 'Post updated successfully!');
 
-        return redirect()->route('project.project');
-    }
+    //     return redirect()->route('project.project');
+    // }
     
     public function delete($id){
         //update post data
-        projectlist::find($id)->delete();
+        Project::find($id)->delete();
         
         //store status message
         Session::flash('success_msg', 'Post deleted successfully!');

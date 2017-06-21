@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class builtList extends Model
+class Built extends Model
 {
     //
     protected $table  = "builtlist";

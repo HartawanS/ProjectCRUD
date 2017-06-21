@@ -38,31 +38,9 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
         <li class="header">MAIN NAVIGATION</li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-user"></i> <span>User</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li class=""><a href="index.html"><i class="fa fa-circle-o"></i>Create User</a></li>
-            <li class=""><a href="index.html"><i class="fa fa-circle-o"></i> Manage User</a></li>
-          </ul>
-        </li>
-       <li class="active treeview">
-          <a href="#">
-            <i class="fa fa-files-o"></i> <span>Projects</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i>Create Project</a></li>
-            <li class=""><a href="index.html"><i class="fa fa-circle-o"></i> Manage Project</a></li>
-          </ul>
-        </li>
-             <li><a href="#"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
+          <li><a href="home.user"><i class="fa fa-user"></i> <span>User</span></a></li>
+          <li><a href="#"><i class="fa fa-files-o"></i> <span>Projects</span></a></li>
+          <li><a href="{{ route('logout') }}"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -107,7 +85,7 @@
                 </div>
 
 
-                <button type="submit"  class="pull-right btn btn-success" id="create">Create
+                <button type="submit" class="pull-right btn btn-success" id="create">Create</button>
               </form>
 
             </div>

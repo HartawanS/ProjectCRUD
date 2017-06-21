@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\builtlist;
 
-class builtListController extends Controller
+class BuiltListController extends Controller
 {
 	  public function index($id){
         //fetch post data
