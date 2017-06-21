@@ -80,15 +80,19 @@
               
                 @yield('error')
 
-              <form class="col-md-4 col-md-offset-4 " action="{{route('buildlist.insert',)}}" method="post">
+              <form class="col-md-4 col-md-offset-4 " action="{{route('buildlist.insert',$id)}}" method="post">
+              {{csrf_field()}}
+
+              <input type="hidden" name="idproject" value="{{$id}}" >
+
                 <div class="form-group">
-                  <input type="text" class="form-control" name="username"  placeholder="Build List Type" >
+                  <input type="text" class="form-control" name="type"  placeholder="Build List Type" >
                 </div>
                 <div class="form-group">
-                  <input type="text" class="form-control" name="username"  placeholder="File Link" >
+                  <input type="text" class="form-control" name="link_file_APK"  placeholder="File Link" >
                 </div>
                 <div class="form-group">
-                  <textarea class="form-control" placeholder="Note"></textarea>
+                  <textarea class="form-control" name="note" placeholder="Note"></textarea>
                 </div>
                 <button type="submit"  class="pull-right btn btn-success" id="create">Ok
               </form>

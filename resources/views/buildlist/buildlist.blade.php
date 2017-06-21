@@ -74,8 +74,7 @@
               <h3 class="box-title">Manage Build List</h3>
               <div class="box-tools">
 
-               <a class="btn btn-success" href="{{ route('buildlist.add',1)}}"><i class="fa fa-plus"></i> New build list</a>
-              <p>{{$buildlists->first()->idproject}}</p>
+               <a class="btn btn-success" href="{{ route('buildlist.add',$id) }}"><i class="fa fa-plus"></i> New build list</a>
               </div>
             </div>
             <!-- /.box-header -->

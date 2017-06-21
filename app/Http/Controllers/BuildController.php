@@ -13,19 +13,23 @@ class BuildController extends Controller
         $buildlists = Build::where('idproject','=',$id)->get();
         
         //pass posts data to view and load list view
-        return view('buildlist.buildlist', ['buildlists' => $buildlists]);
+        return view('buildlist.buildlist', ['buildlists' => $buildlists,'id'=>$id]);
     }
-    public function add()
+
+    public function add($id)
     {
-    	return view('buildlist.buildlist-new');
+        // dd($id);
+        $buildlists = Build::where('idproject','=',$id)->get();
+    	return view('buildlist.buildlist-new', ['buildlists' => $buildlists,'id'=>$id]);
     }
-    public function insert(Request $request){
+
+    public function insert($id, Request $request){
         //validate post data
         $this->validate($request, [
         	'idproject'=>'required',
             'type' => 'required',
-            'note' => 'required',
-            'link_file_APK' => 'required'
+            'link_file_APK' => 'required',
+            'note' => 'required'
         ]);
         
         //get post data
@@ -37,7 +41,7 @@ class BuildController extends Controller
         //store status message
         // Session::flash('success_msg', 'Post added successfully!');
 
-        return redirect()->route('buildlist.index');
+        return redirect()->route('buildlist.index',['id' => $request->get('idproject')]);
     }
     
     public function edit($id){
