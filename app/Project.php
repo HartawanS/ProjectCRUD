@@ -8,7 +8,7 @@ class Project extends Model
 {
 	protected $table = "projectlist";
     //fillable fields
-    protected $fillable = ['project_name'];	
+    protected $fillable = ['name'];	
     
     //custom timestamps name
     // const CREATED_AT = 'created';

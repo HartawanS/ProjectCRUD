@@ -29,7 +29,7 @@
           <img src="template/dist/img/user.jpg" class="img-circle" style="margin: 5px 0px;" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>{{'Username'}}</p>
+          <p>Admin</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -38,31 +38,9 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
         <li class="header">MAIN NAVIGATION</li>
-        <li class="active treeview">
-          <a href="#">
-            <i class="fa fa-user"></i> <span>User</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li class=""><a href="index.html"><i class="fa fa-circle-o"></i>Create User</a></li>
-            <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i> Manage User</a></li>
-          </ul>
-        </li>
-       <li class="treeview">
-          <a href="#">
-            <i class="fa fa-files-o"></i> <span>Projects</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li class=""><a href="index.html"><i class="fa fa-circle-o"></i>Create Project</a></li>
-            <li class=""><a href="index.html"><i class="fa fa-circle-o"></i> Manage Project</a></li>
-          </ul>
-        </li>
-            <li><a href="#"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
+        <li><a href="#"><i class="fa fa-user"></i> <span>User</span></a></li>
+          <li><a href="{{ route('home') }}"><i class="fa fa-files-o"></i> <span>Projects</span></a></li>
+          <li><a href="{{ route('logout') }}"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -92,28 +70,32 @@
 
               <h3 class="box-title">Manage Users</h3>
               <div class="box-tools">
-               <button type="button" class="btn btn-default pull-right"><i class="fa fa-plus"></i> Add user</button>
+                <div class="pull-right">
+                  <a class="btn btn-success" href="{{ route('master.add') }}"> Add User</a>
+                </div>
               </div>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
               <ul class="todo-list ui-sortable">
               
-              @for($i =0; $i <= 15; $i++)
+              @foreach($Master as $MU)
                 <li>
                       <span class="handle ui-sortable-handle">
                         <i class="fa fa-ellipsis-v"></i>
                         <i class="fa fa-ellipsis-v"></i>
                       </span>
-                  {{-- <input type="checkbox" value=""> --}}
-                  <span class="text"> <a href="{{'#'}}"> Let theme shine like a star</a></span>
-                  <small class="label label-default"><i class="fa fa-clock-o"></i> 1 month</small>
+
+                  <span class="text">{{$MU->name}}</span>
+                  <span class="text">{{$MU->email}}</span>
+                  <span class="text">{{$MU->password}}</span>
+                  
                   <div class="tools">
-                    <a href="{{'#'}}"><i class="fa fa-edit"> Edit </i></a>
-                     <a href="{{'#'}}"><i class="fa fa-trash-o"> Delete </i></a>
+                    <a href="{{ route('master.edit', $MU->id) }}" class="label label-warning"> Edit </a>
+                    <a href="{{ route('master.delete', $MU->id) }}" class="label label-danger" onclick="return confirm('Are you sure to delete?')"> Delete </a>
                   </div>
                 </li>
-              @endfor
+              @endforeach
 
               </ul>
             </div>

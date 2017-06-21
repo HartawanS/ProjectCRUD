@@ -29,7 +29,7 @@
           <img src="template/dist/img/user.jpg" class="img-circle" style="margin: 5px 0px;" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>{{'Username'}}</p>
+          <p>Admin</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -38,31 +38,9 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
         <li class="header">MAIN NAVIGATION</li>
-        <li class="active treeview">
-          <a href="#">
-            <i class="fa fa-user"></i> <span>User</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li class=""><a href="index.html"><i class="fa fa-circle-o"></i>Create User</a></li>
-            <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i> Manage User</a></li>
-          </ul>
-        </li>
-       <li class="treeview">
-          <a href="#">
-            <i class="fa fa-files-o"></i> <span>Projects</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li class=""><a href="index.html"><i class="fa fa-circle-o"></i>Create Project</a></li>
-            <li class=""><a href="index.html"><i class="fa fa-circle-o"></i> Manage Project</a></li>
-          </ul>
-        </li>
-            <li><a href="#"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
+          <li><a href="#"><i class="fa fa-user"></i> <span>User</span></a></li>
+          <li><a href="{{ route('home') }}"><i class="fa fa-files-o"></i> <span>Projects</span></a></li>
+          <li><a href="{{ route('logout') }}"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -102,15 +80,16 @@
 
                @yield('error')
 
-              <form class="col-md-4 col-md-offset-4 " action="#" method="post">
+              <form class="col-md-4 col-md-offset-4 " action="{{ route('master.update', $Master->id) }}" method="post">
+                {{ csrf_field() }}
                 <div class="form-group">
-                  <input type="text" class="form-control" name="username" value="{{ 'User_Name' }}" placeholder="Username">
+                  <input type="text" class="form-control" name="name" value="{{ $Master->name }}" placeholder="Username">
                 </div>
                 <div class="form-group">
-                  <input type="password" class="form-control" name="pass" placeholder="Change Password">
+                  <input type="email" class="form-control" name="email" value="{{ $Master->email }}" placeholder="Email">
                 </div>
                 <div class="form-group">
-                  <input type="password" class="form-control" name="confPass" placeholder="Confirm Password">
+                  <input type="text" class="form-control" name="password" value="{{ $Master->password }}" placeholder="Password">
                 </div>
                 <button type="submit"  class="pull-right btn btn-success" id="create">Ok
               </form>

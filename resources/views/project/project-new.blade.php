@@ -29,7 +29,7 @@
           <img src="template/dist/img/user.jpg" class="img-circle" style="margin: 5px 0px;" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>{{'Username'}}</p>
+          <p>Admin</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -38,7 +38,7 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
         <li class="header">MAIN NAVIGATION</li>
-          <li><a href="home.user"><i class="fa fa-user"></i> <span>User</span></a></li>
+          <li><a href="{{ route('master.index') }}"><i class="fa fa-user"></i> <span>User</span></a></li>
           <li><a href="#"><i class="fa fa-files-o"></i> <span>Projects</span></a></li>
           <li><a href="{{ route('logout') }}"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
       </ul>
@@ -81,7 +81,7 @@
               <form class="col-md-4 col-md-offset-4 " method="post" action="{{ route('project.insert') }}">
                 {{ csrf_field() }}
                 <div class="form-group">
-                  <input type="text" class="form-control" name="project-name" placeholder="Project Name">
+                  <input type="text" class="form-control" name="name" placeholder="Project Name">
                 </div>
 
 

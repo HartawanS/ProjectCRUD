@@ -19,12 +19,19 @@ Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/home', 'projectListController@index')->name('home');
+Route::get('/home', 'ProjectListController@index')->name('home');
 // Route::get('/project/details/{id}', 'projectListController@details')->name('project.details');
-Route::get('/project/add', 'projectListController@add')->name('project.add');
-Route::post('/project/insert', 'projectListController@insert')->name('project.insert');
-Route::get('/project/edit/{id}', 'projectListController@edit')->name('project.edit');
-Route::post('/project/update/{id}', 'projectListController@update')->name('project.update');
-Route::get('/project/delete/{id}', 'projectListController@delete')->name('project.delete');
+Route::get('/project/add', 'ProjectListController@add')->name('project.add');
+Route::post('/project/insert', 'ProjectListController@insert')->name('project.insert');
+Route::get('/project/edit/{id}', 'ProjectListController@edit')->name('project.edit');
+Route::post('/project/update/{id}', 'ProjectListController@update')->name('project.update');
+Route::get('/project/delete/{id}', 'ProjectListController@delete')->name('project.delete');
+
+Route::get('/master/index', 'MasterUserController@index')->name('master.index');
+Route::get('/master/add', 'MasterUserController@add')->name('master.add');
+Route::post('/master/insert', 'MasterUserController@insert')->name('master.insert');
+Route::get('/master/edit/{id}', 'MasterUserController@edit')->name('master.edit');
+Route::post('/master/update/{id}', 'MasterUserController@update')->name('master.update');
+Route::get('/master/delete/{id}', 'MasterUserController@delete')->name('master.delete');
 
 Route::get('/project/buildlist/{id}', 'builtListController@index')->name('project.buildlist');

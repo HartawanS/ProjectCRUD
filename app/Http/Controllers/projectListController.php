@@ -32,7 +32,7 @@ class ProjectListController extends Controller
     public function insert(Request $request){
         //validate post data
         $this->validate($request, [
-            'project-name' => 'required'
+            'name' => 'required'
         ]);
         
         //get post data
@@ -42,9 +42,9 @@ class ProjectListController extends Controller
         Project::create($postData);
         
         //store status message
-        Session::flash('success_msg', 'Post added successfully!');
+        // Session::flash('success_msg', 'Post added successfully!');
 
-        return redirect()->route('project.project');
+        return redirect()->route('home');
     }
     
     public function edit($id){
@@ -55,33 +55,32 @@ class ProjectListController extends Controller
         return view('project.project-edit', ['projectlist' => $projectlist]);
     }
     
-    // public function update($id, Request $request){
-    //     //validate post data
-    //     $this->validate($request, [
-    //         'title' => 'required',
-    //         'content' => 'required'
-    //     ]);
+    public function update($id, Request $request){
+        //validate post data
+        $this->validate($request, [
+            'name' => 'required'
+        ]);
         
-    //     //get post data
-    //     $postData = $request->all();
+        //get post data
+        $postData = $request->all();
         
-    //     //update post data
-    //     Project::find($id)->update($postData);
+        //update post data
+        Project::find($id)->update($postData);
         
-    //     //store status message
-    //     Session::flash('success_msg', 'Post updated successfully!');
+        //store status message
+        // Session::flash('success_msg', 'Post updated successfully!');
 
-    //     return redirect()->route('project.project');
-    // }
+        return redirect()->route('home');
+    }
     
     public function delete($id){
         //update post data
         Project::find($id)->delete();
         
         //store status message
-        Session::flash('success_msg', 'Post deleted successfully!');
+        // Session::flash('success_msg', 'Post deleted successfully!');
 
-        return redirect()->route('project.project');
+        return redirect()->route('home');
     }
 
       
