@@ -89,11 +89,11 @@
                             <i class="fa fa-ellipsis-v"></i>
                           </span>
                          
-                          <span class="text"><a href="{{ route('project.buildlist', $project->idproject) }}">{{$project->project_name}}</a></span>
+                          <span class="text"><a href="{{ route('project.buildlist', $project->id) }}">{{$project->name}}</a></span>
                   
                         <div class="tools">
-                          <a href="{{ route('project.edit', $project->idproject) }}" class="label label-warning"> Edit </a>
-                          <a href="{{ route('project.delete', $project->idproject) }}" class="label label-danger" onclick="return confirm('Are you sure to delete?')"> Delete </a>
+                          <a href="{{ route('project.edit', $project->id) }}" class="label label-warning"> Edit </a>
+                          <a href="{{ route('project.delete', $project->id) }}" class="label label-danger" onclick="return confirm('Are you sure to delete?')"> Delete </a>
                         </div>
                       </li>
                     @endforeach
