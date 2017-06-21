@@ -34,4 +34,9 @@ Route::get('/master/edit/{id}', 'MasterUserController@edit')->name('master.edit'
 Route::post('/master/update/{id}', 'MasterUserController@update')->name('master.update');
 Route::get('/master/delete/{id}', 'MasterUserController@delete')->name('master.delete');
 
-Route::get('/project/buildlist/{id}', 'builtListController@index')->name('project.buildlist');
+Route::get('/buildlist/{id}', 'BuildController@index')->name('buildlist.index');
+Route::get('/buildlist/add/{id}', 'BuildController@add')->name('buildlist.add');
+Route::post('/buildlist/insert/{id}', 'BuildController@insert')->name('buildlist.insert');
+Route::get('/buildlist/edit/{id}', 'BuildController@edit')->name('buildlist.edit');
+Route::post('/buildlist/update/{id}', 'BuildController@update')->name('buildlist.update');
+Route::get('/buildlist/delete/{id}', 'BuildController@delete')->name('buildlist.delete');

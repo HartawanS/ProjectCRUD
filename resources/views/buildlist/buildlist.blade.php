@@ -39,31 +39,9 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
         <li class="header">MAIN NAVIGATION</li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-user"></i> <span>User</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li class=""><a href="{{'#'}}"><i class="fa fa-circle-o"></i>Create User</a></li>
-            <li class=""><a href="{{'#'}}"><i class="fa fa-circle-o"></i> Manage User</a></li>
-          </ul>
-        </li>
-       <li class="active treeview">
-          <a href="#">
-            <i class="fa fa-files-o"></i> <span>Projects</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li class=""><a href="{{'#'}}"><i class="fa fa-circle-o"></i>Create Project</a></li>
-            <li class="active"><a href="{{'#'}}"><i class="fa fa-circle-o"></i> Manage Project</a></li>
-          </ul>
-        </li>
-             <li><a href="{{'#'}}"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
+             <li class=""><a href="{{ route('master.index') }}"> <i class="fa fa-user"></i> <span>User</span></a></li>
+             <li class="active"><a href="{{ route('home') }}"><i class="fa fa-files-o"></i><span>Project</span></a></li>
+             <li><a href="{{ route('logout') }}"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -95,9 +73,9 @@
 
               <h3 class="box-title">Manage Build List</h3>
               <div class="box-tools">
-              <form method="post" action="{{ /*route('project.new')*/'#' }}">
-               <button type="submit" class="btn btn-default pull-right"><i class="fa fa-plus"></i> New build list</button>
-               </form>
+
+               <a class="btn btn-success" href="{{ route('buildlist.add',1)}}"><i class="fa fa-plus"></i> New build list</a>
+              <p>{{$buildlists->first()->idproject}}</p>
               </div>
             </div>
             <!-- /.box-header -->
@@ -111,11 +89,11 @@
                         <i class="fa fa-ellipsis-v"></i>
                       </span>
                   {{-- <input type="checkbox" value=""> --}}
-                  <span class="text"> <a href="{{'#',$buildlist->idbuilt}}"> {{$buildlist->type}}</a></span>
-                  <small class="label label-default"><i class="fa fa-clock-o"></i> {{$buildlist->date->diffForHumans()}}</small>
+                  <span class="text"> <a href="{{route('buildlist.edit',$buildlist->id)}}"> {{$buildlist->type}}</a></span>
+                  <small class="label label-default"><i class="fa fa-clock-o"></i> {{$buildlist->updated_at->diffForHumans()}}</small>
                   <div class="tools">
-                    <a href="{{'#',$buildlist->idbuilt}}"><i class="fa fa-edit"> Edit </i></a>
-                     <a href="{{'#',$buildlist->idbuilt}}"><i class="fa fa-trash-o"> Delete </i></a>
+                   <a href="{{ route('buildlist.edit', $buildlist->id) }}" class="label label-warning"> Edit </a>
+                    <a href="{{ route('buildlist.delete', $buildlist->id) }}" class="label label-danger" onclick="return confirm('Are you sure to delete?')"> Delete </a>
                   </div>
                 </li>
               @endforeach
