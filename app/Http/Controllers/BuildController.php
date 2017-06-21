@@ -75,11 +75,11 @@ class BuildController extends Controller
     
     public function delete($id){
         //update post data
-        Build::find($id)->delete();
+        $buildlist = Build::find($id)->delete();
         
         //store status message
         // Session::flash('success_msg', 'Post deleted successfully!');
 
-        return redirect()->route('buildlist.index',['id' => $request->get('idproject')]);
+        return redirect()->route('buildlist.index',['buildlist' => $buildlist]);
     }
 }
