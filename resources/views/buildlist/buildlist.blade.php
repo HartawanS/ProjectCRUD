@@ -30,7 +30,7 @@
           <img src="{{asset('template/dist/img/user.jpg')}}" class="img-circle" style="margin: 5px 0px;" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>{{'Username'}}</p>
+          <p>{{'Admin'}}</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -52,13 +52,13 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        {{'Project_Name'}}
+        {{$projectname->name}}
         <small>Manage Build List</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-files-o"></i> Projects</a></li>
         <li class="">Manage Project</li>
-        <li class="">{{'Project_Name'}}</li>
+        <li class="">{{$projectname->name}}</li>
         <li class="active">Manage Build List</li>
       </ol>
     </section>
@@ -73,7 +73,7 @@
 
               <h3 class="box-title">Manage Build List</h3>
               <div class="box-tools">
-
+              <a class="btn btn-primary" href="{{ route('home') }}"><i class="fa fa-angle-double-left"></i> Back</a>
                <a class="btn btn-success" href="{{ route('buildlist.add',$id) }}"><i class="fa fa-plus"></i> New build list</a>
               </div>
             </div>
@@ -88,7 +88,7 @@
                         <i class="fa fa-ellipsis-v"></i>
                       </span>
                   {{-- <input type="checkbox" value=""> --}}
-                  <span class="text"> <a href="{{route('buildlist.edit',$buildlist->id)}}"> {{$buildlist->type}}</a></span>
+                  <span class="text"> <a href="{{route('buildlist.detail',$buildlist->id)}}"> {{$buildlist->type}}</a></span>
                   <small class="label label-default"><i class="fa fa-clock-o"></i> {{$buildlist->updated_at->diffForHumans()}}</small>
                   <div class="tools">
                    <a href="{{ route('buildlist.edit', $buildlist->id) }}" class="label label-warning"> Edit </a>

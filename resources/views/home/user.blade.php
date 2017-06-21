@@ -26,10 +26,10 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="template/dist/img/user.jpg" class="img-circle" style="margin: 5px 0px;" alt="User Image">
+          <img src="{{asset('template/dist/img/user.jpg')}}" class="img-circle" style="margin: 5px 0px;" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Admin</p>
+          <p>{{'Admin'}}</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -38,7 +38,7 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
         <li class="header">MAIN NAVIGATION</li>
-        <li><a href="#"><i class="fa fa-user"></i> <span>User</span></a></li>
+        <li class="active"><a href="#"><i class="fa fa-user"></i> <span>User</span></a></li>
           <li><a href="{{ route('home') }}"><i class="fa fa-files-o"></i> <span>Projects</span></a></li>
           <li><a href="{{ route('logout') }}"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
       </ul>
@@ -72,6 +72,7 @@
               <div class="box-tools">
                 <div class="pull-right">
                   <a class="btn btn-success" href="{{ route('master.add') }}"> Add User</a>
+
                 </div>
               </div>
             </div>
@@ -86,12 +87,10 @@
                         <i class="fa fa-ellipsis-v"></i>
                       </span>
 
-                  <span class="text">{{$MU->name}}</span>
-                  <span class="text">{{$MU->email}}</span>
-                  <span class="text">{{$MU->password}}</span>
-                  
+                  <span class="text"><a href="{{ route('master.detail', $MU->id)}}">{{$MU->name}}</a></span>
+                  <small class="label label-default"><i class="fa fa-clock-o"> Joined </i> {{$MU->created_at->format('d/m/Y')}}</small>
                   <div class="tools">
-                    <a href="{{ route('master.edit', $MU->id) }}" class="label label-warning"> Edit </a>
+                    <a href="{{ route('master.edit', $MU->id)}}" class="label label-warning"> Edit </a>
                     <a href="{{ route('master.delete', $MU->id) }}" class="label label-danger" onclick="return confirm('Are you sure to delete?')"> Delete </a>
                   </div>
                 </li>

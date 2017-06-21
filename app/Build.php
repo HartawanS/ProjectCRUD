@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Project;
 
 class Build extends Model
 {
@@ -13,4 +14,11 @@ class Build extends Model
      //custom timestamps name
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
+
+    public function getprojectname($id)
+    {
+        $projectname = Project::find($id)->get('name');
+
+        return $projectname;
+    }
 }

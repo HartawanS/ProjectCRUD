@@ -1,4 +1,4 @@
-<title>Create User</title>
+<title>Project Manager | Detail Buildlist</title>
 @extends('layouts.home')
 
 @section('content')
@@ -7,11 +7,11 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="index2.html" class="logo" >
+    <a href="index2.html" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>DOT</b></span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>PT.DOT</b>
+      <span class="logo-lg" ><b>PT.DOT</b>
       <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
         <span class="sr-only">Toggle navigation</span>
       </a></span>
@@ -37,10 +37,10 @@
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
-        <li class="header">MAIN NAVIGATION</li>
-          <li class="active"><a href="#"><i class="fa fa-user"></i> <span>User</span></a></li>
-          <li><a href="{{ route('home') }}"><i class="fa fa-files-o"></i> <span>Projects</span></a></li>
-          <li><a href="{{ route('logout') }}"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
+            <li class="header">MAIN NAVIGATION</li>
+             <li class=""><a href="{{ route('master.index') }}"> <i class="fa fa-user"></i> <span>User</span></a></li>
+             <li class="active"><a href="{{ route('home') }}"><i class="fa fa-files-o"></i><span>Project</span></a></li>
+             <li><a href="{{ route('logout') }}"><i class="fa fa-sign-out"></i> <span >Logout</span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -51,54 +51,63 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        User
-        <small>Create User</small>
+        {{$projectname->name}}
+        <small>Build List Detail</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-user"></i> User</a></li>
-        <li class="active">Create User</li>
+        <li><a href="#"><i class="fa fa-files-o"></i> Projects</a></li>
+        <li class="">Manage Project</li>
+        <li class="">{{$projectname->name}}</li>
+        <li class="active">{{$buildlist->type}}</li>
       </ol>
     </section>
 
     <!-- Main content -->
     <section class="content">
-      <!-- Small boxes (Stat box) -->
+        <!-- Small boxes (Stat box) -->
       <div class="row">
         <div class="box box-primary">
             <div class="box-header ui-sortable-handle" style="cursor: move;">
-              <i class="fa fa-user"></i>
+              <i class="fa fa-files-o"></i>
 
-              <h3 class="box-title">Create User</h3>
+              <h3 class="box-title">Build List Detail - {{$projectname->name}} - {{$buildlist->type}}</h3>
               <div class="box-tools">
-               
+              
               </div>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
+              
+              <div class="col-md-6">
+                <div class="box box-solid">
+                  <div class="box-header with-border">
+                    <i class="fa fa-list-alt"></i>
 
-
-              @yield('error')
-
-              <form class="col-md-4 col-md-offset-4 " method="post" action="{{ route('master.insert') }}">
-                {{ csrf_field() }}
-                <div class="form-group">
-                  <input type="text" class="form-control" name="name" placeholder="Username">
+                    <h3 class="box-title">{{ $buildlist->type }}
+                        <small class="label label-default"><i class="fa fa-clock-o"> Updated at </i> {{$buildlist->updated_at->diffForHumans()}}</small>
+                    </h3>
+                  </div>
+                  <!-- /.box-header -->
+                  <div class="box-body">
+                    <dl class="dl-horizontal">
+                      <dt>Type</dt>
+                      <dd>{{ $buildlist->type }}</dd>
+                      <dt>Link File APK</dt>
+                      <dd>{{ $buildlist->link_file_APK }}</dd>
+                      <dt>Note</dt>
+                      <dd>{{ $buildlist->note }}</dd>
+                      
+                    </dl>
+                     <div class="tools">
+                   <a href="{{ route('buildlist.edit', $buildlist->id) }}" class="label label-warning"> Edit </a>
+                    <a href="{{ route('buildlist.delete', $buildlist->id) }}" class="label label-danger" onclick="return confirm('Are you sure to delete?')"> Delete </a>
+                    <a class="pull-right label label-primary" href="{{ route('buildlist.index',$buildlist->idproject)}}"> Back</a>
+                  </div>
+                  </div>
+                  <!-- /.box-body -->
                 </div>
-                <div class="form-group">
-                  <input type="email" class="form-control" name="email" placeholder="Email">
-                </div>
-                <div class="form-group">
-                  <input type="password" class="form-control" name="password" placeholder="Password">
-                </div>
-<!--                 <div class="form-group">
-                  <input type="password" class="form-control" name="confPass" placeholder="Confirm Password">
-                </div> -->
-                <div class="pull-right">
-                <a  class=" btn btn-primary" href="{{ route('master.index')}}">Back </a>
-                <button type="submit"  class=" btn btn-success" id="create">Create
-                </div>
-                
-              </form>
+                <!-- /.box -->
+              </div>
 
             </div>
             <!-- /.box-body -->
@@ -124,7 +133,7 @@
  --}}
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
-  
+   
   </aside>
   <!-- /.control-sidebar -->
   <!-- Add the sidebar's background. This div must be placed

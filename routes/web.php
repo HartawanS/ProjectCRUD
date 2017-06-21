@@ -29,6 +29,7 @@ Route::post('/project/update/{id}', 'ProjectListController@update')->name('proje
 Route::get('/project/delete/{id}', 'ProjectListController@delete')->name('project.delete');
 
 Route::get('/master/index', 'MasterUserController@index')->name('master.index');
+Route::get('/master/details/{id}', 'MasterUserController@detail')->name('master.detail');
 Route::get('/master/add', 'MasterUserController@add')->name('master.add');
 Route::post('/master/insert', 'MasterUserController@insert')->name('master.insert');
 Route::get('/master/edit/{id}', 'MasterUserController@edit')->name('master.edit');
@@ -36,6 +37,7 @@ Route::post('/master/update/{id}', 'MasterUserController@update')->name('master.
 Route::get('/master/delete/{id}', 'MasterUserController@delete')->name('master.delete');
 
 Route::get('/buildlist/{id}', 'BuildController@index')->name('buildlist.index');
+Route::get('/buildlist/details/{id}', 'BuildController@detail')->name('buildlist.detail');
 Route::get('/buildlist/add/{id}', 'BuildController@add')->name('buildlist.add');
 Route::post('/buildlist/insert/{id}', 'BuildController@insert')->name('buildlist.insert');
 Route::get('/buildlist/edit/{id}', 'BuildController@edit')->name('buildlist.edit');

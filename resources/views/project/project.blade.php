@@ -27,10 +27,10 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="template/dist/img/user.jpg" class="img-circle" style="margin: 5px 0px;" alt="User Image">
+          <img src="{{asset('template/dist/img/user.jpg')}}" class="img-circle" style="margin: 5px 0px;" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Admin</p>
+          <p>{{'Admin'}}</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -40,7 +40,7 @@
       <ul class="sidebar-menu">
         <li class="header">MAIN NAVIGATION</li>
           <li><a href="{{ route('master.index') }}"><i class="fa fa-user"></i> <span>User</span></a></li>
-          <li><a href="#"><i class="fa fa-files-o"></i> <span>Projects</span></a></li>
+          <li class="active"><a href="#"><i class="fa fa-files-o"></i> <span>Projects</span></a></li>
           <li><a href="{{ route('logout') }}"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
       </ul>
     </section>

@@ -17,6 +17,13 @@ class MasterUserController extends Controller
         return view('home.user', ['Master' => $Master]);
     }
 
+    public function detail($id)
+    {
+        $MU = MasterUser::find($id);
+
+         return view('home.user-detail', ['MU' => $MU]);
+    }
+
     public function add(){
         //load form view
         return view('home.user-new');

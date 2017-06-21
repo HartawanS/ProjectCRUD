@@ -29,7 +29,7 @@
           <img src="{{asset('template/dist/img/user.jpg')}}" class="img-circle" style="margin: 5px 0px;" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>{{'Username'}}</p>
+          <p>{{'Admin'}}</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -51,13 +51,13 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        {{'Project_Name'}}
+        {{$projectname->name}}
         <small>New Build List</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-files-o"></i> Projects</a></li>
         <li class="">Manage Project</li>
-        <li class="">{{'Project_Name'}}</li>
+        <li class="">{{$projectname->name}}</li>
         <li class="active">New Build List</li>
       </ol>
     </section>
@@ -70,7 +70,7 @@
             <div class="box-header ui-sortable-handle" style="cursor: move;">
               <i class="fa fa-files-o"></i>
 
-              <h3 class="box-title">{{'Project_Name'}} - New Build List</h3>
+              <h3 class="box-title">{{$projectname->name}} - New Build List</h3>
               <div class="box-tools">
               
               </div>
@@ -94,7 +94,10 @@
                 <div class="form-group">
                   <textarea class="form-control" name="note" placeholder="Note"></textarea>
                 </div>
-                <button type="submit"  class="pull-right btn btn-success" id="create">Ok
+                <div class="pull-right">
+                <a  class=" btn btn-primary" href="{{ route('buildlist.index',$buildlist->idproject)}}">Back </a>
+                <button type="submit" class=" btn btn-success" id="create">Create</button>
+                </div>
               </form>
 
             </div>

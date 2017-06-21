@@ -1,4 +1,4 @@
-<title>Create User</title>
+<title>User | User Detail</title>
 @extends('layouts.home')
 
 @section('content')
@@ -52,11 +52,12 @@
     <section class="content-header">
       <h1>
         User
-        <small>Create User</small>
+        <small>User Detail</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-user"></i> User</a></li>
-        <li class="active">Create User</li>
+        <li class="">Manage User</li>
+        <li class="active">{{ $MU->name }}</li>
       </ol>
     </section>
 
@@ -68,7 +69,7 @@
             <div class="box-header ui-sortable-handle" style="cursor: move;">
               <i class="fa fa-user"></i>
 
-              <h3 class="box-title">Create User</h3>
+              <h3 class="box-title">User Detail - {{ $MU->name }}</h3>
               <div class="box-tools">
                
               </div>
@@ -76,29 +77,34 @@
             <!-- /.box-header -->
             <div class="box-body">
 
+              <div class="col-md-6">
+                <div class="box box-solid">
+                  <div class="box-header with-border">
+                    <i class="fa fa-list-alt"></i>
 
-              @yield('error')
-
-              <form class="col-md-4 col-md-offset-4 " method="post" action="{{ route('master.insert') }}">
-                {{ csrf_field() }}
-                <div class="form-group">
-                  <input type="text" class="form-control" name="name" placeholder="Username">
+                    <h3 class="box-title">{{ $MU->name }} <small class="label label-default"><i class="fa fa-clock-o"> Joined </i> {{$MU->created_at->format('d/m/Y')}}</small></h3>
+                  </div>
+                  <!-- /.box-header -->
+                  <div class="box-body">
+                    <dl class="dl-horizontal">
+                      <dt>Username</dt>
+                      <dd>{{ $MU->name }}</dd>
+                      <dt>Email</dt>
+                      <dd>{{ $MU->email }}</dd>
+                      <dt>Password</dt>
+                      <dd>{{ $MU->password }}</dd>
+                      
+                    </dl>
+                    <div class="tools">
+                    <a href="{{ route('master.edit', $MU->id)}}" class="label label-warning"> Edit </a>
+                    <a href="{{ route('master.delete', $MU->id) }}" class="label label-danger" onclick="return confirm('Are you sure to delete?')"> Delete </a>
+                    <a class="pull-right label label-primary" href="{{ route('master.index')}}"> Back</a>
+                  </div>
+                  </div>
+                  <!-- /.box-body -->
                 </div>
-                <div class="form-group">
-                  <input type="email" class="form-control" name="email" placeholder="Email">
-                </div>
-                <div class="form-group">
-                  <input type="password" class="form-control" name="password" placeholder="Password">
-                </div>
-<!--                 <div class="form-group">
-                  <input type="password" class="form-control" name="confPass" placeholder="Confirm Password">
-                </div> -->
-                <div class="pull-right">
-                <a  class=" btn btn-primary" href="{{ route('master.index')}}">Back </a>
-                <button type="submit"  class=" btn btn-success" id="create">Create
-                </div>
-                
-              </form>
+                <!-- /.box -->
+              </div>
 
             </div>
             <!-- /.box-body -->

@@ -4,23 +4,42 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Build;
+use App\Project;
 
 class BuildController extends Controller
 {
+
 	  public function index($id){
 	  	// dd($id);
         //fetch post data
         $buildlists = Build::where('idproject','=',$id)->get();
-        
+        $projectname =  $this->getProjectName($id);
         //pass posts data to view and load list view
-        return view('buildlist.buildlist', ['buildlists' => $buildlists,'id'=>$id]);
+        return view('buildlist.buildlist', ['buildlists' => $buildlists,'id'=>$id, 'projectname'=>$projectname]);
+    }
+
+    public function getProjectName($id)
+    {
+        $projectname = Project::find($id);
+
+        return $projectname;
+    }
+
+    public function detail($id)
+    {
+        $buildlist = Build::find($id);
+        $projectname = $this->getProjectName($buildlist->idproject);
+
+         return view('buildlist.buildlist-detail', ['buildlist' => $buildlist,'projectname'=>$projectname]);
     }
 
     public function add($id)
     {
         // dd($id);
         $buildlists = Build::where('idproject','=',$id)->get();
-    	return view('buildlist.buildlist-new', ['buildlists' => $buildlists,'id'=>$id]);
+        $projectname = $this->getProjectName($id);
+
+    	return view('buildlist.buildlist-new', ['buildlists' => $buildlists,'id'=>$id,'projectname'=>$projectname]);
     }
 
     public function insert($id, Request $request){
@@ -47,9 +66,10 @@ class BuildController extends Controller
     public function edit($id){
         //get post data by id
         $buildlist = Build::find($id);
+        $projectname = $this->getProjectName($buildlist->idproject);
         
         //load form view
-        return view('buildlist.buildlist-edit', ['buildlist' => $buildlist]);
+        return view('buildlist.buildlist-edit', ['buildlist' => $buildlist,'projectname'=>$projectname]);
     }
     
     public function update($id, Request $request){
