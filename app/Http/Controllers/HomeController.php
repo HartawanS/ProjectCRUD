@@ -26,7 +26,7 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function error()
+    public function error($id)
     {
         switch ($err='503') {
             case '503':
