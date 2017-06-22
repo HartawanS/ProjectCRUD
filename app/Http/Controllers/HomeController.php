@@ -25,4 +25,17 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function error()
+    {
+        switch ($err='503') {
+            case '503':
+                return view('error.error-forbidden');
+                break;
+            
+            default:
+                return view('error.error-forbidden');
+                break;
+        }
+    }
 }

@@ -43,3 +43,5 @@ Route::post('/buildlist/insert/{id}', 'BuildController@insert')->name('buildlist
 Route::get('/buildlist/edit/{id}', 'BuildController@edit')->name('buildlist.edit');
 Route::post('/buildlist/update/{id}', 'BuildController@update')->name('buildlist.update');
 Route::get('/buildlist/delete/{id}', 'BuildController@delete')->name('buildlist.delete');
+
+Route::get('/error/{err}', 'HomeController@error')->name('error.forbidden');

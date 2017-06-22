@@ -95,7 +95,7 @@
                   <textarea class="form-control" name="note" placeholder="Note"></textarea>
                 </div>
                 <div class="pull-right">
-                <a  class=" btn btn-primary" href="{{ route('buildlist.index',$buildlist->idproject)}}">Back </a>
+                <a  class=" btn btn-primary" href="{{ route('buildlist.index',$id)}}">Back </a>
                 <button type="submit" class=" btn btn-success" id="create">Create</button>
                 </div>
               </form>
