@@ -90,6 +90,7 @@
                           </span>
                          
                           <span class="text"><a href="{{ route('buildlist.index', $project->id) }}">{{$project->name}}</a></span>
+                          <small class="label label-default"><i class="fa fa-clock-o"> Start at </i> {{$project->created_at->format('d/m/Y')}}</small>
                   
                         <div class="tools">
                           <a href="{{ route('project.edit', $project->id) }}" class="label label-warning"> Edit </a>
