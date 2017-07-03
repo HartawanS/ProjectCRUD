@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Project;
+use App\Build;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Session;
@@ -76,7 +77,7 @@ class ProjectListController extends Controller
     public function delete($id){
         //update post data
         Project::find($id)->delete();
-        
+        Build::where('idproject','=',$id)->delete();
         //store status message
         // Session::flash('success_msg', 'Post deleted successfully!');
 

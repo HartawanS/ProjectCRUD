@@ -56,7 +56,6 @@
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-files-o"></i> Projects</a></li>
-        <li class="">Manage Project</li>
         <li class="">{{$projectname->name}}</li>
         <li class="active">New Build List</li>
       </ol>
@@ -86,7 +85,14 @@
               <input type="hidden" name="idproject" value="{{$id}}" >
 
                 <div class="form-group">
-                  <input type="text" class="form-control" name="type"  placeholder="Build List Type" >
+                  <select name="type" class="form-control">
+                   {{--  <option selected disabled hidden>Type</option> --}}
+                    <option value="Android" selected>Android</option>
+                    <option value="iOS">iOS</option>
+                    <option value="Web">Web</option>
+                    <option value="PC">PC</option>
+                    <option value="MAC">MAC</option>
+                  </select>
                 </div>
                 <div class="form-group">
                   <input type="text" class="form-control" name="link_file_APK"  placeholder="File Link" >

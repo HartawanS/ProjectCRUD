@@ -59,7 +59,7 @@
     {{-- pull-right --}}
       <b>Version</b> 2.3.8
     </div>
-    <strong>Copyright &copy; 2017 <a href="http://dot.com">PT.DOT Indonesia</a>.</strong> All rights
+    <strong>Copyright &copy; 2017 <a href="http://dot.co.id">PT.DOT Indonesia</a>.</strong> All rights
     reserved.
   </footer>
 

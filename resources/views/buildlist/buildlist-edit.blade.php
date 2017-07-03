@@ -56,7 +56,6 @@
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-files-o"></i> Projects</a></li>
-        <li class="">Manage Project</li>
         <li class="">{{$projectname->name}}</li>
         <li class="active">{{$buildlist->type}}</li>
       </ol>
@@ -86,12 +85,21 @@
               <input type="hidden" name="idproject" value="{{$buildlist->idproject}}" >
 
                 <div class="form-group">
-                  <input type="text" class="form-control" name="type" value="{{$buildlist->type}}" placeholder="Build List Type" >
+                  <label>Type </label>
+                  <select name="type" class="form-control" value="{{$buildlist->type}}">
+                    <option value="Android">Android</option>
+                    <option value="iOS">iOS</option>
+                    <option value="Web">Web</option>
+                    <option value="PC">PC</option>
+                    <option value="MAC">MAC</option>
+                  </select>
                 </div>
                 <div class="form-group">
+                <label>Repository </label>
                   <input type="text" class="form-control" name="link_file_APK" value="{{$buildlist->link_file_APK}}" placeholder="File Link" >
                 </div>
                 <div class="form-group">
+                <label>Note </label>
                   <textarea class="form-control" name="note" placeholder="Note">{{$buildlist->note}}</textarea>
                 </div>
                 <div class="pull-right">

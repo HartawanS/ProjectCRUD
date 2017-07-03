@@ -15,10 +15,10 @@ class Build extends Model
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
-    public function getprojectname($id)
-    {
-        $projectname = Project::find($id)->get('name');
+    // public function getprojectname($id)
+    // {
+    //     $projectname = Project::find($id)->get('name');
 
-        return $projectname;
-    }
+    //     return $projectname;
+    // }
 }

@@ -57,7 +57,6 @@
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-files-o"></i> Projects</a></li>
-        <li class="">Manage Project</li>
         <li class="">{{$projectname->name}}</li>
         <li class="active">Manage Build List</li>
       </ol>
@@ -79,6 +78,7 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
+
               <ul class="todo-list ui-sortable">
               
               @foreach($buildlists as $buildlist)

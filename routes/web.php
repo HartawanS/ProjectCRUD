@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
+Route::get('/error/{err}', 'HomeController@error')->name('error.forbidden');
 Auth::routes();
 
 Route::group(['middleware' => 'auth'], function() {
@@ -49,4 +50,3 @@ Route::group(['middleware' => 'auth'], function() {
 	Route::get('/buildlist/delete/{id}', 'BuildController@delete')->name('buildlist.delete');
 });
 
-Route::get('/error/{err}', 'HomeController@error')->name('error.forbidden');
