@@ -86,7 +86,8 @@
 
                 <div class="form-group">
                   <label>Type </label>
-                  <select name="type" class="form-control" value="{{$buildlist->type}}">
+                  <select name="type" class="form-control">
+                  <option selected disabled hidden>{{$buildlist->type}}</option>
                     <option value="Android">Android</option>
                     <option value="iOS">iOS</option>
                     <option value="Web">Web</option>
