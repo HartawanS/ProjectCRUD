@@ -76,7 +76,7 @@
             <!-- /.box-header -->
             <div class="box-body">
               
-              @yield('error')
+@include('error.errors')
 
               <form class="col-md-4 col-md-offset-4 " method="post" action="{{ route('project.insert') }}">
                 {{ csrf_field() }}

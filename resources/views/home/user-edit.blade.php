@@ -78,18 +78,18 @@
             <div class="box-body">
 
 
-               @yield('error')
+@include('error.errors')
 
               <form class="col-md-4 col-md-offset-4 " action="{{ route('master.update', $Master->id) }}" method="post">
                 {{ csrf_field() }}
                 <div class="form-group">
-                  <input type="text" class="form-control" name="name" value="{{ $Master->name }}" placeholder="Username">
+                  <input type="text" class="form-control" name="name" value="{{ $Master->name }}" placeholder="Username" required>
                 </div>
                 <div class="form-group">
-                  <input type="email" class="form-control" name="email" value="{{ $Master->email }}" placeholder="Email">
+                  <input type="email" class="form-control" name="email" value="{{ $Master->email }}" placeholder="Email" required>
                 </div>
                 <div class="form-group">
-                  <input type="text" class="form-control" name="password" value="{{ $Master->password }}" placeholder="Password">
+                  <input type="text" class="form-control" name="password" value="{{ $Master->password }}" placeholder="Password" required>
                 </div>
                 <div class="pull-right">
                 <a  class=" btn btn-primary" href="{{ route('master.index')}}">Back </a>

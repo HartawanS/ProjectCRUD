@@ -77,7 +77,7 @@
             <!-- /.box-header -->
             <div class="box-body">
               
-                @yield('error')
+@include('error.errors')
 
               <form class="col-md-4 col-md-offset-4 " action="{{route('buildlist.update',$buildlist->id)}}" method="post">
               {{csrf_field()}}

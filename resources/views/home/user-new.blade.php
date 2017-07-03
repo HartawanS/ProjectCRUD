@@ -76,19 +76,18 @@
             <!-- /.box-header -->
             <div class="box-body">
 
-
-              @yield('error')
+@include('error.errors')
 
               <form class="col-md-4 col-md-offset-4 " method="post" action="{{ route('master.insert') }}">
                 {{ csrf_field() }}
                 <div class="form-group">
-                  <input type="text" class="form-control" name="name" placeholder="Username">
+                  <input type="text" class="form-control" name="name" placeholder="Username" >
                 </div>
                 <div class="form-group">
-                  <input type="email" class="form-control" name="email" placeholder="Email">
+                  <input type="email" class="form-control" name="email" placeholder="Email" >
                 </div>
                 <div class="form-group">
-                  <input type="password" class="form-control" name="password" placeholder="Password">
+                  <input type="password" class="form-control" name="password" placeholder="Password" >
                 </div>
 <!--                 <div class="form-group">
                   <input type="password" class="form-control" name="confPass" placeholder="Confirm Password">
