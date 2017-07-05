@@ -17,6 +17,13 @@ class MasterUserController extends Controller
         return view('home.user', ['Master' => $Master]);
     }
 
+    // public function getList()
+    // {
+    //     Session::put('product_sort', Input::has('sort') ? Input::get('sort') : (Session::has('product_sort') ? Session::get('product_sort') : 'asc'));
+    //     $products = MasterUser::where('name', 'like')->orderBy(Session::get('product_sort'))->paginate(8);
+    //     return view('product.list', ['products' => $products]);
+    // }
+
     public function detail($id)
     {
         $MU = MasterUser::find($id);
@@ -34,7 +41,8 @@ class MasterUserController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'email' => 'bail|required|unique:masteruser',
-            'password' => 'required'
+            'password' => 'required',
+            'password_confirmation' => 'required|same:password'
         ]);
         
         //get post data

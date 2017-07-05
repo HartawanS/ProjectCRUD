@@ -95,10 +95,10 @@
                   </select>
                 </div>
                 <div class="form-group">
-                  <input type="text" class="form-control" name="link_file_APK"  placeholder="File Link" >
+                  <input type="text" value="{{ old('link_file_APK') }}" class="form-control" name="link_file_APK"  placeholder="File Link" >
                 </div>
                 <div class="form-group">
-                  <textarea class="form-control" name="note" placeholder="Note"></textarea>
+                  <textarea class="form-control" name="note" placeholder="Note">{{ old('note') }}</textarea>
                 </div>
                 <div class="pull-right">
                 <a  class=" btn btn-primary" href="{{ route('buildlist.index',$id)}}">Back </a>

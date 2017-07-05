@@ -76,46 +76,67 @@
                 </div>
               </div>
             </div>
+            
+
             <!-- /.box-header -->
-            <div class="box-body">
-             @if($Master->isEmpty())
+            <div class="box-body">             
+
+              <!-- <ul class="todo-list ui-sortable"> -->
+              <table id="sortable" class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th width="10%" style="text-align: center">No</th>
+                    
+                    <th>
+                     Name
+                    </th>
+        
+                    <th>
+                      Email
+                    </th>
+                    
+                    <th>
+                      Password
+                    </th>
+
+                    <th width="30%">
+                      Time Join
+                    </th>
+
+
+                  </tr>
+                </thead>
+
+                <tbody>
+                @if($Master->isEmpty())
                   <div class="form-group">
                <div class="well well-sm">
                         <b> Empty set</b> no any users to view
               </div>
               </div>
               @endif
-              <ul class="todo-list ui-sortable">
-              
-              @foreach($Master as $MU)
-                <li>
-                      <span class="handle ui-sortable-handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
 
-                  <span class="text"><a href="{{ route('master.detail', $MU->id)}}">{{$MU->name}}</a></span>
-                  <small class="label label-default"><i class="fa fa-clock-o"> Joined </i> {{$MU->created_at->format('d/m/Y')}}</small>
-                  <div class="tools">
-                    <a href="{{ route('master.edit', $MU->id)}}" class="label label-warning"> Edit </a>
-                    <a href="{{ route('master.delete', $MU->id) }}" class="label label-danger" onclick="return confirm('Are you sure to delete?')"> Delete </a>
-                  </div>
-                </li>
-              @endforeach
+                  <?php $i = 1;?>
+                  @foreach($Master as $MU)
+                    <tr onclick="location.href='{{route('master.detail', $MU->id)}}'">
+                      <td align="center">{{$i++}}</td>
+                      <td>{{$MU->name}}</td>
+                      <td>{{$MU->email}}</td>
+                      <td>{{$MU->password}}</td>
+                      <td>{{$MU->created_at}}
+                      <div class="pull-right">
+                          <a href="{{ route('master.edit', $MU->id)}}" class="label label-warning"> Edit </a>
+                          <a href="{{ route('master.delete', $MU->id) }}" class="label label-danger" onclick="return confirm('Are you sure to delete?')"> Delete </a>
+                      </div>
+                      </td>
+                    </tr>
+                  @endforeach
+                </tbody>
+              </table>
 
-              </ul>
             </div>
             <!-- /.box-body -->
 
-            <div class="box-footer clearfix no-border  pull-right">
-                <ul class="pagination pagination-sm inline">
-                  <li><a href="#">«</a></li>
-                  <li><a href="#">1</a></li>
-{{--                   <li><a href="#">2</a></li>
-                  <li><a href="#">3</a></li> --}}
-                  <li><a href="#">»</a></li>
-                </ul>
-              </div>
           </div>
         
         <!-- ./col -->
@@ -144,4 +165,16 @@
   <div class="control-sidebar-bg"></div>
 </div>
 @include('layouts.footer') 
+<script>
+  jQuery(function(){
+      $("#sortable").DataTable({
+        "paging":true,
+        "lengthChange":false,
+        "searching": false,
+        "ordering": true,
+        "info": true,
+        "autoWidth": false
+       });
+    });
+  </script>
 @endsection

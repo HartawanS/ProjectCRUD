@@ -29,7 +29,9 @@
   <link rel="stylesheet" href="{{asset('template/plugins/daterangepicker/daterangepicker.css')}}">
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="{{asset('template/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
-
+    <!-- DataTables -->
+  <link rel="stylesheet" href="{{asset('template/plugins/datatables/dataTables.bootstrap.css')}}">
+  <script src="{{asset('template/plugins/jQuery/jquery-2.2.3.min.js')}}"></script>
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -47,7 +49,7 @@
 <!-- /.content-wrapper -->
 
 
-<script src="{{asset('template/plugins/jQuery/jquery-2.2.3.min.js')}}"></script>
+
 <!-- jQuery UI 1.11.4 -->
 <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
@@ -83,5 +85,8 @@
 <script src="{{asset('template/dist/js/pages/dashboard.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('template/dist/js/demo.js')}}"></script>
+  <!-- DataTables -->
+<script src="{{asset('template/plugins/datatables/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('template/plugins/datatables/dataTables.bootstrap.min.js')}}"></script>
 </body>
 </html>
