@@ -86,24 +86,10 @@
                 <thead>
                   <tr>
                     <th width="10%" style="text-align: center">No</th>
-                    
-                    <th>
-                     Name
-                    </th>
-        
-                    <th>
-                      Email
-                    </th>
-                    
-                    <th>
-                      Password
-                    </th>
-
-                    <th width="30%">
-                      Time Join
-                    </th>
-
-
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th width="30%">Join At</th>
                   </tr>
                 </thead>
 
@@ -118,13 +104,16 @@
 
                   <?php $i = 1;?>
                   @foreach($Master as $MU)
-                    <tr onclick="location.href='{{route('master.detail', $MU->id)}}'">
+                    <tr class="showhim" onclick="location.href='{{route('master.detail', $MU->id)}}'">
                       <td align="center">{{$i++}}</td>
                       <td>{{$MU->name}}</td>
                       <td>{{$MU->email}}</td>
                       <td>{{$MU->password}}</td>
-                      <td>{{$MU->created_at}}
-                      <div class="pull-right">
+                      <td>
+                      <div class="col-md-6">
+                      {{$MU->created_at->toFormattedDateString()}}
+                      </div>
+                      <div class="col-md-6 pull-right showme" style="margin: 5px 0px;">
                           <a href="{{ route('master.edit', $MU->id)}}" class="label label-warning"> Edit </a>
                           <a href="{{ route('master.delete', $MU->id) }}" class="label label-danger" onclick="return confirm('Are you sure to delete?')"> Delete </a>
                       </div>
