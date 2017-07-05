@@ -104,7 +104,7 @@
 
                   <?php $i = 1;?>
                   @foreach($Master as $MU)
-                    <tr class="showhim" onclick="location.href='{{route('master.detail', $MU->id)}}'">
+                    <tr class="showhim" onclick="location.href='{{route('master.detail', $MU->id)}}'" style="cursor: hand;">
                       <td align="center">{{$i++}}</td>
                       <td>{{$MU->name}}</td>
                       <td>{{$MU->email}}</td>

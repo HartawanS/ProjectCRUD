@@ -44,6 +44,7 @@ display: none;
 }
 .showhim:hover .showme{
 display : block;
+cursor: hand;
 }
   </style>
 </head>
