@@ -89,6 +89,9 @@
                 <div class="form-group">
                   <input type="password" class="form-control" name="password" placeholder="Password" >
                 </div>
+                <div class="form-group">
+                  <input type="password" class="form-control" name="password_confirmation" placeholder="Confirmation Password" >
+                </div>
 <!--                 <div class="form-group">
                   <input type="password" class="form-control" name="confPass" placeholder="Confirm Password">
                 </div> -->

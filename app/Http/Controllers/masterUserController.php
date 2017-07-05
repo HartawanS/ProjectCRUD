@@ -41,7 +41,8 @@ class MasterUserController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'email' => 'bail|required|unique:masteruser',
-            'password' => 'required'
+            'password' => 'required',
+            'password_confirmation' => 'required|same:password'
         ]);
         
         //get post data
