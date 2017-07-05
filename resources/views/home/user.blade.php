@@ -76,10 +76,60 @@
                 </div>
               </div>
             </div>
+            
+
             <!-- /.box-header -->
             <div class="box-body">
-              <ul class="todo-list ui-sortable">
-              
+              <!-- <ul class="todo-list ui-sortable"> -->
+              <table class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <th width="50px" style="text-align: center">No</th>
+                    
+                    <th>
+                      <a href="javascript:ajaxLoad('product/list?field=name&sort={{Session::get("product_sort")=="asc"?"desc":"asc"}}')">Name</a>
+                    <i style="font-size: 12px"
+                    class="glyphicon  {{ Session::get('product_field')=='name'?(Session::get('product_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}"></i>
+                    </th>
+        
+                    <th>
+                      <a href="javascript:ajaxLoad('product/list?field=unitprice&sort={{Session::get("product_sort")=="asc"?"desc":"asc"}}')">Email</a>
+                      <i style="font-size: 12px"
+                        class="glyphicon  {{ Session::get('product_field')=='unitprice'?(Session::get('product_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}"></i>
+                    </th>
+                    
+                    <th>
+                      <a href="javascript:ajaxLoad('product/list?field=unitprice&sort={{Session::get("product_sort")=="asc"?"desc":"asc"}}')">Password</a>
+                      <i style="font-size: 12px"
+                        class="glyphicon  {{ Session::get('product_field')=='unitprice'?(Session::get('product_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}"></i>
+                    </th>
+
+                    <th>
+                      <a href="javascript:ajaxLoad('product/list?field=unitprice&sort={{Session::get("product_sort")=="asc"?"desc":"asc"}}')">Time Join</a>
+                      <i style="font-size: 12px"
+                        class="glyphicon  {{ Session::get('product_field')=='unitprice'?(Session::get('product_sort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}"></i>
+                    </th>
+
+                    <th width="140px"></th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <?php $i = 1;?>
+                  @foreach($Master as $MU)
+                    <tr>
+                      <td align="center">{{$i++}}</td>
+                      <td>{{$MU->name}}</td>
+                      <td>{{$MU->email}}</td>
+                      <td>{{$MU->password}}</td>
+                      <td>{{$MU->created_at}}</td>
+                      <td><a href="{{ route('master.edit', $MU->id)}}" class="label label-warning"> Edit </a>
+                      <a href="{{ route('master.delete', $MU->id) }}" class="label label-danger" onclick="return confirm('Are you sure to delete?')"> Delete </a></td>
+                    </tr>
+                  @endforeach
+                </tbody>
+              </table>
+              <!-- 
               @foreach($Master as $MU)
                 <li>
                       <span class="handle ui-sortable-handle">
@@ -94,9 +144,9 @@
                     <a href="{{ route('master.delete', $MU->id) }}" class="label label-danger" onclick="return confirm('Are you sure to delete?')"> Delete </a>
                   </div>
                 </li>
-              @endforeach
+              @endforeach -->
 
-              </ul>
+              <!-- </ul> -->
             </div>
             <!-- /.box-body -->
 
