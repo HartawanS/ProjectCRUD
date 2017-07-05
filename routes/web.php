@@ -10,13 +10,14 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Auth::routes();
 Route::get('/', function () {
-    return view('auth.login');
+	//dd('test');
+    return view('auth.login');//'auth.login'
 });
 
 Route::get('/error/{err}', 'HomeController@error')->name('error.forbidden');
-Auth::routes();
+// Auth::routes();
 
 Route::group(['middleware' => 'auth'], function() {
     //

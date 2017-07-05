@@ -45,14 +45,7 @@
 
 
 <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <div class="pull-right hidden-xs">
-    {{-- pull-right --}}
-      <b>Version</b> 2.3.8
-    </div>
-    <strong>Copyright &copy; 2017 <a href="http://dot.co.id">PT.DOT Indonesia</a>.</strong> All rights
-    reserved.
-  </footer>
+
 
 <script src="{{asset('template/plugins/jQuery/jquery-2.2.3.min.js')}}"></script>
 <!-- jQuery UI 1.11.4 -->

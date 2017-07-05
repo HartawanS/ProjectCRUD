@@ -8,7 +8,7 @@
   <header class="main-header">
 
     <!-- Logo -->
-    <a href="index2.html" class="logo">
+    <a href="#" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>DOT</b></span>
       <!-- logo for regular state and mobile devices -->
@@ -30,7 +30,7 @@
           <img src="{{asset('template/dist/img/user.jpg')}}" class="img-circle" style="margin: 5px 0px;" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>{{'Admin'}}</p>
+          <p>{{ Auth::user()->name }}</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -78,7 +78,13 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-
+              @if($buildlists->isEmpty())
+                  <div class="form-group">
+               <div class="well well-sm">
+                        <b> Empty set</b> no any builds to view
+              </div>
+              </div>
+              @endif
               <ul class="todo-list ui-sortable">
               
               @foreach($buildlists as $buildlist)
@@ -137,5 +143,5 @@
        immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
 </div>
-
+@include('layouts.footer') 
 @endsection

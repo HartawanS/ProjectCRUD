@@ -1,19 +1,32 @@
-@extends('layouts.app')
-
-@section('content')
+<title>PT.DOT | Login</title>
+@extends('layouts.home')
+<body class="hold-transition login-page">
 <div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
-                <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
-                        {{ csrf_field() }}
+@section('content')
+@include('layouts.navbar')
+{{-- Login Box --}}
+<div class="login-box">
+{{-- Login Header --}}
+  <div class="login-logo">
+    <a href="https://dot.co.id"><b>PT.DOT</b>Indonesia</a>
+  </div>
+  {{-- Login Header Ends --}}
+  <div class="box box-info ">
+            <div class="box-header">
+              <i class="fa fa-user"></i>
+
+              <h3 class="box-title">Login</h3>
+<hr>
+              <!-- /. tools -->
+            </div>
+            <div class="box-body">
+              <form action="{{ route('login') }}" method="post">
+{{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+                            <label for="email">E-Mail Address</label>
 
-                            <div class="col-md-6">
+
                                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
 
                                 @if ($errors->has('email'))
@@ -21,13 +34,13 @@
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                                 @endif
-                            </div>
+
                         </div>
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
+                            <label for="password" >Password</label>
 
-                            <div class="col-md-6">
+                            
                                 <input id="password" type="password" class="form-control" name="password" required>
 
                                 @if ($errors->has('password'))
@@ -35,34 +48,34 @@
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>
                                 @endif
-                            </div>
+
                         </div>
 
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
+                       
 
-                        <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Login
-                                </button>
+          <div class="row">
+        <div class="col-xs-8">
+        
+              <input type="checkbox" {{ old('remember') ? 'checked' : '' }}> Remember Me
 
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Forgot Your Password?
-                                </a>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
         </div>
-    </div>
-</div>
+        <!-- /.col -->
+        <div class="col-xs-4">
+          <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+        </div>
+        <!-- /.col -->
+      </div>
+              </form>
+            </div>
+            <div class="box-footer clearfix">
+              <a href="{{ route('password.request') }}">I forgot my password</a><br>
+              <a href="{{ route('register') }}" class="text-center">Register a new membership</a>
+            </div>
+  </div>
+  </div>
+  {{-- Login Box Ends --}}
+
+@include('layouts.footer')         
 @endsection
+</div>
+</body>
