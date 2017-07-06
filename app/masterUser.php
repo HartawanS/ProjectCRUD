@@ -9,7 +9,7 @@ class MasterUser extends Model
     protected $table = "masteruser";
     
     protected $fillable = [
-    'name', 'email', 'password',
+    'name', 'email', 'type', 'password',
     ];
 
     protected $hidden = [

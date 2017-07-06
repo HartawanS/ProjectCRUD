@@ -88,6 +88,7 @@
                     <th width="10%" style="text-align: center">No</th>
                     <th>Name</th>
                     <th>Email</th>
+                    <th>Type</th>
                     <th>Password</th>
                     <th width="30%">Join At</th>
                   </tr>
@@ -108,6 +109,7 @@
                       <td align="center">{{$i++}}</td>
                       <td>{{$MU->name}}</td>
                       <td>{{$MU->email}}</td>
+                      <td>{{$MU->type}}</td>
                       <td>{{$MU->password}}</td>
                       <td>
                       <div class="col-md-6">

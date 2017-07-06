@@ -16,6 +16,7 @@ class CreateMasterUsersTable extends Migration
         Schema::create('masterUser', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('type');
             $table->string('email')->unique();
             $table->string('password');
             $table->rememberToken();

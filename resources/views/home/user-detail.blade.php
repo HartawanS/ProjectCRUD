@@ -91,6 +91,8 @@
                       <dd>{{ $MU->name }}</dd>
                       <dt>Email</dt>
                       <dd>{{ $MU->email }}</dd>
+                      <dt>Type</dt>
+                      <dd>{{ $MU->type }}</dd>
                       <dt>Password</dt>
                       <dd>{{ $MU->password }}</dd>
                       

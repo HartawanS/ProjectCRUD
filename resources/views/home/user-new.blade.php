@@ -80,15 +80,27 @@
 
               <form class="col-md-4 col-md-offset-4 " method="post" action="{{ route('master.insert') }}">
                 {{ csrf_field() }}
+                
                 <div class="form-group">
                   <input type="text" value="{{ old('name') }}" class="form-control" name="name" placeholder="Username" >
                 </div>
+                
                 <div class="form-group">
                   <input type="email" value="{{ old('email') }}" class="form-control" name="email" placeholder="Email" >
                 </div>
+                
+                <div class="form-group">
+                  <select name="type" class="form-control">
+                    <option value="Development" selected>Development</option>
+                    <option value="Tester">Tester</option>
+                    <option value="Client">Client</option>
+                  </select>
+                </div>
+                
                 <div class="form-group">
                   <input type="password" class="form-control" name="password" placeholder="Password" >
                 </div>
+                
                 <div class="form-group">
                   <input type="password"  class="form-control" name="password_confirmation" placeholder="Confirmation Password" >
                 </div>
