@@ -84,6 +84,7 @@
                   <tr>
                     <th width="10%" style="text-align: center">No</th>
                     <th>Type</th>
+                    <th>Version</th>
                     <th>Note</th>
                     <th>Link APK</th>
                     <th width="30%">Join At</th>
@@ -95,6 +96,7 @@
                     <tr onclick="location.href='{{route('buildlist.detail', $BL->id)}}'" style="cursor: hand;">
                       <td align="center">{{$i++}}</td>
                       <td>{{$BL->type}}</td>
+                      <td>{{$BL->version}}</td>
                       <td>{{$BL->note}}</td>
                       <td>{{$BL->link_file_APK}}</td>
                       <td>

@@ -91,6 +91,8 @@
                     <dl class="dl-horizontal">
                       <dt>Type</dt>
                       <dd>{{ $buildlist->type }}</dd>
+                      <dt>Version</dt>
+                      <dd>{{ $buildlist->version }}</dd>
                       <dt>Link File APK</dt>
                       <dd>{{ $buildlist->link_file_APK }}</dd>
                       <dt>Note</dt>

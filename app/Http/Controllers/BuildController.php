@@ -43,10 +43,16 @@ class BuildController extends Controller
     }
 
     public function insert($id, Request $request){
+        //version
+        $buildlist = Build::find($id);
+        $versi = Build::where('idproject',$id)->where('type',$buildlist->type)->max('version');
+        $versi = $versi + 0.01;
+    
         //validate post data
         $this->validate($request, [
         	'idproject'=>'required',
             'type' => 'required',
+            'version' => $versi,
             'link_file_APK' => 'required',
             'note' => 'required'
         ]);
@@ -56,7 +62,6 @@ class BuildController extends Controller
         
         //insert post data
         Build::create($postData);
-        
         //store status message
         // Session::flash('success_msg', 'Post added successfully!');
 

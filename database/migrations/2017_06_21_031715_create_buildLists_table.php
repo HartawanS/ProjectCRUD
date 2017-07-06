@@ -17,6 +17,7 @@ class CreateBuildListsTable extends Migration
             $table->increments('id');
             $table->integer('idproject');
             $table->string('type');
+            $table->float('version');
             $table->text('note');
             $table->string('link_file_APK');
             $table->timestamps();
