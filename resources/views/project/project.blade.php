@@ -78,14 +78,53 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-             @if($projectlists->isEmpty())
+            <!-- <ul class="todo-list ui-sortable"> -->
+              <table id="sortable" class="table table-bordered table-hover">
+                
+                <thead>
+                  <tr>
+
+                    <th width="10%" style="text-align: center">No</th>
+                    <th>Name</th>
+                    <th>Created</th>
+                  
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <?php $i = 1;?>
+                  @foreach($projectlists as $project)
+                    <tr class="" onclick="location.href='{{route('buildlist.index', $project->id)}}'" style="cursor: hand;">
+                      
+                      <td align="center">{{$i++}}</td>
+                      <td>{{$project->name}}</td>
+                      <td>
+                        <div class="col-md-6">
+                          {{$project->created_at->toFormattedDateString()}}
+                        </div>
+                        
+                        <div class="col-md-6 pull-right " style="margin: 5px 0px;">
+                          <a href="{{ route('project.edit', $project->id)}}" class="label label-warning"> Edit </a>
+                          <a href="{{ route('project.delete', $project->id) }}" class="label label-danger" onclick="return confirm('Are you sure to delete?')"> Delete </a>
+                        </div>
+                      </td>
+
+                    </tr>
+                  @endforeach
+                </tbody>
+
+              </table>
+            </div>
+            <!-- /.box-body -->
+
+             <!-- @if($projectlists->isEmpty())
                   <div class="form-group">
                <div class="well well-sm">
                         <b> Empty set</b> no any projects to view
               </div>
               </div>
-              @endif
-              <ul class="todo-list ui-sortable">
+              @endif -->
+              <!-- <ul class="todo-list ui-sortable">
               
              
                   @foreach($projectlists as $project)
@@ -105,20 +144,18 @@
                         </div>
                       </li>
                     @endforeach
-              </ul>
-            </div>
-            <!-- /.box-body -->
-
-            <div class="box-footer clearfix no-border  pull-right">
+              </ul> -->
+            
+            <!-- <div class="box-footer clearfix no-border  pull-right">
                 <ul class="pagination pagination-sm inline">
                   <li><a href="#">«</a></li>
                   <li><a href="#">1</a></li>
-{{--                   <li><a href="#">2</a></li>
-                  <li><a href="#">3</a></li> --}}
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li> 
                   <li><a href="#">»</a></li>
                 </ul>
               </div>
-          </div>
+          </div> -->
         
         <!-- ./col -->
       </div>

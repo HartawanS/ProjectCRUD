@@ -134,7 +134,7 @@
 
             <!-- /.box-body -->
 
-            <div class="box-footer clearfix no-border  pull-right">
+            <!-- <div class="box-footer clearfix no-border  pull-right">
                 <ul class="pagination pagination-sm inline">
                   <li><a href="#">«</a></li>
                   <li><a href="#">1</a></li>
@@ -142,7 +142,7 @@
                   <li><a href="#">3</a></li> --}}
                   <li><a href="#">»</a></li>
                 </ul>
-              </div>
+              </div> -->
           </div>
         
         <!-- ./col -->
