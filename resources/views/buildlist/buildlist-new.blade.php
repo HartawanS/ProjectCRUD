@@ -95,6 +95,11 @@
                   </select>
                 </div>
 
+                <?php $i = 1.00;?>
+                <div class="form-group">
+                  <input class="hidden" name="version" value="{{0.01+$versi}}">
+                </div>
+
                 <div class="form-group">
                   <input type="text" value="{{ old('link_file_APK') }}" class="form-control" name="link_file_APK"  placeholder="File Link" >
                 </div>
