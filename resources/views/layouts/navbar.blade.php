@@ -1,5 +1,5 @@
 {{-- Navbar  --}}
-        <nav class="navbar navbar-default navbar-static-top">
+        <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
 
@@ -58,4 +58,5 @@
                 </div>
             </div>
         </nav>
+        <div class="hidden-md" style="margin-top: 100px;"> </div>
 {{-- End Navbar --}}

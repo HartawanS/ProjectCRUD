@@ -45,6 +45,9 @@
           <div class="row">
 
         <!-- /.col -->
+        <div class="col-xs-8">
+          <a href="{{ route('login') }}">I already have membership</a><br>
+        </div>
         <div class="col-xs-4">
           <button type="submit" class="btn btn-primary btn-block btn-flat">Confirm</button>
         </div>
@@ -52,9 +55,9 @@
       </div>
               </form>
             </div>
-            <div class="box-footer clearfix">
-              <a href="{{ route('login') }}">I already have membership</a><br>
-            </div>
+{{--             <div class="box-footer clearfix">
+              
+            </div> --}}
   </div>
   </div>
   {{-- Login Box Ends --}}

@@ -7,6 +7,7 @@
 {{-- Login Box --}}
 <div class="login-box">
 {{-- Login Header --}}
+
   <div class="login-logo">
     <a href="https://dot.co.id"><b>PT.DOT</b>Indonesia</a>
   </div>

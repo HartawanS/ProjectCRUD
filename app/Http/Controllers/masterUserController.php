@@ -69,7 +69,7 @@ class MasterUserController extends Controller
         //validate post data
         $this->validate($request, [
             'name' => 'required',
-            'email' => 'bail|required',
+            'email' => 'bail|required|unique:masteruser'.($id ? ",id,$id" : ''),
             'password' => 'required'
         ]);
         

@@ -93,18 +93,18 @@
                   </tr>
                 </thead>
 
-              <!--   <tbody>
-                @if($Master->isEmpty())
+                <tbody>
+{{--                 @if($Master->isEmpty())
                   <div class="form-group">
-                    <div class="well well-sm">
-                      <b> Empty set</b> no any users to view
-                    </div>
-                  </div>
-                @endif
- -->
+               <div class="well well-sm">
+                        <b> Empty set</b> no any users to view
+              </div>
+              </div>
+              @endif --}}
+
                   <?php $i = 1;?>
                   @foreach($Master as $MU)
-                    <tr onclick="location.href='{{route('master.detail', $MU->id)}}'" style="cursor: hand;">
+                    <tr class="" onclick="location.href='{{route('master.detail', $MU->id)}}'" style="cursor: hand;">
                       <td align="center">{{$i++}}</td>
                       <td>{{$MU->name}}</td>
                       <td>{{$MU->email}}</td>
@@ -113,7 +113,7 @@
                       <div class="col-md-6">
                       {{$MU->created_at->toFormattedDateString()}}
                       </div>
-                      <div class="col-md-6 pull-right" style="margin: 5px 0px;">
+                      <div class="col-md-6 pull-right " style="margin: 5px 0px;">
                           <a href="{{ route('master.edit', $MU->id)}}" class="label label-warning"> Edit </a>
                           <a href="{{ route('master.delete', $MU->id) }}" class="label label-danger" onclick="return confirm('Are you sure to delete?')"> Delete </a>
                       </div>
@@ -154,16 +154,4 @@
   <div class="control-sidebar-bg"></div>
 </div>
 @include('layouts.footer') 
-<script>
-  jQuery(function(){
-      $("#sortable").DataTable({
-        "paging":true,
-        "lengthChange":false,
-        "searching": false,
-        "ordering": true,
-        "info": true,
-        "autoWidth": false
-       });
-    });
-  </script>
 @endsection
