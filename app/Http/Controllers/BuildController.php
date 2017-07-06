@@ -40,9 +40,9 @@ class BuildController extends Controller
         $projectname = $this->getProjectName($id);
         //version
         $buildlist = Build::find($id);
-        $versi = Build::where('idproject',$id)->where('type',$buildlist->type)->max('version');
-
-    	return view('buildlist.buildlist-new', ['buildlists' => $buildlists,'id'=>$id,'projectname'=>$projectname],['versi' => $versi]);
+        $versi = Build::where('idproject',$id)->max('version');
+        // ->where('type',$buildlist->type)
+    	return view('buildlist.buildlist-new', ['buildlists' => $buildlists,'id'=>$id,'projectname'=>$projectname,'versi' => $versi]);
     }
 
     public function insert($id, Request $request){
