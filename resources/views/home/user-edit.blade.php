@@ -85,9 +85,11 @@
                 <div class="form-group">
                   <input type="text" class="form-control" name="name" value="{{ $Master->name }}" placeholder="Username" required>
                 </div>
+                
                 <div class="form-group">
                   <input type="email" class="form-control" name="email" value="{{ $Master->email }}" placeholder="Email" required>
                 </div>
+
                 <div class="form-group">
                   <select name="type" class="form-control">
                   <option selected disabled hidden>{{$Master->type}}</option>
@@ -96,6 +98,7 @@
                     <option value="Client">Client</option>
                   </select>
                 </div>
+
                 <div class="form-group">
                   <input type="text" class="form-control" name="password" value="{{ $Master->password }}" placeholder="Password" required>
                 </div>
