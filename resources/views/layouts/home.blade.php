@@ -42,7 +42,7 @@
   jQuery(function(){
       $("#sortable").DataTable({
         "paging":true,
-        "lengthChange":false,
+        "lengthChange":true,
         "searching": true,
         "ordering": true,
         "info": true,
