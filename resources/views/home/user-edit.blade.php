@@ -79,7 +79,7 @@
 
 
 @include('error.errors')
-
+            
               <form class="col-md-4 col-md-offset-4 " action="{{ route('master.update', $Master->id) }}" method="post">
                 {{ csrf_field() }}
                 <div class="form-group">

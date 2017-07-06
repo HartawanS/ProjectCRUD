@@ -76,16 +76,42 @@
                <a class="btn btn-success" href="{{ route('buildlist.add',$id) }}"><i class="fa fa-plus"></i> New build list</a>
               </div>
             </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              @if($buildlists->isEmpty())
-                  <div class="form-group">
-               <div class="well well-sm">
-                        <b> Empty set</b> no any builds to view
-              </div>
-              </div>
-              @endif
-              <ul class="todo-list ui-sortable">
+            
+            
+            <div class="box-body"> 
+              <table id="sortable" class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th width="10%" style="text-align: center">No</th>
+                    <th>Type</th>
+                    <th>Note</th>
+                    <th>Link APK</th>
+                    <th width="30%">Join At</th>
+                  </tr>
+                </thead>
+
+                  <?php $i = 1;?>
+                  @foreach($buildlists as $BL)
+                    <tr onclick="location.href='{{route('buildlist.detail', $BL->id)}}'" style="cursor: hand;">
+                      <td align="center">{{$i++}}</td>
+                      <td>{{$BL->type}}</td>
+                      <td>{{$BL->note}}</td>
+                      <td>{{$BL->link_file_APK}}</td>
+                      <td>
+                      <div class="col-md-6">
+                      {{$BL->created_at->toFormattedDateString()}}
+                      </div>
+                      <div class="col-md-6 pull-right" style="margin: 5px 0px;">
+                          <a href="{{ route('buildlist.edit', $BL->id)}}" class="label label-warning"> Edit </a>
+                          <a href="{{ route('buildlist.delete', $BL->id) }}" class="label label-danger" onclick="return confirm('Are you sure to delete?')"> Delete </a>
+                      </div>
+                      </td>
+                    </tr>
+                  @endforeach
+                </tbody>
+              </table>
+            </div>
+              <!-- <ul class="todo-list ui-sortable">
               
               @foreach($buildlists as $buildlist)
                 <li>
@@ -103,8 +129,9 @@
                 </li>
               @endforeach
 
-              </ul>
-            </div>
+              </ul> -->
+            
+
             <!-- /.box-body -->
 
             <div class="box-footer clearfix no-border  pull-right">
