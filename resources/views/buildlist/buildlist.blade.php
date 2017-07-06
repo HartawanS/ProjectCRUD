@@ -73,13 +73,13 @@
               <h3 class="box-title">Manage Build List</h3>
               <div class="box-tools">
               <a class="btn btn-primary" href="{{ route('home') }}"><i class="fa fa-angle-double-left"></i> Back</a>
-               <a class="btn btn-success" href="{{ route('buildlist.add',$id) }}"><i class="fa fa-plus"></i> New build list</a>
+               <a class="btn btn-success" href="{{ route('buildlist.add',$id) }}"><i class="fa fa-plus-circle"></i> <span>New build list</span></a>
               </div>
             </div>
             
             
             <div class="box-body"> 
-              <table id="sortable" class="table table-bordered table-hover">
+              <table id="sortable" class="table table-bordered table-hover table-striped">
                 <thead>
                   <tr>
                     <th width="10%" style="text-align: center">No</th>
@@ -102,8 +102,8 @@
                       {{$BL->created_at->toFormattedDateString()}}
                       </div>
                       <div class="col-md-6 pull-right" style="margin: 5px 0px;">
-                          <a href="{{ route('buildlist.edit', $BL->id)}}" class="label label-warning"> Edit </a>
-                          <a href="{{ route('buildlist.delete', $BL->id) }}" class="label label-danger" onclick="return confirm('Are you sure to delete?')"> Delete </a>
+                          <a href="{{ route('buildlist.edit', $BL->id)}}" class="btn btn-xs btn-warning" style="margin-right: 3px;"><i class="fa fa-pencil"></i> <span> Edit </span></a>
+                          <a href="{{ route('buildlist.delete', $BL->id) }}" class="btn btn-xs btn-danger" onclick="return confirm('Are you sure to delete?')"><i class="fa fa-trash"></i> <span> Delete </span></a>
                       </div>
                       </td>
                     </tr>

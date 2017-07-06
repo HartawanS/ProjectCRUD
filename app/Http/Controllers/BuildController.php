@@ -76,7 +76,7 @@ class BuildController extends Controller
         //validate post data
         $this->validate($request, [
         	'idproject'=>'required',
-            'type' => 'required',
+            'type' => 'bail',
             'note' => 'required',
             'link_file_APK' => 'required'
         ]);

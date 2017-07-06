@@ -71,7 +71,7 @@
               <h3 class="box-title">Manage Users</h3>
               <div class="box-tools">
                 <div class="pull-right">
-                  <a class="btn btn-success" href="{{ route('master.add') }}"> Add User</a>
+                  <a class="btn btn-success" href="{{ route('master.add') }}"><i class="fa fa-plus-circle"></i> <span>Add User</span></a>
 
                 </div>
               </div>
@@ -82,7 +82,7 @@
             <div class="box-body">             
 
               <!-- <ul class="todo-list ui-sortable"> -->
-              <table id="sortable" class="table table-bordered table-hover">
+              <table id="sortable" class="table table-bordered table-hover table-striped">
                 <thead>
                   <tr>
                     <th width="10%" style="text-align: center">No</th>
@@ -116,8 +116,8 @@
                       {{$MU->created_at->toFormattedDateString()}}
                       </div>
                       <div class="col-md-6 pull-right " style="margin: 5px 0px;">
-                          <a href="{{ route('master.edit', $MU->id)}}" class="label label-warning"> Edit </a>
-                          <a href="{{ route('master.delete', $MU->id) }}" class="label label-danger" onclick="return confirm('Are you sure to delete?')"> Delete </a>
+                          <a href="{{ route('master.edit', $MU->id)}}" class="btn btn-xs btn-warning" ><i class="fa fa-pencil"></i> <span> Edit </span></a>
+                          <a href="{{ route('master.delete', $MU->id) }}" class="btn btn-xs btn-danger" onclick="return confirm('Are you sure to delete?')"> <i class="fa fa-trash"></i> <span> Delete </span></a>
                       </div>
                       </td>
                     </tr>

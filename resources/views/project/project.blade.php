@@ -72,14 +72,14 @@
               <h3 class="box-title">Manage Projects</h3>
               <div class="box-tools">
                 <div class="pull-right">
-                  <a class="btn btn-success" href="{{ route('project.add') }}"> New Project</a>
+                  <a class="btn btn-success" href="{{ route('project.add') }}"><i class="fa fa-plus-circle"></i> <span>New Project</span></a>
                 </div>
               </div>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
             <!-- <ul class="todo-list ui-sortable"> -->
-              <table id="sortable" class="table table-bordered table-hover">
+              <table id="sortable" class="table table-bordered table-hover table-striped">
                 
                 <thead>
                   <tr>
@@ -104,8 +104,8 @@
                         </div>
                         
                         <div class="col-md-6 pull-right " style="margin: 5px 0px;">
-                          <a href="{{ route('project.edit', $project->id)}}" class="label label-warning"> Edit </a>
-                          <a href="{{ route('project.delete', $project->id) }}" class="label label-danger" onclick="return confirm('Are you sure to delete?')"> Delete </a>
+                          <a href="{{ route('project.edit', $project->id)}}" class="btn btn-xs btn-warning" style="margin-right: 3px;"><i class="fa fa-pencil"></i> <span> Edit </span> </a>
+                          <a href="{{ route('project.delete', $project->id) }}" class="btn btn-xs btn-danger" onclick="return confirm('Are you sure to delete?')"><i class="fa fa-trash"></i> <span> Delete </span></a>
                         </div>
                       </td>
 

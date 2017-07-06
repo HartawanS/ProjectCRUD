@@ -98,9 +98,9 @@
                       
                     </dl>
                      <div class="tools">
-                   <a href="{{ route('buildlist.edit', $buildlist->id) }}" class="label label-warning"> Edit </a>
-                    <a href="{{ route('buildlist.delete', $buildlist->id) }}" class="label label-danger" onclick="return confirm('Are you sure to delete?')"> Delete </a>
-                    <a class="pull-right label label-primary" href="{{ route('buildlist.index',$buildlist->idproject)}}"> Back</a>
+                   <a href="{{ route('buildlist.edit', $buildlist->id) }}" class="btn btn-xs btn-warning"> Edit </a>
+                    <a href="{{ route('buildlist.delete', $buildlist->id) }}" class="btn btn-xs btn-danger" onclick="return confirm('Are you sure to delete?')"> Delete </a>
+                    <a class="btn btn-xs btn-primary pull-right" href="{{ route('buildlist.index',$buildlist->idproject)}}"> Back</a>
                   </div>
                   </div>
                   <!-- /.box-body -->
