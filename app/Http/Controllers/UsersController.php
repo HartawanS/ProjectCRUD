@@ -11,7 +11,10 @@ class UsersController extends Controller
 	  public function index($id){
 	  	// dd($id);
         //fetch post data
-        $userlists = Users::where('idproject','=',$id)->get();
+        $userlists = User::join('userlist','users.id','=','iduser')
+                    ->where('idproject',$id)
+                    ->get();
+        //dd($userlists);
         $user = User::where('id','=',$id)->get();
         $projectname =  $this->getProjectName($id);
         //pass posts data to view and load list view

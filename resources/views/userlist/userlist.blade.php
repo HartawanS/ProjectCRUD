@@ -94,7 +94,29 @@
                     <th width="30%">Join At</th>
                   </tr>
                 </thead>
+                <tbody>
+                  <?php $i = 1;?>
+                  @foreach($userlists as $user)
+                    <tr class="" onclick="location.href='{{route('userlist.detail', $user->id)}}'" style="cursor: hand;">
+                      
+                      <td align="center">{{$i++}}</td>
+                      <td>{{$user->name}}</td>
+                      <td>{{$user->email}}</td>
+                      <td>{{$user->type}}</td>
+                      <td>
+                        <div class="col-md-6">
+                          {{$user->created_at->toFormattedDateString()}}
+                        </div>
+                        
+                        <div class="col-md-6 pull-right " style="margin: 5px 0px;">
+                          <a href="{{ route('userlist.edit', $user->id)}}" class="btn btn-xs btn-warning"><i class="fa fa-pencil"></i> <span> Edit </span> </a>
+                          <a href="{{ route('userlist.delete', $user->id) }}" class="btn btn-xs btn-danger" onclick="return confirm('Are you sure to delete?')"><i class="fa fa-trash"></i> <span> Delete </span></a>
+                        </div>
+                      </td>
 
+                    </tr>
+                  @endforeach
+                </tbody>
               </table>
             </div>
               

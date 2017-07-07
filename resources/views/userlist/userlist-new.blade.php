@@ -92,7 +92,7 @@
               <table id="sortable" class="table table-bordered table-hover table-striped">
                 <thead>
                   <tr>
-                    <th width="10%" style="text-align: center">checkbox</th>
+                    <th width="10%" style="text-align: center" ></th>
                     <th>Name</th>
                     <th>Email</th>
                     <th>Type</th>

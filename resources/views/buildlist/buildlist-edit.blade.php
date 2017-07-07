@@ -93,9 +93,9 @@
                   <label>Type </label>
                   <select name="type" class="form-control">
                   <option selected disabled hidden>{{$buildlist->type}}</option>
-                    <option value="Android">Development</option>
-                    <option value="iOS">Staging</option>
-                    <option value="Web">Production</option>
+                    <option value="Development">Development</option>
+                    <option value="Staging">Staging</option>
+                    <option value="Production">Production</option>
                   </select>
                 </div>
                 <div class="form-group">
