@@ -104,7 +104,7 @@
                       {{$BL->created_at->toFormattedDateString()}}
                       </div>
                       <div class="col-md-6 pull-right" style="margin: 5px 0px;">
-                          <a href="{{ route('buildlist.edit', $BL->id)}}" class="btn btn-xs btn-warning" style="margin-right: 3px;"><i class="fa fa-pencil"></i> <span> Edit </span></a>
+                          <a href="{{ route('buildlist.edit', $BL->id)}}" class="btn btn-xs btn-warning"><i class="fa fa-pencil"></i> <span> Edit </span></a>
                           <a href="{{ route('buildlist.delete', $BL->id) }}" class="btn btn-xs btn-danger" onclick="return confirm('Are you sure to delete?')"><i class="fa fa-trash"></i> <span> Delete </span></a>
                       </div>
                       </td>
