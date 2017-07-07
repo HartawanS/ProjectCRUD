@@ -90,27 +90,6 @@
                   </tr>
                 </thead>
 
-                <!-- <tbody>
-                  <?php $i = 1;?>
-                  @foreach($userlists as $UL)
-                    <tr onclick="location.href='{{route('userlist.detail', $UL->id)}}'" style="cursor: hand;">
-                      <td align="center">{{$i++}}</td>
-                      <td>{{$BL->iduser->name}}</td>
-                      <td>{{$BL->version}}</td>
-                      <td>{{$BL->note}}</td>
-                      <td>{{$BL->link_file_APK}}</td>
-                      <td>
-                      <div class="col-md-6">
-                      {{$BL->created_at->toFormattedDateString()}}
-                      </div>
-                      <div class="col-md-6 pull-right" style="margin: 5px 0px;">
-                          <a href="{{ route('buildlist.edit', $BL->id)}}" class="btn btn-xs btn-warning"><i class="fa fa-pencil"></i> <span> Edit </span></a>
-                          <a href="{{ route('buildlist.delete', $BL->id) }}" class="btn btn-xs btn-danger" onclick="return confirm('Are you sure to delete?')"><i class="fa fa-trash"></i> <span> Delete </span></a>
-                      </div>
-                      </td>
-                    </tr>
-                  @endforeach
-                </tbody> -->
               </table>
             </div>
               

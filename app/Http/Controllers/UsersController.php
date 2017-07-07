@@ -5,15 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Users;
 use App\Project;
+use App\User;
 class UsersController extends Controller
 {    
 	  public function index($id){
 	  	// dd($id);
         //fetch post data
         $userlists = Users::where('idproject','=',$id)->get();
+        $user = User::where('id','=',$id)->get();
         $projectname =  $this->getProjectName($id);
         //pass posts data to view and load list view
-        return view('userlist.userlist', ['userlists' => $userlists,'id'=>$id, 'projectname'=>$projectname]);
+        return view('userlist.userlist', ['userlists' => $userlists,'id'=>$id, 'projectname'=>$projectname, 'user'=>$user]);
     }
 
     public function getProjectName($id)
@@ -36,34 +38,24 @@ class UsersController extends Controller
         // dd($id);
         $userlists = Users::where('idproject','=',$id)->get();
         $projectname = $this->getProjectName($id);
-
-    	return view('userlist.userlist-new', ['userlists' => $userlists,'id'=>$id,'projectname'=>$projectname]);
+        $Master = User::orderBy('created_at','desc')->get();
+        // dd($Master);
+    	return view('userlist.userlist-new', ['userlists' => $userlists, 'id'=>$id, 'projectname'=>$projectname, 'Master' => $Master]);
     }
 
     public function insert($id, Request $request){
-
+    	// dd($request->iduser);
         //validate post data
         $this->validate($request, [
         	'idproject'=>'required',
-            'type' => 'required',
-            'version'=>'required',
-            'link_file_APK' => 'required',
-            'note' => 'required'
+            'iduser' => 'required|unique:userlist'
         ]);
-
-        //version
-        $version = Build::where('idproject',$id)->where('type',$request->type)->max('version');
-
-        if(!empty($version))
-        //insert version into request
-        $request->merge(['version'=>$version+0.01]);
-        
         
         //get post data
         $postData = $request->all();
         
         //insert post data
-        Build::create($postData);
+        Users::create($postData);
         //store status message
         // Session::flash('success_msg', 'Post added successfully!');
 

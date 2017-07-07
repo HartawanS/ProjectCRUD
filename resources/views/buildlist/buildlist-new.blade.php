@@ -83,7 +83,7 @@
               {{csrf_field()}}
 
               <input type="hidden" name="idproject" value="{{$id}}" >
-              <input type="hidden" name="version" value="0.01" >
+              <input type="hidden" name="version" value="1" >
                 <div class="form-group">
                   <select name="type" class="form-control">
                    {{--  <option selected disabled hidden>Type</option> --}}

@@ -79,14 +79,36 @@
               
 @include('error.errors')
 
-              <form class="col-md-4 col-md-offset-4 " action="{{route('buildlist.insert',$id)}}" method="post">
+              <form class="col-md-4 col-md-offset-4 " action="{{route('userlist.insert',$id)}}" method="post">
               {{csrf_field()}}
 
               <input type="hidden" name="idproject" value="{{$id}}" >
-              <input type="hidden" name="version" value="0.01" >
+              <div class="box-body"> 
+              <table id="sortable" class="table table-bordered table-hover table-striped">
+                <thead>
+                  <tr>
+                    <th width="10%" style="text-align: center">checkbox</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Type</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @foreach($Master as $MU)
+                    <tr>
+                      <td><input type="checkbox" name="iduser" value="{{$MU->id}}"></td>
+                      <td>{{$MU->name}}</td>
+                      <td>{{$MU->email}}</td>
+                      <td>{{$MU->type}}</td>
+                    </tr>
+                  
+                  @endforeach
+                </tbody>
+              </table>
+              </div>
+              <!-- <input type="hidden" name="version" value="0.01" >
                 <div class="form-group">
                   <select name="type" class="form-control">
-                   {{--  <option selected disabled hidden>Type</option> --}}
                     <option value="Android" selected>Development</option>
                     <option value="iOS">Staging</option>
                     <option value="Web">Client</option>
@@ -99,11 +121,11 @@
 
                 <div class="form-group">
                   <textarea class="form-control" name="note" placeholder="Note">{{ old('note') }}</textarea>
-                </div>
+                </div> -->
 
                 <div class="pull-right">
-                <a  class=" btn btn-primary" href="{{ route('buildlist.index',$id)}}">Back </a>
-                <button type="submit" class=" btn btn-success" id="create">Create</button>
+                  <a  class=" btn btn-primary" href="{{ route('userlist.index',$id)}}">Back </a>
+                  <button type="submit" class=" btn btn-success" id="create">Create</button>
                 </div>
               </form>
 
