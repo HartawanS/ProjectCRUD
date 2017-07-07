@@ -38,23 +38,28 @@ class BuildController extends Controller
         // dd($id);
         $buildlists = Build::where('idproject','=',$id)->get();
         $projectname = $this->getProjectName($id);
-        //version
-        $buildlist = Build::find($id);
-        $versi = Build::where('idproject',$id)->max('version');
-        // ->where('type',$buildlist->type)
-    	return view('buildlist.buildlist-new', ['buildlists' => $buildlists,'id'=>$id,'projectname'=>$projectname,'versi' => $versi]);
+
+    	return view('buildlist.buildlist-new', ['buildlists' => $buildlists,'id'=>$id,'projectname'=>$projectname]);
     }
 
     public function insert($id, Request $request){
-    
+
         //validate post data
         $this->validate($request, [
         	'idproject'=>'required',
             'type' => 'required',
-            'version' => 'required',
+            'version'=>'required',
             'link_file_APK' => 'required',
             'note' => 'required'
         ]);
+
+        //version
+        $version = Build::where('idproject',$id)->where('type',$request->type)->max('version');
+
+        if(!empty($version))
+        //insert version into request
+        $request->merge(['version'=>$version+0.01]);
+        
         
         //get post data
         $postData = $request->all();
