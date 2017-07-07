@@ -75,10 +75,8 @@ class MasterUserController extends Controller
     public function update($id, Request $request){
         //validate post data
         $this->validate($request, [
-            'name' => 'required',
-            'email' => 'bail|required|unique:masteruser'.($id ? ",id,$id" : ''),
-            'password' => 'required'
-        ]);
+            'password' => 'required',
+            'confpassword' => 'required|same:password']);
         
         //get post data
         $postData = $request->all();

@@ -41,7 +41,7 @@
              <li class=""><a href="{{ route('master.index') }}"> <i class="fa fa-user"></i> <span>User</span></a></li>
              <li class="active"><a href="{{ route('home') }}"><i class="fa fa-files-o"></i><span>Project</span></a></li>
              <ul class="treeview-menu menu-open" style="display: block;">
-                <li><a href="{{/*route('buildlist.index',$id)*/'#'}}"><i class="fa fa-circle-o"></i> Build List</a></li>
+                <li><a href="{{route('buildlist.index',$id)}}"><i class="fa fa-circle-o"></i> Build List</a></li>
                  <li class="active"><a href="#"><i class="fa fa-circle-o"></i> User List</a></li>
              </ul>
              <li><a href="{{'#' }}"><i class="fa fa-gears"></i> <span>Change Password</span></a></li>

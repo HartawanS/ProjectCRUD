@@ -1,4 +1,4 @@
-<title>Project Manager | User List</title>
+<title>Change Password</title>
 @extends('layouts.home')
 
 @section('content')
@@ -30,7 +30,7 @@
           <img src="{{asset('template/dist/img/user.jpg')}}" class="img-circle" style="margin: 5px 0px;" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>{{ Auth::user()->name }}</p>
+          <p> {{ Auth::user()->name }}</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -39,14 +39,10 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
         <li class="header">MAIN NAVIGATION</li>
-             <li class=""><a href="{{ route('master.index') }}"> <i class="fa fa-user"></i> <span>User</span></a></li>
-             <li class="active"><a href="{{ route('home') }}"><i class="fa fa-files-o"></i><span>Project</span></a></li>
-             <ul class="treeview-menu menu-open" style="display: block;">
-                <li><a href="{{route('buildlist.index',$id)}}"><i class="fa fa-circle-o"></i> Build List</a></li>
-                 <li class="active"><a href="#"><i class="fa fa-circle-o"></i> User List</a></li>
-             </ul>
-             <li><a href="{{'#' }}"><i class="fa fa-gears"></i> <span>Change Password</span></a></li>
-             <li><a href="{{ route('logout') }}"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
+          <li><a href="{{ route('master.index') }}"><i class="fa fa-user"></i> <span>User</span></a></li>
+          <li><a href="{{ route('home') }}"><i class="fa fa-files-o"></i> <span>Projects</span></a></li>
+          <li class="active"><a href="{{'#'}}"><i class="fa fa-gears"></i> <span>Change Password</span></a></li>
+          <li><a href="{{ route('logout') }}"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -57,13 +53,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        {{$projectname->name}}
-        <small>Manage User List</small>
+        Projects
+        <small>Manage Project</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-files-o"></i> Projects</a></li>
-        <li class="">{{$projectname->name}}</li>
-        <li class="active">Manage User List</li>
+        <li class="active">Manage Project</li>
       </ol>
     </section>
 
@@ -75,44 +70,38 @@
             <div class="box-header ui-sortable-handle" style="cursor: move;">
               <i class="fa fa-files-o"></i>
 
-              <h3 class="box-title">Manage User List</h3>
+              <h3 class="box-title">Manage Projects</h3>
               <div class="box-tools">
-              <a class="btn btn-primary" href="{{ route('home') }}"><i class="fa fa-angle-double-left"></i> Back</a>
-               <a class="btn btn-success" href="{{ route('userlist.add',$id) }}"><i class="fa fa-plus-circle"></i> <span>New user list</span></a>
+                <div class="pull-right">
+                  <a class="btn btn-success" href="{{ route('project.add') }}"><i class="fa fa-plus-circle"></i> <span>New Project</span></a>
+                </div>
               </div>
             </div>
-            
-            
-            <div class="box-body"> 
-              <table id="sortable" class="table table-bordered table-hover table-striped">
-                <thead>
-                  <tr>
-                    <th width="10%" style="text-align: center">No</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Type</th>
-                    <th width="30%">Join At</th>
-                  </tr>
-                </thead>
+            <!-- /.box-header -->
+            <div class="box-body">
+            <!-- <ul class="todo-list ui-sortable"> -->
+             <form class="col-md-4 col-md-offset-4 " action="{{ route('master.update', $Master->id) }}" method="post">
+                {{ csrf_field() }}
+                <div class="form-group">
+                  <input type="password" class="form-control" name="oldpassword" placeholder="Old Password" required>
+                </div>
+                
+                <div class="form-group">
+                  <input type="password" class="form-control" name="newpassword"  placeholder="New Password" required>
+                </div>
 
-              </table>
+                <div class="form-group">
+                  <input type="Password" class="form-control" name="Confpassword" placeholder="Confirmation Password" required>
+                </div>
+
+                <div class="pull-right">
+                <button type="submit"  class=" btn btn-success" id="create"> Change
+                </div>
+              </form>
+
             </div>
-              
-            
-
             <!-- /.box-body -->
 
-            <!-- <div class="box-footer clearfix no-border  pull-right">
-                <ul class="pagination pagination-sm inline">
-                  <li><a href="#">«</a></li>
-                  <li><a href="#">1</a></li>
-                  <li><a href="#">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li><a href="#">»</a></li>
-                </ul>
-              </div> -->
-          </div>
-        
         <!-- ./col -->
       </div>
 
@@ -138,5 +127,5 @@
        immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
 </div>
-@include('layouts.footer') 
+@include('layouts.footer')    
 @endsection
