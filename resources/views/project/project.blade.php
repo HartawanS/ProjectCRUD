@@ -41,6 +41,7 @@
         <li class="header">MAIN NAVIGATION</li>
           <li><a href="{{ route('master.index') }}"><i class="fa fa-user"></i> <span>User</span></a></li>
           <li class="active"><a href="#"><i class="fa fa-files-o"></i> <span>Projects</span></a></li>
+          <li><a href="{{'#' }}"><i class="fa fa-gears"></i> <span>Change Password</span></a></li>
           <li><a href="{{ route('logout') }}"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
       </ul>
     </section>
