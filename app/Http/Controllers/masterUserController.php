@@ -45,12 +45,18 @@ class MasterUserController extends Controller
             'password' => 'required',
             'password_confirmation' => 'required|same:password'
         ]);
+
         
         //get post data
-        $postData = $request->all();
+        // $postData = $request->bcrypt($request['password'])->all();
         
         //insert post data
-        User::create($postData);
+        User::create([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'type' => $request['type'],
+            'password' => bcrypt($request['password']),
+        ]);
         
         //store status message
         // Session::flash('success_msg', 'Post added successfully!');
