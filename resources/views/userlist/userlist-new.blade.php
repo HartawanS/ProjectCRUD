@@ -1,4 +1,4 @@
-<title>Project Manager | Edit Buildlist</title>
+<title>Project Manager | New Userlist</title>
 @extends('layouts.home')
 
 @section('content')
@@ -57,7 +57,7 @@
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-files-o"></i> Projects</a></li>
         <li class="">{{$projectname->name}}</li>
-        <li class="active">New Build List</li>
+        <li class="active">New User List</li>
       </ol>
     </section>
 
@@ -69,7 +69,7 @@
             <div class="box-header ui-sortable-handle" style="cursor: move;">
               <i class="fa fa-files-o"></i>
 
-              <h3 class="box-title">{{$projectname->name}} - New Build List</h3>
+              <h3 class="box-title">{{$projectname->name}} - New User List</h3>
               <div class="box-tools">
               
               </div>
@@ -89,7 +89,7 @@
                    {{--  <option selected disabled hidden>Type</option> --}}
                     <option value="Android" selected>Development</option>
                     <option value="iOS">Staging</option>
-                    <option value="Web">Production</option>
+                    <option value="Web">Client</option>
                   </select>
                 </div>
 

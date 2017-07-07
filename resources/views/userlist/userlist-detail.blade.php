@@ -1,4 +1,4 @@
-<title>Project Manager | Edit Buildlist</title>
+<title>Project Manager | Detail Buildlist</title>
 @extends('layouts.home')
 
 @section('content')
@@ -40,7 +40,7 @@
             <li class="header">MAIN NAVIGATION</li>
              <li class=""><a href="{{ route('master.index') }}"> <i class="fa fa-user"></i> <span>User</span></a></li>
              <li class="active"><a href="{{ route('home') }}"><i class="fa fa-files-o"></i><span>Project</span></a></li>
-             <li><a href="{{ route('logout') }}"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
+             <li><a href="{{ route('logout') }}"><i class="fa fa-sign-out"></i> <span >Logout</span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -52,12 +52,12 @@
     <section class="content-header">
       <h1>
         {{$projectname->name}}
-        <small>New Build List</small>
+        <small>Build List Detail</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-files-o"></i> Projects</a></li>
         <li class="">{{$projectname->name}}</li>
-        <li class="active">New Build List</li>
+        <li class="active">{{$buildlist->type}}</li>
       </ol>
     </section>
 
@@ -69,7 +69,7 @@
             <div class="box-header ui-sortable-handle" style="cursor: move;">
               <i class="fa fa-files-o"></i>
 
-              <h3 class="box-title">{{$projectname->name}} - New Build List</h3>
+              <h3 class="box-title">Build List Detail - {{$projectname->name}} - {{$buildlist->type}}</h3>
               <div class="box-tools">
               
               </div>
@@ -77,35 +77,38 @@
             <!-- /.box-header -->
             <div class="box-body">
               
-@include('error.errors')
+              <div class="col-md-6">
+                <div class="box box-solid">
+                  <div class="box-header with-border">
+                    <i class="fa fa-list-alt"></i>
 
-              <form class="col-md-4 col-md-offset-4 " action="{{route('buildlist.insert',$id)}}" method="post">
-              {{csrf_field()}}
-
-              <input type="hidden" name="idproject" value="{{$id}}" >
-              <input type="hidden" name="version" value="0.01" >
-                <div class="form-group">
-                  <select name="type" class="form-control">
-                   {{--  <option selected disabled hidden>Type</option> --}}
-                    <option value="Android" selected>Development</option>
-                    <option value="iOS">Staging</option>
-                    <option value="Web">Production</option>
-                  </select>
+                    <h3 class="box-title">{{ $buildlist->type }}
+                        <small class="label label-default"><i class="fa fa-clock-o"> Updated at </i> {{$buildlist->updated_at->diffForHumans()}}</small>
+                    </h3>
+                  </div>
+                  <!-- /.box-header -->
+                  <div class="box-body">
+                    <dl class="dl-horizontal">
+                      <dt>Type</dt>
+                      <dd>{{ $buildlist->type }}</dd>
+                      <dt>Version</dt>
+                      <dd>{{ $buildlist->version }}</dd>
+                      <dt>Link File APK</dt>
+                      <dd>{{ $buildlist->link_file_APK }}</dd>
+                      <dt>Note</dt>
+                      <dd>{{ $buildlist->note }}</dd>
+                      
+                    </dl>
+                     <div class="tools">
+                   <a href="{{ route('buildlist.edit', $buildlist->id) }}" class="btn btn-xs btn-warning"> Edit </a>
+                    <a href="{{ route('buildlist.delete', $buildlist->id) }}" class="btn btn-xs btn-danger" onclick="return confirm('Are you sure to delete?')"> Delete </a>
+                    <a class="btn btn-xs btn-primary pull-right" href="{{ route('buildlist.index',$buildlist->idproject)}}"> Back</a>
+                  </div>
+                  </div>
+                  <!-- /.box-body -->
                 </div>
-
-                <div class="form-group">
-                  <input type="text" value="{{ old('link_file_APK') }}" class="form-control" name="link_file_APK"  placeholder="File Link" >
-                </div>
-
-                <div class="form-group">
-                  <textarea class="form-control" name="note" placeholder="Note">{{ old('note') }}</textarea>
-                </div>
-
-                <div class="pull-right">
-                <a  class=" btn btn-primary" href="{{ route('buildlist.index',$id)}}">Back </a>
-                <button type="submit" class=" btn btn-success" id="create">Create</button>
-                </div>
-              </form>
+                <!-- /.box -->
+              </div>
 
             </div>
             <!-- /.box-body -->

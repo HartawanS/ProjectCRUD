@@ -16,6 +16,7 @@ class CreateBuildListsTable extends Migration
          Schema::create('buildList', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('idproject');
+            // $table->integer('iduserlist');
             $table->string('type');
             $table->float('version');
             $table->text('note');

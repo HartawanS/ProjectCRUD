@@ -1,4 +1,4 @@
-<title>Project Manager | Edit Buildlist</title>
+<title>Project Manager | User List</title>
 @extends('layouts.home')
 
 @section('content')
@@ -6,6 +6,7 @@
   <div class="wrapper">
 
   <header class="main-header">
+
     <!-- Logo -->
     <a href="#" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
@@ -37,7 +38,7 @@
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
-            <li class="header">MAIN NAVIGATION</li>
+        <li class="header">MAIN NAVIGATION</li>
              <li class=""><a href="{{ route('master.index') }}"> <i class="fa fa-user"></i> <span>User</span></a></li>
              <li class="active"><a href="{{ route('home') }}"><i class="fa fa-files-o"></i><span>Project</span></a></li>
              <li><a href="{{ route('logout') }}"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
@@ -52,12 +53,12 @@
     <section class="content-header">
       <h1>
         {{$projectname->name}}
-        <small>New Build List</small>
+        <small>Manage User List</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-files-o"></i> Projects</a></li>
         <li class="">{{$projectname->name}}</li>
-        <li class="active">New Build List</li>
+        <li class="active">Manage User List</li>
       </ol>
     </section>
 
@@ -69,48 +70,63 @@
             <div class="box-header ui-sortable-handle" style="cursor: move;">
               <i class="fa fa-files-o"></i>
 
-              <h3 class="box-title">{{$projectname->name}} - New Build List</h3>
+              <h3 class="box-title">Manage User List</h3>
               <div class="box-tools">
-              
+              <a class="btn btn-primary" href="{{ route('home') }}"><i class="fa fa-angle-double-left"></i> Back</a>
+               <a class="btn btn-success" href="{{ route('userlist.add',$id) }}"><i class="fa fa-plus-circle"></i> <span>New user list</span></a>
               </div>
             </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              
-@include('error.errors')
+            
+            
+            <div class="box-body"> 
+              <table id="sortable" class="table table-bordered table-hover table-striped">
+                <thead>
+                  <tr>
+                    <th width="10%" style="text-align: center">No</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Type</th>
+                    <th width="30%">Join At</th>
+                  </tr>
+                </thead>
 
-              <form class="col-md-4 col-md-offset-4 " action="{{route('buildlist.insert',$id)}}" method="post">
-              {{csrf_field()}}
-
-              <input type="hidden" name="idproject" value="{{$id}}" >
-              <input type="hidden" name="version" value="0.01" >
-                <div class="form-group">
-                  <select name="type" class="form-control">
-                   {{--  <option selected disabled hidden>Type</option> --}}
-                    <option value="Android" selected>Development</option>
-                    <option value="iOS">Staging</option>
-                    <option value="Web">Production</option>
-                  </select>
-                </div>
-
-                <div class="form-group">
-                  <input type="text" value="{{ old('link_file_APK') }}" class="form-control" name="link_file_APK"  placeholder="File Link" >
-                </div>
-
-                <div class="form-group">
-                  <textarea class="form-control" name="note" placeholder="Note">{{ old('note') }}</textarea>
-                </div>
-
-                <div class="pull-right">
-                <a  class=" btn btn-primary" href="{{ route('buildlist.index',$id)}}">Back </a>
-                <button type="submit" class=" btn btn-success" id="create">Create</button>
-                </div>
-              </form>
-
+                <!-- <tbody>
+                  <?php $i = 1;?>
+                  @foreach($userlists as $UL)
+                    <tr onclick="location.href='{{route('userlist.detail', $UL->id)}}'" style="cursor: hand;">
+                      <td align="center">{{$i++}}</td>
+                      <td>{{$BL->iduser->name}}</td>
+                      <td>{{$BL->version}}</td>
+                      <td>{{$BL->note}}</td>
+                      <td>{{$BL->link_file_APK}}</td>
+                      <td>
+                      <div class="col-md-6">
+                      {{$BL->created_at->toFormattedDateString()}}
+                      </div>
+                      <div class="col-md-6 pull-right" style="margin: 5px 0px;">
+                          <a href="{{ route('buildlist.edit', $BL->id)}}" class="btn btn-xs btn-warning"><i class="fa fa-pencil"></i> <span> Edit </span></a>
+                          <a href="{{ route('buildlist.delete', $BL->id) }}" class="btn btn-xs btn-danger" onclick="return confirm('Are you sure to delete?')"><i class="fa fa-trash"></i> <span> Delete </span></a>
+                      </div>
+                      </td>
+                    </tr>
+                  @endforeach
+                </tbody> -->
+              </table>
             </div>
+              
+            
+
             <!-- /.box-body -->
 
-
+            <!-- <div class="box-footer clearfix no-border  pull-right">
+                <ul class="pagination pagination-sm inline">
+                  <li><a href="#">«</a></li>
+                  <li><a href="#">1</a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#">»</a></li>
+                </ul>
+              </div> -->
           </div>
         
         <!-- ./col -->

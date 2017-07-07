@@ -49,5 +49,13 @@ Route::group(['middleware' => 'auth'], function() {
 	Route::get('/buildlist/edit/{id}', 'BuildController@edit')->name('buildlist.edit');
 	Route::post('/buildlist/update/{id}', 'BuildController@update')->name('buildlist.update');
 	Route::get('/buildlist/delete/{id}', 'BuildController@delete')->name('buildlist.delete');
+
+	Route::get('/userlist/{id}', 'UsersController@index')->name('userlist.index');
+	Route::get('/userlist/details/{id}', 'UsersController@detail')->name('userlist.detail');
+	Route::get('/userlist/add/{id}', 'UsersController@add')->name('userlist.add');
+	Route::post('/userlist/insert/{id}', 'UsersController@insert')->name('userlist.insert');
+	Route::get('/userlist/edit/{id}', 'UsersController@edit')->name('userlist.edit');
+	Route::post('/userlist/update/{id}', 'UsersController@update')->name('userlist.update');
+	Route::get('/userlist/delete/{id}', 'UsersController@delete')->name('userlist.delete');
 });
 
