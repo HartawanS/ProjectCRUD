@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\MasterUser;
+use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Session;
@@ -11,7 +11,7 @@ class MasterUserController extends Controller
 {
     public function index(){
         //fetch all posts data
-        $Master = MasterUser::orderBy('created_at','desc')->get();
+        $Master = User::orderBy('created_at','desc')->get();
         
         //pass posts data to view and load list view
         return view('home.user', ['Master' => $Master]);
@@ -26,7 +26,7 @@ class MasterUserController extends Controller
 
     public function detail($id)
     {
-        $MU = MasterUser::find($id);
+        $MU = User::find($id);
 
          return view('home.user-detail', ['MU' => $MU]);
     }
@@ -50,7 +50,7 @@ class MasterUserController extends Controller
         $postData = $request->all();
         
         //insert post data
-        MasterUser::create($postData);
+        User::create($postData);
         
         //store status message
         // Session::flash('success_msg', 'Post added successfully!');
@@ -60,7 +60,7 @@ class MasterUserController extends Controller
     
     public function edit($id){
         //get post data by id
-        $Master = MasterUser::find($id);
+        $Master = User::find($id);
         
         //load form view
         return view('home.user-edit', ['Master' => $Master]);
@@ -78,7 +78,7 @@ class MasterUserController extends Controller
         $postData = $request->all();
         
         //update post data
-        MasterUser::find($id)->update($postData);
+        User::find($id)->update($postData);
         
         //store status message
         // Session::flash('success_msg', 'Post updated successfully!');
@@ -88,7 +88,7 @@ class MasterUserController extends Controller
     
     public function delete($id){
         //update post data
-        MasterUser::find($id)->delete();
+        User::find($id)->delete();
         
         //store status message
         // Session::flash('success_msg', 'Post deleted successfully!');
