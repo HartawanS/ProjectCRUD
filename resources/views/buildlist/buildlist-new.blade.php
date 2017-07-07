@@ -91,9 +91,9 @@
                 <div class="form-group">
                   <select name="type" class="form-control">
                    {{--  <option selected disabled hidden>Type</option> --}}
-                    <option value="Android" selected>Development</option>
-                    <option value="iOS">Staging</option>
-                    <option value="Web">Production</option>
+                    <option value="Development">Development</option>
+                    <option value="Staging">Staging</option>
+                    <option value="Production">Production</option>
                   </select>
                 </div>
 
