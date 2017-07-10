@@ -41,4 +41,27 @@ class ChangeController extends Controller
 
         return redirect()->route('master.index');
     }
+    public function change_profile()
+    {
+        $Master = auth()->user();
+
+        //load form view
+        return view('credentials.change-profile', ['Master' => $Master]);
+    }
+    public function update_profile($id, Request $request)
+    {
+        
+        $this->validate($request, [
+            'name' => 'bail|required',
+            'email' => 'bail|required|unique:users'.($id ? ",id,$id" : ''),
+            'type' => 'bail'
+            ]);
+        //get post data
+        $postData = $request->all();
+        
+        //update post data
+        User::find($id)->update($postData);
+        $Master = auth()->user();
+        return redirect()->route('changeprofile', ['Master' => $Master]);
+    }
 }

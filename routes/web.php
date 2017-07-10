@@ -60,5 +60,8 @@ Route::group(['middleware' => 'auth'], function() {
 
 	Route::get('/changepassword', 'ChangeController@change')->name('changepassword');
 	Route::post('/changepassword/{id}', 'ChangeController@update')->name('changepassword.update');
+
+	Route::get('/changeprofile', 'ChangeController@change_profile')->name('changeprofile');
+	Route::post('/changeprofile/{id}', 'ChangeController@update_profile')->name('changeprofile.update');
 });
 

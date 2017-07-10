@@ -1,4 +1,4 @@
-<title>User | User Detail</title>
+<title>Edit User</title>
 @extends('layouts.home')
 
 @section('content')
@@ -44,12 +44,12 @@
     <section class="content-header">
       <h1>
         User
-        <small>User Detail</small>
+        <small>Edit User</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-user"></i> User</a></li>
-        <li class="">Manage User</li>
-        <li class="active">{{ $MU->name }}</li>
+        <li class="">Edit User</li>
+        <li class="active">{{ $Master->name }}</li>
       </ol>
     </section>
 
@@ -61,7 +61,7 @@
             <div class="box-header ui-sortable-handle" style="cursor: move;">
               <i class="fa fa-user"></i>
 
-              <h3 class="box-title">User Detail - {{ $MU->name }}</h3>
+              <h3 class="box-title">Edit Profile - {{ $Master->name }}</h3>
               <div class="box-tools">
                
               </div>
@@ -69,33 +69,34 @@
             <!-- /.box-header -->
             <div class="box-body">
 
-              <div class="col-md-6">
-                <div class="box box-solid">
-                  <div class="box-header with-border">
-                    <i class="fa fa-list-alt"></i>
 
-                    <h3 class="box-title">{{ $MU->name }} <small class="label label-default"><i class="fa fa-clock-o"> Joined </i> {{$MU->created_at->format('d/m/Y')}}</small></h3>
-                  </div>
-                  <!-- /.box-header -->
-                  <div class="box-body">
-                    <dl class="dl-horizontal">
-                      <dt>Username</dt>
-                      <dd>{{ $MU->name }}</dd>
-                      <dt>Email</dt>
-                      <dd>{{ $MU->email }}</dd>
-                      <dt>Type</dt>
-                      <dd>{{ $MU->type }}</dd>
-                    </dl>
-                    <div class="tools">
-                    <a href="{{ route('master.edit', $MU->id)}}" class="btn btn-xs btn-warning"> Edit </a>
-                    <a href="{{ route('master.delete', $MU->id) }}" class="btn btn-xs btn-danger" onclick="return confirm('Are you sure to delete?')"> Delete </a>
-                    <a class="btn btn-xs btn-primary pull-right" href="{{ route('master.index')}}"> Back</a>
-                  </div>
-                  </div>
-                  <!-- /.box-body -->
+@include('error.errors')
+            
+              <form class="col-md-4 col-md-offset-4 " action="{{ route('changeprofile.update', $Master->id) }}" method="post">
+                {{ csrf_field() }}
+                <div class="form-group">
+                  <input type="text" class="form-control" name="name" value="{{ $Master->name }}" placeholder="Username" required>
                 </div>
-                <!-- /.box -->
-              </div>
+                
+                <div class="form-group">
+                  <input type="email" class="form-control" name="email" value="{{ $Master->email }}" placeholder="Email" required>
+                </div>
+
+                <div class="form-group">
+                  <select name="type" class="form-control">
+                  <option selected disabled hidden>{{$Master->type}}</option>
+                    <option value="Developer">Developer</option>
+                    <option value="Tester">Tester</option>
+                    <option value="Client">Client</option>
+                  </select>
+                </div>
+
+
+                <div class="pull-right">
+                <a  class=" btn btn-primary" href="{{route('master.index')/*!! URL::previous() !!*/}}">Back </a>
+                <button type="submit"  class=" btn btn-success" id="create"> Ok
+                </div>
+              </form>
 
             </div>
             <!-- /.box-body -->
