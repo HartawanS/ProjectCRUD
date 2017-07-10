@@ -59,5 +59,6 @@ Route::group(['middleware' => 'auth'], function() {
 	Route::get('/userlist/delete/{id}', 'UsersController@delete')->name('userlist.delete');
 
 	Route::get('/changepassword', 'ChangeController@change')->name('changepassword');
+	Route::post('/changepassword/{id}', 'ChangeController@update')->name('changepassword.update');
 });
 

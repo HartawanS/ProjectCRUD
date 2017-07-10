@@ -77,7 +77,7 @@
 
               <h3 class="box-title">Manage Build List</h3>
               <div class="box-tools">
-              <a class="btn btn-primary" href="{{ route('home') }}"><i class="fa fa-angle-double-left"></i> Back</a>
+              <a class="btn btn-primary" href="{{ route('home') }}"><i class="fa fa-angle-double-left"></i><span> Back</span></a>
                <a class="btn btn-success" href="{{ route('buildlist.add',$id) }}"><i class="fa fa-plus-circle"></i> <span>New build list</span></a>
               </div>
             </div>
@@ -118,38 +118,7 @@
                 </tbody>
               </table>
             </div>
-              <!-- <ul class="todo-list ui-sortable">
-              
-              @foreach($buildlists as $buildlist)
-                <li>
-                      <span class="handle ui-sortable-handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                  {{-- <input type="checkbox" value=""> --}}
-                  <span class="text"> <a href="{{route('buildlist.detail',$buildlist->id)}}"> {{$buildlist->type}}</a></span>
-                  <small class="label label-default"><i class="fa fa-clock-o"></i> {{$buildlist->updated_at->diffForHumans()}}</small>
-                  <div class="tools">
-                   <a href="{{ route('buildlist.edit', $buildlist->id) }}" class="label label-warning"> Edit </a>
-                    <a href="{{ route('buildlist.delete', $buildlist->id) }}" class="label label-danger" onclick="return confirm('Are you sure to delete?')"> Delete </a>
-                  </div>
-                </li>
-              @endforeach
 
-              </ul> -->
-            
-
-            <!-- /.box-body -->
-
-            <!-- <div class="box-footer clearfix no-border  pull-right">
-                <ul class="pagination pagination-sm inline">
-                  <li><a href="#">«</a></li>
-                  <li><a href="#">1</a></li>
-{{--                   <li><a href="#">2</a></li>
-                  <li><a href="#">3</a></li> --}}
-                  <li><a href="#">»</a></li>
-                </ul>
-              </div> -->
           </div>
         
         <!-- ./col -->
@@ -160,14 +129,7 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-{{--   <footer class="main-footer">
-    <div class="pull-right hidden-xs">
-      <b>Version</b> 2.3.8
-    </div>
-    <strong>Copyright &copy; 2014-2016 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
-    reserved.
-  </footer>
- --}}
+
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
    

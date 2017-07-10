@@ -28,20 +28,38 @@
         <div class="pull-left image">
           <img src="{{asset('template/dist/img/user.jpg')}}" class="img-circle" style="margin: 5px 0px;" alt="User Image">
         </div>
-        <div class="pull-left info">
-          <p>{{ Auth::user()->name }}</p>
+        <div class="pull-left info ">
+          <p> {{ Auth::user()->name }} </p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
+        <div class="profile-edit">
+              <a href="#" class="profile-edit-btn"><i class="fa fa-pencil"></i></a>
+              <ul>
+                <li><a href="{{ route('changepassword') }}">Edit Password</a></li>
+                <li><a href="#">Edit Profile</a></li>
+              </ul>
+          </div>
       </div>
 
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
+<<<<<<< HEAD
         <li class="header">MAIN NAVIGATION</li>
           <li class="active"><a href="#"><i class="fa fa-user"></i> <span>User</span></a></li>
           <li><a href="{{ route('home') }}"><i class="fa fa-files-o"></i> <span>Projects</span></a></li>
           <li><a href="{{'#' }}"><i class="fa fa-gears"></i> <span>Change Password</span></a></li>
           <li><a href="{{ route('logout') }}"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
+=======
+            <li class="header">MAIN NAVIGATION</li>
+             <li class=""><a href="{{ route('master.index') }}"> <i class="fa fa-user"></i> <span>User</span></a></li>
+             <li class="active"><a href="{{ route('home') }}"><i class="fa fa-files-o"></i><span>Project</span></a></li>
+             <ul class="treeview-menu menu-open" style="display: block;">
+                <li><a href="{{route('buildlist.index',$id)}}"><i class="fa fa-circle-o"></i> Build List</a></li>
+                 <li class="active"><a href="#"><i class="fa fa-circle-o"></i> User List</a></li>
+             </ul>
+             <li><a href="{{ route('logout') }}"><i class="fa fa-sign-out"></i> <span >Logout</span></a></li>
+>>>>>>> a88b95ae51011f05fed5980656dc711a167ca65e
       </ul>
     </section>
     <!-- /.sidebar -->
