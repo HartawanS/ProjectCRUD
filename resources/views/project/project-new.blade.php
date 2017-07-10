@@ -81,6 +81,7 @@
 
               <form class="col-md-4 col-md-offset-4 " method="post" action="{{ route('project.insert') }}">
                 {{ csrf_field() }}
+                 
                 <div class="form-group">
                   <input type="text" class="form-control" name="name" placeholder="Project Name">
                 </div>

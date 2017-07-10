@@ -65,39 +65,39 @@ class UsersController extends Controller
         return redirect()->route('userlist.index',['id' => $request->get('idproject')]);
     }
     
-    public function edit($id){
-        //get post data by id
-        $userlist = Users::find($id);
-        $projectname = $this->getProjectName($userlist->idproject);
-        
-        //load form view
-        return view('userlist.userlist-edit', ['userlist' => $userlist,'projectname'=>$projectname]);
-    }
-    
-    public function update($id, Request $request){
-        //validate post data
-        $this->validate($request, [
-        	'idproject'=>'required',
-            'type' => 'bail',
-            'note' => 'required',
-            'link_file_APK' => 'required'
-        ]);
-        
-        //get post data
-        $postData = $request->all();
-        
-        //update post data
-        Build::find($id)->update($postData);
-        
-        //store status message
-        // Session::flash('success_msg', 'Post updated successfully!');
+    // public function edit($id){
+    //     //get post data by id
 
-        return redirect()->route('userlist.index', ['id' => $request->get('idproject')]);
-    }
+    //      $Master = User::find($id);
+        
+    //     //load form view
+    //     return view('userlist.userlist-edit', ['Master' => $Master]);
+    // }
+    
+    // public function update($id, Request $request){
+    //     //validate post data
+    //     $this->validate($request, [
+    //     	'idproject'=>'required',
+    //         'type' => 'bail',
+    //         'note' => 'required',
+    //         'link_file_APK' => 'required'
+    //     ]);
+        
+    //     //get post data
+    //     $postData = $request->all();
+        
+    //     //update post data
+    //     Build::find($id)->update($postData);
+        
+    //     //store status message
+    //     // Session::flash('success_msg', 'Post updated successfully!');
+
+    //     return redirect()->route('userlist.index', ['id' => $request->get('idproject')]);
+    // }
     
     public function delete($id){
         //update post data
-        $userlist = User::find($id);
+        $userlist = Users::find($id);
         $idproject = $userlist->idproject;
         $userlist->delete();
 

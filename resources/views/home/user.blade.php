@@ -69,12 +69,12 @@
             <div class="box-header ui-sortable-handle" style="cursor: move;">
               <i class="fa fa-user"></i>
 
-              <h3 class="box-title">Manage Users</h3>
+              <h3 class="box-title">Users</h3>
               <div class="box-tools">
-                <div class="pull-right">
+{{--                 <div class="pull-right">
                   <a class="btn btn-success" href="{{ route('master.add') }}"><i class="fa fa-plus-circle"></i> <span>Add User</span></a>
 
-                </div>
+                </div> --}}
               </div>
             </div>
             
@@ -90,7 +90,6 @@
                     <th>Name</th>
                     <th>Email</th>
                     <th>Type</th>
-                    <th>Password</th>
                     <th width="30%">Join At</th>
                   </tr>
                 </thead>
@@ -111,15 +110,14 @@
                       <td>{{$MU->name}}</td>
                       <td>{{$MU->email}}</td>
                       <td>{{$MU->type}}</td>
-                      <td>{{$MU->password}}</td>
                       <td>
                       <div class="col-md-6">
                       {{$MU->created_at->toFormattedDateString()}}
                       </div>
-                      <div class="col-md-6 pull-right " style="margin: 5px 0px;">
+                     {{--  <div class="col-md-6 pull-right " style="margin: 5px 0px;">
                           <a href="{{ route('master.edit', $MU->id)}}" class="btn btn-xs btn-warning" ><i class="fa fa-pencil"></i> <span> Edit </span></a>
                           <a href="{{ route('master.delete', $MU->id) }}" class="btn btn-xs btn-danger" onclick="return confirm('Are you sure to delete?')"> <i class="fa fa-trash"></i> <span> Delete </span></a>
-                      </div>
+                      </div> --}}
                       </td>
                     </tr>
                   @endforeach

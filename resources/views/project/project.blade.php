@@ -95,7 +95,7 @@
                 <tbody>
                   <?php $i = 1;?>
                   @foreach($projectlists as $project)
-                    <tr class="" onclick="location.href='{{route('buildlist.index', $project->id)}}'" style="cursor: hand;">
+                    <tr class="" onclick="location.href='{{route('buildlist.index', $project->idproject)}}'" style="cursor: hand;">
                       
                       <td align="center">{{$i++}}</td>
                       <td>{{$project->name}}</td>
@@ -105,8 +105,8 @@
                         </div>
                         
                         <div class="col-md-6 pull-right " style="margin: 5px 0px;">
-                          <a href="{{ route('project.edit', $project->id)}}" class="btn btn-xs btn-warning"><i class="fa fa-pencil"></i> <span> Edit </span> </a>
-                          <a href="{{ route('project.delete', $project->id) }}" class="btn btn-xs btn-danger" onclick="return confirm('Are you sure to delete?')"><i class="fa fa-trash"></i> <span> Delete </span></a>
+                          <a href="{{ route('project.edit', $project->idproject)}}" class="btn btn-xs btn-warning"><i class="fa fa-pencil"></i> <span> Edit </span> </a>
+                          <a href="{{ route('project.delete', $project->id) }}" class="btn btn-xs btn-danger" onclick="return confirm('Are you sure to remove?')"><i class="fa fa-trash"></i> <span> I'm Done</span></a>
                         </div>
                       </td>
 

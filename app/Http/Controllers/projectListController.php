@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Project;
 use App\Build;
+use App\Users;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Session;
@@ -11,8 +12,13 @@ class ProjectListController extends Controller
 {
     public function index(){
         //fetch all posts data
-        $projectlists = Project::orderBy('created_at','desc')->get();
-        
+        $id = auth()->user()->id;
+
+        $projectlists = Project::join('userlist','idproject','=','projectlist.id')
+                        ->where('iduser',$id)
+                        ->orderBy('projectlist.created_at','desc')
+                        ->get();
+        //dd($projectlists);
         //pass posts data to view and load list view
         return view('project.project', ['projectlists' => $projectlists]);
     }
@@ -38,10 +44,14 @@ class ProjectListController extends Controller
         
         //get post data
         $postData = $request->all();
-        
+
         //insert post data
-        Project::create($postData);
+        $insertProject = Project::create($postData);
         
+        $idproject = $insertProject->id;
+        $iduser    = auth()->user()->id;
+
+        Users::create(['idproject'=>$idproject,'iduser'=>$iduser]);
         //store status message
         // Session::flash('success_msg', 'Post added successfully!');
 
@@ -76,8 +86,8 @@ class ProjectListController extends Controller
     
     public function delete($id){
         //update post data
-        Project::find($id)->delete();
-        Build::where('idproject','=',$id)->delete();
+        Users::find($id)->delete();
+        //Build::where('idproject','=',$id)->delete();
         //store status message
         // Session::flash('success_msg', 'Post deleted successfully!');
 

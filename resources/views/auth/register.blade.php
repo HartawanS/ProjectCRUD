@@ -54,9 +54,9 @@
                             <label for="type">Type Address</label>
 <!--                                 <input id="type" type="email" class="form-control" name="email" value="{{ old('email') }}" required> -->
                                 <select name="type" class="form-control">
-                                  <option value="Android" selected>Development</option>
-                                  <option value="iOS">Staging</option>
-                                  <option value="Web">Production</option>
+                                  <option value="Developer" selected>Developer</option>
+                                  <option value="Tester">Tester</option>
+                                  <option value="Client">Client</option>
                                 </select>
 
                         </div>

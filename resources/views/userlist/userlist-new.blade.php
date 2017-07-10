@@ -57,7 +57,7 @@
     <section class="content-header">
       <h1>
         {{$projectname->name}}
-        <small>New Build List</small>
+        <small>New User List</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-files-o"></i> Projects</a></li>
@@ -84,11 +84,22 @@
               
 @include('error.errors')
 
-              <form class="col-md-4 col-md-offset-4 " action="{{route('userlist.insert',$id)}}" method="post">
+              <form class="col-md-12" action="{{route('userlist.insert',$id)}}" method="post">
               {{csrf_field()}}
 
               <input type="hidden" name="idproject" value="{{$id}}" >
-              <div class="box-body"> 
+              
+              <div class="box-body">
+              <div class="col-md-6">
+                <h2>Add Users :</h2>
+              </div>
+              <div class="col-md-6" style="margin-bottom:5px;">
+                <div class="pull-right">
+                  <a  class=" btn btn-primary" href="{{ route('userlist.index',$id)}}"><i class="fa fa-angle-double-left"></i><span> Back</span></a>
+                  <a type="submit" class=" btn btn-success" id="create"> <i class="fa fa-plus-circle"></i><span> Ok</span></a>
+                </div>
+              </div>
+              <div class="col-md-12"> 
               <table id="sortable" class="table table-bordered table-hover table-striped">
                 <thead>
                   <tr>
@@ -111,27 +122,8 @@
                 </tbody>
               </table>
               </div>
-              <!-- <input type="hidden" name="version" value="0.01" >
-                <div class="form-group">
-                  <select name="type" class="form-control">
-                    <option value="Android" selected>Development</option>
-                    <option value="iOS">Staging</option>
-                    <option value="Web">Client</option>
-                  </select>
-                </div>
-
-                <div class="form-group">
-                  <input type="text" value="{{ old('link_file_APK') }}" class="form-control" name="link_file_APK"  placeholder="File Link" >
-                </div>
-
-                <div class="form-group">
-                  <textarea class="form-control" name="note" placeholder="Note">{{ old('note') }}</textarea>
-                </div> -->
-
-                <div class="pull-right">
-                  <a  class=" btn btn-primary" href="{{ route('userlist.index',$id)}}">Back </a>
-                  <button type="submit" class=" btn btn-success" id="create">Create</button>
-                </div>
+              </div>
+             
               </form>
 
             </div>

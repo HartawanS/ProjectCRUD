@@ -109,7 +109,7 @@
                         </div>
                         
                         <div class="col-md-6 pull-right " style="margin: 5px 0px;">
-                          <a href="{{ route('userlist.edit', $user->id)}}" class="btn btn-xs btn-warning"><i class="fa fa-pencil"></i> <span> Edit </span> </a>
+                          {{-- <a href="{{ route('userlist.edit', $user->id)}}" class="btn btn-xs btn-warning"><i class="fa fa-pencil"></i> <span> Edit </span> </a> --}}
                           <a href="{{ route('userlist.delete', $user->id) }}" class="btn btn-xs btn-danger" onclick="return confirm('Are you sure to delete?')"><i class="fa fa-trash"></i> <span> Delete </span></a>
                         </div>
                       </td>
@@ -120,19 +120,7 @@
               </table>
             </div>
               
-            
-
-            <!-- /.box-body -->
-
-            <!-- <div class="box-footer clearfix no-border  pull-right">
-                <ul class="pagination pagination-sm inline">
-                  <li><a href="#">«</a></li>
-                  <li><a href="#">1</a></li>
-                  <li><a href="#">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li><a href="#">»</a></li>
-                </ul>
-              </div> -->
+      
           </div>
         
         <!-- ./col -->

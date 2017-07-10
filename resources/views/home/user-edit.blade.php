@@ -94,7 +94,7 @@
                 <div class="form-group">
                   <select name="type" class="form-control">
                   <option selected disabled hidden>{{$Master->type}}</option>
-                    <option value="Development">Development</option>
+                    <option value="Developer">Developer</option>
                     <option value="Tester">Tester</option>
                     <option value="Client">Client</option>
                   </select>
