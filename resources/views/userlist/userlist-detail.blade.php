@@ -43,13 +43,15 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        User
-        <small>User Detail</small>
+
+        {{$projectname->name}}
+        <small>user List Detail</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-user"></i> User</a></li>
-        <li class="">Manage User</li>
-        <li class="active">{{ $MU->name }}</li>
+        <li><a href="#"><i class="fa fa-files-o"></i> Projects</a></li>
+        <li class="">{{$projectname->name}}</li>
+        <li class="active">{{$userlist->type}}</li>
+
       </ol>
     </section>
 
@@ -61,7 +63,9 @@
             <div class="box-header ui-sortable-handle" style="cursor: move;">
               <i class="fa fa-user"></i>
 
-              <h3 class="box-title">User Detail - {{ $MU->name }}</h3>
+
+              <h3 class="box-title">User List Detail - {{$projectname->name}} - {{$userlist->type}}</h3>
+
               <div class="box-tools">
                
               </div>
@@ -74,22 +78,28 @@
                   <div class="box-header with-border">
                     <i class="fa fa-list-alt"></i>
 
-                    <h3 class="box-title">{{ $MU->name }} <small class="label label-default"><i class="fa fa-clock-o"> Joined </i> {{$MU->created_at->format('d/m/Y')}}</small></h3>
+
+                    <h3 class="box-title">{{ $userlist->type }}
+                        <small class="label label-default"><i class="fa fa-clock-o"> Updated at </i> {{$userlist->updated_at->diffForHumans()}}</small>
+                    </h3>
+
                   </div>
                   <!-- /.box-header -->
                   <div class="box-body">
                     <dl class="dl-horizontal">
-                      <dt>Username</dt>
-                      <dd>{{ $MU->name }}</dd>
+
+
+                      <dt>Name</dt>
+                      <dd>{{ $userlist->name }}</dd>
                       <dt>Email</dt>
-                      <dd>{{ $MU->email }}</dd>
+                      <dd>{{ $userlist->email }}</dd>
                       <dt>Type</dt>
-                      <dd>{{ $MU->type }}</dd>
+                      <dd>{{ $userlist->type }}</dd>
+                      
                     </dl>
-                    <div class="tools">
-{{--                     <a href="{{ route('master.edit', $MU->id)}}" class="btn btn-xs btn-warning"> Edit </a> --}}
-                    <a href="{{ route('userlist.delete', $MU->id) }}" class="btn btn-xs btn-danger" onclick="return confirm('Are you sure to delete?')"> Delete </a>
-                    <a class="btn btn-xs btn-primary pull-right" href="{{ route('master.index')}}"> Back</a>
+                     <div class="tools">
+                    <a class="btn btn-xs btn-primary pull-right" href="{{ route('userlist.index',$userlists->idproject)}}"> Back</a>
+
                   </div>
                   </div>
                   <!-- /.box-body -->
