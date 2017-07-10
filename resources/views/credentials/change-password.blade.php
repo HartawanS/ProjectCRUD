@@ -42,8 +42,8 @@
               </ul>
           </div>
       </div>
-      <style type="text/css">
-        .profile-container{
+      <!-- <style type="text/css">
+      /*  .profile-container{
           position: relative;
           overflow: visible!important;
         }
@@ -70,19 +70,9 @@
         }
         .profile-edit ul li a{
           color: #666!important;
-        }
-      </style>
-      <script>
-        $('document').ready(function(){
-          $('.profile-edit-btn').click(function(){
-            if($('.profile-edit ul').hasClass('show')){
-              $('.profile-edit ul').removeClass('show');
-            }else{
-              $('.profile-edit ul').addClass('show');
-            }
-          })
-        })
-      </script>
+        }*/
+      </style> -->
+      
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
