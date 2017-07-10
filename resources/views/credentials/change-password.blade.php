@@ -62,7 +62,7 @@
       <ul class="sidebar-menu">
         <li class="header">MAIN NAVIGATION</li>
           <li><a href="{{ route('master.index') }}"><i class="fa fa-user"></i> <span>User</span></a></li>
-          <li><a href="{{ route('home') }}"><i class="fa fa-files-o"></i> <span>Projects</span></a></li>
+          <li><a href="{{ route('home') }}"><i class="fa fa-files-o"></i> <span>Project</span></a></li>
           <li><a href="{{ route('logout') }}"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
       </ul>
     </section>
@@ -75,13 +75,13 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Projects
-        <small>Manage Project</small>
+        {{$Master->name}}
+        <small>Change Password</small>
       </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-files-o"></i> Projects</a></li>
+{{--       <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-files-o"></i> Project</a></li>
         <li class="active">Manage Project</li>
-      </ol>
+      </ol> --}}
     </section>
 
     <!-- Main content -->
@@ -93,7 +93,7 @@
             <div class="box-header ui-sortable-handle" style="cursor: move;">
               <i class="fa fa-files-o"></i>
 
-              <h3 class="box-title">Change Password</h3>
+              <h3 class="box-title">Change Password - {{ $Master->name }}</h3>
               
             </div>
             <!-- /.box-header -->

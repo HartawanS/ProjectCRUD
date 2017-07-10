@@ -31,7 +31,7 @@
       <ul class="sidebar-menu">
         <li class="header">MAIN NAVIGATION</li>
           <li class="active"><a href="#"><i class="fa fa-user"></i> <span>User</span></a></li>
-          <li><a href="{{ route('home') }}"><i class="fa fa-files-o"></i> <span>Projects</span></a></li>
+          <li><a href="{{ route('home') }}"><i class="fa fa-files-o"></i> <span>Project</span></a></li>
           <li><a href="{{ route('logout') }}"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
       </ul>
     </section>
@@ -87,8 +87,8 @@
                       <dd>{{ $MU->type }}</dd>
                     </dl>
                     <div class="tools">
-                    <a href="{{ route('master.edit', $MU->id)}}" class="btn btn-xs btn-warning"> Edit </a>
-                    <a href="{{ route('master.delete', $MU->id) }}" class="btn btn-xs btn-danger" onclick="return confirm('Are you sure to delete?')"> Delete </a>
+                   {{--  <a href="{{ route('master.edit', $MU->id)}}" class="btn btn-xs btn-warning"> Edit </a>
+                    <a href="{{ route('master.delete', $MU->id) }}" class="btn btn-xs btn-danger" onclick="return confirm('Are you sure to delete?')"> Delete </a> --}}
                     <a class="btn btn-xs btn-primary pull-right" href="{{ route('master.index')}}"> Back</a>
                   </div>
                   </div>

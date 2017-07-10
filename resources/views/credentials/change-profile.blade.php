@@ -31,7 +31,7 @@
       <ul class="sidebar-menu">
         <li class="header">MAIN NAVIGATION</li>
           <li class="active"><a href="#"><i class="fa fa-user"></i> <span>User</span></a></li>
-          <li><a href="{{ route('home') }}"><i class="fa fa-files-o"></i> <span>Projects</span></a></li>
+          <li><a href="{{ route('home') }}"><i class="fa fa-files-o"></i> <span>Project</span></a></li>
           <li><a href="{{ route('logout') }}"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
       </ul>
     </section>
@@ -43,14 +43,14 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        User
-        <small>Edit User</small>
+        {{$Master->name}}
+        <small>Edit Profile</small>
       </h1>
-      <ol class="breadcrumb">
+{{--       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-user"></i> User</a></li>
         <li class="">Edit User</li>
         <li class="active">{{ $Master->name }}</li>
-      </ol>
+      </ol> --}}
     </section>
 
     <!-- Main content -->

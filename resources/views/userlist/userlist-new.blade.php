@@ -51,7 +51,7 @@
         <small>New User List</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-files-o"></i> Projects</a></li>
+        <li><a href="#"><i class="fa fa-files-o"></i> Project</a></li>
         <li class="">{{$projectname->name}}</li>
         <li class="active">New User List</li>
       </ol>

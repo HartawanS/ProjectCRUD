@@ -30,8 +30,12 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
         <li class="header">MAIN NAVIGATION</li>
-          <li class="active"><a href="#"><i class="fa fa-user"></i> <span>User</span></a></li>
-          <li><a href="{{ route('home') }}"><i class="fa fa-files-o"></i> <span>Projects</span></a></li>
+          <li class=""><a href="#"><i class="fa fa-user"></i> <span>User</span></a></li>
+          <li  class="active"><a href="{{ route('home') }}"><i class="fa fa-files-o"></i> <span>Project</span></a></li>
+          <ul class="treeview-menu menu-open" style="display: block;">
+                    <li ><a href="{{route('buildlist.index',$userlists->idproject)}}"><i class="fa fa-circle-o"></i> Build List</a></li>
+                    <li class="active"><a href="#"><i class="fa fa-circle-o"></i> User List</a></li>
+            </ul>
           <li><a href="{{ route('logout') }}"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
       </ul>
     </section>
@@ -48,7 +52,7 @@
         <small>user List Detail</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-files-o"></i> Projects</a></li>
+        <li><a href="#"><i class="fa fa-files-o"></i> Project</a></li>
         <li class="">{{$projectname->name}}</li>
         <li class="active">{{$userlist->type}}</li>
 

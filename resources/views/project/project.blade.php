@@ -32,7 +32,7 @@
       <ul class="sidebar-menu">
         <li class="header">MAIN NAVIGATION</li>
           <li><a href="{{ route('master.index') }}"><i class="fa fa-user"></i> <span>User</span></a></li>
-          <li class="active"><a href="#"><i class="fa fa-files-o"></i> <span>Projects</span></a></li>
+          <li class="active"><a href="#"><i class="fa fa-files-o"></i> <span>Project</span></a></li>
           <li><a href="{{ route('logout') }}"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
       </ul>
     </section>
@@ -44,11 +44,11 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Projects
+        Project
         <small>Manage Project</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-files-o"></i> Projects</a></li>
+        <li><a href="#"><i class="fa fa-files-o"></i> Project</a></li>
         <li class="active">Manage Project</li>
       </ol>
     </section>
@@ -61,7 +61,7 @@
             <div class="box-header ui-sortable-handle" style="cursor: move;">
               <i class="fa fa-files-o"></i>
 
-              <h3 class="box-title">Manage Projects</h3>
+              <h3 class="box-title">Manage Project</h3>
               <div class="box-tools">
                 <div class="pull-right">
                   <a class="btn btn-success" href="{{ route('project.add') }}"><i class="fa fa-plus-circle"></i> <span>New Project</span></a>
