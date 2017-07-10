@@ -99,12 +99,6 @@
               <div class="col-md-6">
                 <h2>Add Users :</h2>
               </div>
-              <div class="col-md-6" style="margin-bottom:5px;">
-                <div class="pull-right">
-                  <a  class=" btn btn-primary" href="{{ route('userlist.index',$id)}}"><i class="fa fa-angle-double-left"></i><span> Back</span></a>
-                  <a type="submit" class=" btn btn-success" id="create"> <i class="fa fa-plus-circle"></i><span> Ok</span></a>
-                </div>
-              </div>
               <div class="col-md-12"> 
               <table id="sortable" class="table table-bordered table-hover table-striped">
                 <thead>
@@ -118,7 +112,7 @@
                 <tbody>
                   @foreach($Master as $MU)
                     <tr>
-                      <td><input type="checkbox" name="iduser" value="{{$MU->id}}"></td>
+                      <td><input type="checkbox" name="iduser[]" value="{{$MU->id}}"></td>
                       <td>{{$MU->name}}</td>
                       <td>{{$MU->email}}</td>
                       <td>{{$MU->type}}</td>
@@ -127,6 +121,10 @@
                   @endforeach
                 </tbody>
               </table>
+              <div class="pull-right">
+                  <a  class=" btn btn-primary" href="{{ route('userlist.index',$id)}}"><i class="fa fa-angle-double-left"></i><span> Back</span></a>
+                  <button type="submit" class=" btn btn-success" id="create">OK</button>
+                </div>
               </div>
               </div>
              

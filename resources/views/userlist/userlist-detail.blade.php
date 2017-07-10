@@ -63,12 +63,12 @@
     <section class="content-header">
       <h1>
         {{$projectname->name}}
-        <small>Build List Detail</small>
+        <small>user List Detail</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-files-o"></i> Projects</a></li>
         <li class="">{{$projectname->name}}</li>
-        <li class="active">{{$buildlist->type}}</li>
+        <li class="active">{{$userlist->type}}</li>
       </ol>
     </section>
 
@@ -80,7 +80,7 @@
             <div class="box-header ui-sortable-handle" style="cursor: move;">
               <i class="fa fa-files-o"></i>
 
-              <h3 class="box-title">Build List Detail - {{$projectname->name}} - {{$buildlist->type}}</h3>
+              <h3 class="box-title">User List Detail - {{$projectname->name}} - {{$userlist->type}}</h3>
               <div class="box-tools">
               
               </div>
@@ -93,27 +93,23 @@
                   <div class="box-header with-border">
                     <i class="fa fa-list-alt"></i>
 
-                    <h3 class="box-title">{{ $buildlist->type }}
-                        <small class="label label-default"><i class="fa fa-clock-o"> Updated at </i> {{$buildlist->updated_at->diffForHumans()}}</small>
+                    <h3 class="box-title">{{ $userlist->type }}
+                        <small class="label label-default"><i class="fa fa-clock-o"> Updated at </i> {{$userlist->updated_at->diffForHumans()}}</small>
                     </h3>
                   </div>
                   <!-- /.box-header -->
                   <div class="box-body">
                     <dl class="dl-horizontal">
+                      <dt>Name</dt>
+                      <dd>{{ $userlist->name }}</dd>
+                      <dt>Email</dt>
+                      <dd>{{ $userlist->email }}</dd>
                       <dt>Type</dt>
-                      <dd>{{ $buildlist->type }}</dd>
-                      <dt>Version</dt>
-                      <dd>{{ $buildlist->version }}</dd>
-                      <dt>Link File APK</dt>
-                      <dd>{{ $buildlist->link_file_APK }}</dd>
-                      <dt>Note</dt>
-                      <dd>{{ $buildlist->note }}</dd>
+                      <dd>{{ $userlist->type }}</dd>
                       
                     </dl>
                      <div class="tools">
-                   <a href="{{ route('buildlist.edit', $buildlist->id) }}" class="btn btn-xs btn-warning"> Edit </a>
-                    <a href="{{ route('buildlist.delete', $buildlist->id) }}" class="btn btn-xs btn-danger" onclick="return confirm('Are you sure to delete?')"> Delete </a>
-                    <a class="btn btn-xs btn-primary pull-right" href="{{ route('buildlist.index',$buildlist->idproject)}}"> Back</a>
+                    <a class="btn btn-xs btn-primary pull-right" href="{{ route('userlist.index',$userlists->idproject)}}"> Back</a>
                   </div>
                   </div>
                   <!-- /.box-body -->

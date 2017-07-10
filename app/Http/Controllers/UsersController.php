@@ -30,38 +30,38 @@ class UsersController extends Controller
 
     public function detail($id)
     {
-        $userlist = Users::find($id);
-        $projectname = $this->getProjectName($userlist->idproject);
+        $userlists = Users::find($id);
+        $userlist = User::find($userlists->iduser);
 
-         return view('userlist.userlist-detail', ['userlist' => $userlist,'projectname'=>$projectname]);
+        $projectname = $this->getProjectName($userlists->idproject);
+
+         return view('userlist.userlist-detail', ['id'=> $id,'userlist' => $userlist,'projectname'=>$projectname,'userlists' => $userlists]);
     }
 
     public function add($id)
     {
-        // dd($id);
         $userlists = Users::where('idproject','=',$id)->get();
         $projectname = $this->getProjectName($id);
-        $Master = User::orderBy('created_at','desc')->get();
-        // dd($Master);
+        $idUserLists = array_pluck($userlists, 'iduser');
+        $Master = User::whereNotIn('id', $idUserLists)->get();
     	return view('userlist.userlist-new', ['userlists' => $userlists, 'id'=>$id, 'projectname'=>$projectname, 'Master' => $Master]);
     }
 
     public function insert($id, Request $request){
-    	// dd($request->iduser);
-        //validate post data
+
         $this->validate($request, [
         	'idproject'=>'required',
-            'iduser' => 'required|unique:userlist'
+            'iduser' => 'required'
         ]);
         
-        //get post data
-        $postData = $request->all();
-        
-        //insert post data
-        Users::create($postData);
-        //store status message
-        // Session::flash('success_msg', 'Post added successfully!');
-
+        foreach($request->input('iduser') as $value){
+            $idproject = $request['idproject'];
+            $iduser = $value;
+            $user = new Users();
+            $user->idproject = $idproject;
+            $user->iduser = $iduser;
+            $user->save();
+        }
         return redirect()->route('userlist.index',['id' => $request->get('idproject')]);
     }
     
