@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\User;
+
 class ChangeController extends Controller
 {
     public function change(){
@@ -16,21 +17,27 @@ class ChangeController extends Controller
     }
 
     public function update($id, Request $request){
+    	$data = User::find($id);
+    	$input = $request->all();
+    	// dd(Hash::check());
+        if( ! Hash::check( $input['oldpassword'] , $data->password) )
+		{
+			dd('Return error with current passowrd is not match.');
+    		return redirect()->route('changepassword');
+		}
+
     	//validate post data
         $this->validate($request, [
-            'name' => 'required',
-            'email' => 'bail|required|unique:masteruser'.($id ? ",id,$id" : ''),
-            'password' => 'required'
+            'oldpassword' => 'required',
+            'newpassword' => 'required|different:oldpassword|confirmed',
+            // 'confpassword' => 'required|same:newpassword'
         ]);
-        
-        //get post data
-        $postData = $request->all();
-        
-        //update post data
-        User::find($id)->update($postData);
-        
-        //store status message
-        // Session::flash('success_msg', 'Post updated successfully!');
+        // dd($request['newpassword']);
+        // User::up([
+        //     'password' => bcrypt($request['newpassword'])
+        //     ]);
+        $data->password = bcrypt($request['newpassword']);
+        $data->save();
 
         return redirect()->route('master.index');
     }

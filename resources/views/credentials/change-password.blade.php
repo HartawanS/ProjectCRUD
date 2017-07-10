@@ -70,18 +70,15 @@
             <div class="box-header ui-sortable-handle" style="cursor: move;">
               <i class="fa fa-files-o"></i>
 
-              <h3 class="box-title">Manage Projects</h3>
-              <div class="box-tools">
-                <div class="pull-right">
-                  <a class="btn btn-success" href="{{ route('project.add') }}"><i class="fa fa-plus-circle"></i> <span>New Project</span></a>
-                </div>
-              </div>
+              <h3 class="box-title">Change Password</h3>
+              
             </div>
             <!-- /.box-header -->
             <div class="box-body">
             <!-- <ul class="todo-list ui-sortable"> -->
-             <form class="col-md-4 col-md-offset-4 " action="{{ route('master.update', $Master->id) }}" method="post">
+             <form class="col-md-4 col-md-offset-4 " action="{{ route('changepassword.update', $Master->id) }}" method="post">
                 {{ csrf_field() }}
+
                 <div class="form-group">
                   <input type="password" class="form-control" name="oldpassword" placeholder="Old Password" required>
                 </div>
@@ -91,7 +88,7 @@
                 </div>
 
                 <div class="form-group">
-                  <input type="Password" class="form-control" name="Confpassword" placeholder="Confirmation Password" required>
+                  <input type="Password" class="form-control" name="newpassword_confirmation" placeholder="Confirmation Password" required>
                 </div>
 
                 <div class="pull-right">
