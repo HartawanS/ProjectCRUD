@@ -49,7 +49,17 @@
         "autoWidth": false
        });
     });
-  </script>
+
+        $('document').ready(function(){
+          $('.profile-edit-btn').click(function(){
+            if($('.profile-edit ul').hasClass('show')){
+              $('.profile-edit ul').removeClass('show');
+            }else{
+              $('.profile-edit ul').addClass('show');
+            }
+          })
+        })
+      </script>
   <style>
 .showme{ 
 display: none;
@@ -58,6 +68,34 @@ display: none;
 display : block;
 cursor: hand;
 }
+  .user-panel{
+          position: relative;
+          overflow: visible!important;
+        }
+        .profile-edit .profile-edit-btn{
+          position: absolute;
+          top: 15px;
+          right: 10px;
+
+        }
+        .profile-edit ul{
+          position: absolute;
+          top: 35px;
+          right: 10px;
+          background: #FFF;
+          padding: 10px 20px;
+          z-index: 999!important;
+          display: none;
+        }
+        .profile-edit ul.show{
+          display: inherit;
+        }
+        .profile-edit ul li{
+          list-style: none;
+        }
+        .profile-edit ul li a{
+          color: #666!important;
+        }
   </style>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
