@@ -34,7 +34,7 @@
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
         <div class="profile-edit">
-              <a href="#" class="profile-edit-btn"><i class="fa fa-pencil"></i></a>
+              <a href="#" class="profile-edit-btn"><i class="fa fa-gear"></i></a>
               <ul>
                 <li><a href="{{ route('changepassword') }}">Edit Password</a></li>
                 <li><a href="#">Edit Profile</a></li>

@@ -33,6 +33,13 @@
           <p>{{ Auth::user()->name }}</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
+         <div class="profile-edit">
+              <a href="#" class="profile-edit-btn"><i class="fa fa-gear"></i></a>
+              <ul>
+                <li><a href="{{ route('changepassword') }}">Edit Password</a></li>
+                <li><a href="#">Edit Profile</a></li>
+              </ul>
+          </div>
       </div>
 
       <!-- /.search form -->
@@ -45,7 +52,6 @@
                     <li class="active"><a href="#"><i class="fa fa-circle-o"></i> Build List</a></li>
                     <li><a href="{{route('userlist.index',$id)}}"><i class="fa fa-circle-o"></i> User List</a></li>
             </ul>
-            <li><a href="{{'#' }}"><i class="fa fa-gears"></i> <span>Change Password</span></a></li>
              <li><a href="{{ route('logout') }}"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
       </ul>
     </section>
