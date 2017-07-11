@@ -31,11 +31,7 @@
       <ul class="sidebar-menu">
         <li class="header">MAIN NAVIGATION</li>
           <li class=""><a href="#"><i class="fa fa-user"></i> <span>User</span></a></li>
-          <li  class="active"><a href="{{ route('home') }}"><i class="fa fa-files-o"></i> <span>Project</span></a></li>
-          <ul class="treeview-menu menu-open" style="display: block;">
-                    <li ><a href="{{route('buildlist.index',$userlists->idproject)}}"><i class="fa fa-circle-o"></i> Build List</a></li>
-                    <li class="active"><a href="#"><i class="fa fa-circle-o"></i> User List</a></li>
-            </ul>
+          <li  class="active"><a href="{{ route('home') }}"><i class="fa fa-files-o"></i><span>Project</span></a></li>
           <li><a href="{{ route('logout') }}"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
       </ul>
     </section>
@@ -63,7 +59,24 @@
     <section class="content">
       <!-- Small boxes (Stat box) -->
       <div class="row">
-        <div class="box box-primary">
+
+<div class="nav-tabs-custom">
+            <ul class="nav nav-tabs">
+              <li><a href="{{route('buildlist.index',$id)}}">Build List</a></li>
+              <!--data-toggle="tab"-->
+              <li class="active"><a href="#tab_2" data-toggle="tab">User List</a></li>
+
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane " id="tab_1">
+
+              </div>
+              <!-- /.tab-pane -->
+              <div class="tab-pane active" id="tab_2">
+
+
+
+
             <div class="box-header ui-sortable-handle" style="cursor: move;">
               <i class="fa fa-user"></i>
 
@@ -115,8 +128,12 @@
             <!-- /.box-body -->
 
 
+              </div>
+              
+            </div>
+            <!-- /.tab-content -->
           </div>
-        
+       
         <!-- ./col -->
       </div>
 

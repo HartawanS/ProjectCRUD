@@ -32,10 +32,6 @@
             <li class="header">MAIN NAVIGATION</li>
              <li class=""><a href="{{ route('master.index') }}"> <i class="fa fa-user"></i> <span>User</span></a></li>
              <li class="active"><a href="{{ route('home') }}"><i class="fa fa-files-o"></i><span>Project</span></a></li>
-             <ul class="treeview-menu menu-open" style="display: block;">
-                    <li class="active"><a href="#"><i class="fa fa-circle-o"></i> Build List</a></li>
-                    <li><a href="{{route('userlist.index',$projectname->id)}}"><i class="fa fa-circle-o"></i> User List</a></li>
-            </ul>
              <li><a href="{{ route('logout') }}"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
       </ul>
     </section>
@@ -61,8 +57,16 @@
     <section class="content">
         <!-- Small boxes (Stat box) -->
       <div class="row">
-        <div class="box box-primary">
-            <div class="box-header ui-sortable-handle" style="cursor: move;">
+        <div class="nav-tabs-custom">
+            <ul class="nav nav-tabs">
+              <li class="active"><a href="#tab_1" data-toggle="tab">Build List</a></li>
+              <li><a href="{{route('userlist.index',$id)}}" >User List</a></li>
+              <!--data-toggle="tab"-->
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane active" id="tab_1">
+
+                  <div class="box-header ui-sortable-handle" style="cursor: move;">
               <i class="fa fa-files-o"></i>
 
               <h3 class="box-title">{{$projectname->name}} - New Build List</h3>
@@ -104,14 +108,19 @@
               </form>
 
             </div>
-            <!-- /.box-body -->
 
+              </div>
+              <!-- /.tab-pane -->
+              <div class="tab-pane" id="tab_2">
 
+              </div>
+              
+            </div>
+            <!-- /.tab-content -->
           </div>
         
         <!-- ./col -->
       </div>
-
 
     </section>
     <!-- /.content -->

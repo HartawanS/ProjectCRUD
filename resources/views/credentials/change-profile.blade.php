@@ -30,7 +30,7 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
         <li class="header">MAIN NAVIGATION</li>
-          <li class="active"><a href="#"><i class="fa fa-user"></i> <span>User</span></a></li>
+          <li><a href="{{ route('master.index') }}"><i class="fa fa-user"></i> <span>User</span></a></li>
           <li><a href="{{ route('home') }}"><i class="fa fa-files-o"></i> <span>Project</span></a></li>
           <li><a href="{{ route('logout') }}"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
       </ul>
@@ -93,8 +93,8 @@
 
 
                 <div class="pull-right">
-                <a  class=" btn btn-primary" href="{{route('master.index')/*!! URL::previous() !!*/}}">Back </a>
-                <button type="submit"  class=" btn btn-success" id="create"> Ok
+                {{-- <a  class=" btn btn-primary" href="{{route('master.index')/*!! URL::previous() !!*/}}">Back </a> --}}
+                <button type="submit"  class=" btn btn-success" id="create">  Save Change
                 </div>
               </form>
 

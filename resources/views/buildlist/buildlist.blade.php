@@ -33,10 +33,6 @@
         <li class="header">MAIN NAVIGATION</li>
              <li class=""><a href="{{ route('master.index') }}"> <i class="fa fa-user"></i> <span>User</span></a></li>
              <li class="active"><a href="{{ route('home') }}"><i class="fa fa-files-o"></i><span>Project</span></a></li>
-             <ul class="treeview-menu menu-open" style="display: block;">
-                    <li class="active"><a href="#"><i class="fa fa-circle-o"></i> Build List</a></li>
-                    <li><a href="{{route('userlist.index',$id)}}"><i class="fa fa-circle-o"></i> User List</a></li>
-            </ul>
              <li><a href="{{ route('logout') }}"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
       </ul>
     </section>
@@ -62,55 +58,72 @@
     <section class="content">
         <!-- Small boxes (Stat box) -->
       <div class="row">
-        <div class="box box-primary">
-            <div class="box-header ui-sortable-handle" style="cursor: move;">
-              <i class="fa fa-files-o"></i>
+      <div class="nav-tabs-custom">
+            <ul class="nav nav-tabs">
+              <li class="active"><a href="#tab_1" data-toggle="tab">Build List</a></li>
+              <li><a href="{{route('userlist.index',$id)}}" >User List</a></li>
+              <!--data-toggle="tab"-->
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane active" id="tab_1">
 
-              <h3 class="box-title">Manage Build List</h3>
-              <div class="box-tools">
-              <a class="btn btn-primary" href="{{ route('home') }}"><i class="fa fa-angle-double-left"></i><span> Back</span></a>
-               <a class="btn btn-success" href="{{ route('buildlist.add',$id) }}"><i class="fa fa-plus-circle"></i> <span>New build list</span></a>
+                  <div class="box-header ui-sortable-handle" style="cursor: move;">
+                    <i class="fa fa-files-o"></i>
+
+                    <h3 class="box-title">Manage Build List</h3>
+                    <div class="box-tools">
+{{--                       <a class="btn btn-primary" href="{{ route('home') }}"><i class="fa fa-angle-double-left"></i><span> Back</span></a> --}}
+                      <a class="btn btn-success" href="{{ route('buildlist.add',$id) }}"><i class="fa fa-plus-circle"></i> <span>New build list</span></a>
+                    </div>
+                  </div>
+
+
+                  <div class="box-body"> 
+                    <table id="sortable" class="table table-bordered table-hover table-striped">
+                      <thead>
+                        <tr>
+                          <th width="10%" style="text-align: center">No</th>
+                          <th>Type</th>
+                          <th>Version</th>
+                          <th>Note</th>
+                          <th>Link APK</th>
+                          <th width="30%">Join At</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <?php $i = 1;?>
+                        @foreach($buildlists as $BL)
+                        <tr onclick="location.href='{{route('buildlist.detail', $BL->id)}}'" style="cursor: hand;">
+                          <td align="center">{{$i++}}</td>
+                          <td>{{$BL->type}}</td>
+                          <td>{{$BL->version}}</td>
+                          <td>{{$BL->note}}</td>
+                          <td>{{$BL->link_file_APK}}</td>
+                          <td>
+                            <div class="col-md-6">
+                              {{$BL->created_at->toFormattedDateString()}}
+                            </div>
+                            <div class="col-md-6 pull-right" style="margin: 5px 0px;">
+                              <a href="{{ route('buildlist.edit', $BL->id)}}" class="btn btn-xs btn-warning"><i class="fa fa-pencil"></i> <span> Edit </span></a>
+                              <a href="{{ route('buildlist.delete', $BL->id) }}" class="btn btn-xs btn-danger" onclick="return confirm('Are you sure to delete?')"><i class="fa fa-trash"></i> <span> Delete </span></a>
+                            </div>
+                          </td>
+                        </tr>
+                        @endforeach
+                      </tbody>
+                    </table>
+                  </div>
+
               </div>
+              <!-- /.tab-pane -->
+              <div class="tab-pane" id="tab_2">
+               
+              </div>
+              
             </div>
-            
-            
-            <div class="box-body"> 
-              <table id="sortable" class="table table-bordered table-hover table-striped">
-                <thead>
-                  <tr>
-                    <th width="10%" style="text-align: center">No</th>
-                    <th>Type</th>
-                    <th>Version</th>
-                    <th>Note</th>
-                    <th>Link APK</th>
-                    <th width="30%">Join At</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php $i = 1;?>
-                  @foreach($buildlists as $BL)
-                    <tr onclick="location.href='{{route('buildlist.detail', $BL->id)}}'" style="cursor: hand;">
-                      <td align="center">{{$i++}}</td>
-                      <td>{{$BL->type}}</td>
-                      <td>{{$BL->version}}</td>
-                      <td>{{$BL->note}}</td>
-                      <td>{{$BL->link_file_APK}}</td>
-                      <td>
-                      <div class="col-md-6">
-                      {{$BL->created_at->toFormattedDateString()}}
-                      </div>
-                      <div class="col-md-6 pull-right" style="margin: 5px 0px;">
-                          <a href="{{ route('buildlist.edit', $BL->id)}}" class="btn btn-xs btn-warning"><i class="fa fa-pencil"></i> <span> Edit </span></a>
-                          <a href="{{ route('buildlist.delete', $BL->id) }}" class="btn btn-xs btn-danger" onclick="return confirm('Are you sure to delete?')"><i class="fa fa-trash"></i> <span> Delete </span></a>
-                      </div>
-                      </td>
-                    </tr>
-                  @endforeach
-                </tbody>
-              </table>
-            </div>
-
+            <!-- /.tab-content -->
           </div>
+
         
         <!-- ./col -->
       </div>

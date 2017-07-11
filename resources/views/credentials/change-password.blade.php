@@ -26,36 +26,7 @@
     <section class="sidebar">
       <!-- Sidebar user panel -->
 @include('layouts.user_panel')
-      <!-- <style type="text/css">
-      /*  .profile-container{
-          position: relative;
-          overflow: visible!important;
-        }
-        .profile-edit .profile-edit-btn{
-          position: absolute;
-          top: 15px;
-          right: 10px;
-
-        }
-        .profile-edit ul{
-          position: absolute;
-          top: 35px;
-          right: 10px;
-          background: #FFF;
-          padding: 10px 20px;
-          z-index: 999;
-          display: none;
-        }
-        .profile-edit ul.show{
-          display: inherit;
-        }
-        .profile-edit ul li{
-          list-style: none;
-        }
-        .profile-edit ul li a{
-          color: #666!important;
-        }*/
-      </style> -->
+   
       
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
@@ -115,7 +86,7 @@
                 </div>
 
                 <div class="pull-right">
-                <button type="submit"  class=" btn btn-success" id="create"> Change
+                <button type="submit"  class=" btn btn-success" id="create"> Save Change
                 </div>
               </form>
 
@@ -130,14 +101,7 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-{{--   <footer class="main-footer">
-    <div class="pull-right hidden-xs">
-      <b>Version</b> 2.3.8
-    </div>
-    <strong>Copyright &copy; 2014-2016 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
-    reserved.
-  </footer>
- --}}
+
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
    
