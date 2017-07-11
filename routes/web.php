@@ -43,25 +43,23 @@ Route::group(['middleware' => 'auth'], function() {
 	Route::get('/master/delete/{id}', 'MasterUserController@delete')->name('master.delete');
 
 	
-	// Route::group(['middleware' => 'verified'], function() {
 
-		Route::get('/buildlist/{id}', 'BuildController@index')->name('buildlist.index');
-		Route::get('/buildlist/details/{id}', 'BuildController@detail')->name('buildlist.detail');
-		Route::get('/buildlist/add/{id}', 'BuildController@add')->name('buildlist.add');
-		Route::post('/buildlist/insert/{id}', 'BuildController@insert')->name('buildlist.insert');
-		Route::get('/buildlist/edit/{id}', 'BuildController@edit')->name('buildlist.edit');
-		Route::post('/buildlist/update/{id}', 'BuildController@update')->name('buildlist.update');
-		Route::get('/buildlist/delete/{id}', 'BuildController@delete')->name('buildlist.delete');
+	Route::get('/buildlist/{id}', 'BuildController@index')->name('buildlist.index')->middleware('verified:'.request()->segment(2) );
+	Route::get('/buildlist/details/{id}', 'BuildController@detail')->name('buildlist.detail')->middleware('verified:'.request()->segment(3) );
+	Route::get('/buildlist/add/{id}', 'BuildController@add')->name('buildlist.add')->middleware('verified:'.request()->segment(3) );
+	Route::post('/buildlist/insert/{id}', 'BuildController@insert')->name('buildlist.insert')->middleware('verified:'.request()->segment(3) );
+	Route::get('/buildlist/edit/{id}', 'BuildController@edit')->name('buildlist.edit')->middleware('verified:'.request()->segment(3) );
+	Route::post('/buildlist/update/{id}', 'BuildController@update')->name('buildlist.update')->middleware('verified:'.request()->segment(3) );
+	Route::get('/buildlist/delete/{id}', 'BuildController@delete')->name('buildlist.delete');
 
-		Route::get('/userlist/{id}', 'UsersController@index')->name('userlist.index');
-		Route::get('/userlist/details/{id}', 'UsersController@detail')->name('userlist.detail');
-		Route::get('/userlist/add/{id}', 'UsersController@add')->name('userlist.add');
-		Route::post('/userlist/insert/{id}', 'UsersController@insert')->name('userlist.insert');
-		Route::get('/userlist/edit/{id}', 'UsersController@edit')->name('userlist.edit');
-		Route::post('/userlist/update/{id}', 'UsersController@update')->name('userlist.update');
-		Route::get('/userlist/delete/{id}', 'UsersController@delete')->name('userlist.delete');
+	Route::get('/userlist/{id}', 'UsersController@index')->name('userlist.index')->middleware('verified:'.request()->segment(2) );
+	Route::get('/userlist/details/{id}', 'UsersController@detail')->name('userlist.detail');
+	Route::get('/userlist/add/{id}', 'UsersController@add')->name('userlist.add')->middleware('verified:'.request()->segment(3) );
+	Route::post('/userlist/insert/{id}', 'UsersController@insert')->name('userlist.insert')->middleware('verified:'.request()->segment(3) );
+	Route::get('/userlist/edit/{id}', 'UsersController@edit')->name('userlist.edit')->middleware('verified:'.request()->segment(3) );
+	Route::post('/userlist/update/{id}', 'UsersController@update')->name('userlist.update')->middleware('verified:'.request()->segment(3) );
+	Route::get('/userlist/delete/{id}', 'UsersController@delete')->name('userlist.delete');
 
-	// });
 	Route::get('/changepassword', 'ChangeController@change')->name('changepassword');
 	Route::post('/changepassword/{id}', 'ChangeController@update')->name('changepassword.update');
 

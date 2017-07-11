@@ -14,14 +14,20 @@ class ProjectVerify
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next, $id)
+    public function handle($request, Closure $next, $segment)
     {
-    	if ( $Master->id == $id )
-        {
-            return $next($request);
+        $iduser = auth()->user()->id;
+        if(restrict($iduser, $segment) == false){
+            return redirect()->route('home');
         }
+        return $next($request);
+        // dd($segment);
+    	// if ( $Master->id == $id )
+     //    {
+     //        return $next($request);
+     //    }
 
-        return redirect('home');
+     //    return redirect('home');
         // if($id == $request->id)
         // {
         //     return $next($request);

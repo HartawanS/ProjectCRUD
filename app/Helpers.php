@@ -6,4 +6,12 @@
 		}
 		return false;
 	}
+
+	function restInPiece($iduser){
+		$result = \DB::table('userlist')->where('id',$iduser)->count();
+		if($result > 0){
+			return true;
+		}
+		return false;
+	}
 ?>
