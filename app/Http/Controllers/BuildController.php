@@ -12,6 +12,12 @@ class BuildController extends Controller
 	  public function index($id){
 	  	// dd($id);
         //fetch post data
+        $iduser = auth()->user()->id;
+
+        if(restrict($iduser, $id) == false){
+            return redirect()->route('home');
+        }
+
         $buildlists = Build::where('idproject','=',$id)->get();
         $projectname =  $this->getProjectName($id);
         //pass posts data to view and load list view
@@ -27,6 +33,10 @@ class BuildController extends Controller
 
     public function detail($id)
     {
+        $iduser = auth()->user()->id;
+        if(restrict($iduser, $id) == false){
+            return redirect()->route('home');
+        }
         $buildlist = Build::find($id);
         $projectname = $this->getProjectName($buildlist->idproject);
 
@@ -35,6 +45,10 @@ class BuildController extends Controller
 
     public function add($id)
     {
+        $iduser = auth()->user()->id;
+        if(restrict($iduser, $id) == false){
+            return redirect()->route('home');
+        }
         // dd($id);
         $buildlists = Build::where('idproject','=',$id)->get();
         $projectname = $this->getProjectName($id);
@@ -43,7 +57,10 @@ class BuildController extends Controller
     }
 
     public function insert($id, Request $request){
-
+        $iduser = auth()->user()->id;
+        if(restrict($iduser, $id) == false){
+            return redirect()->route('home');
+        }
         //validate post data
         $this->validate($request, [
         	'idproject'=>'required',
@@ -73,6 +90,10 @@ class BuildController extends Controller
     }
     
     public function edit($id){
+        $iduser = auth()->user()->id;
+        if(restrict($iduser, $id) == false){
+            return redirect()->route('home');
+        }
         //get post data by id
         $buildlist = Build::find($id);
         $projectname = $this->getProjectName($buildlist->idproject);
@@ -82,6 +103,10 @@ class BuildController extends Controller
     }
     
     public function update($id, Request $request){
+        $iduser = auth()->user()->id;
+        if(restrict($iduser, $id) == false){
+            return redirect()->route('home');
+        }
         //validate post data
         $this->validate($request, [
         	'idproject'=>'required',
@@ -103,6 +128,10 @@ class BuildController extends Controller
     }
     
     public function delete($id){
+        // $iduser = auth()->user()->id;
+        // if(restrict($iduser, $id) == false){
+        //     return redirect()->route('home');
+        // }
         //update post data
         $buildlist = Build::find($id);
         $idproject = $buildlist->idproject;

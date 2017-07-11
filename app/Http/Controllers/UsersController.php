@@ -11,6 +11,10 @@ class UsersController extends Controller
 	  public function index($id){
 	  	// dd($id);
         //fetch post data
+        $iduser = auth()->user()->id;
+        if(restrict($iduser, $id) == false){
+            return redirect()->route('home');
+        }
         $userlists = User::join('userlist','users.id','=','iduser')
                     ->where('idproject',$id)
                     ->get();
@@ -30,6 +34,10 @@ class UsersController extends Controller
 
     public function detail($id)
     {
+        // $iduser = auth()->user()->id;
+        // if(restrict($iduser, $id) == false){
+        //     return redirect()->route('home');
+        // }
         $userlists = Users::find($id);
         $userlist = User::find($userlists->iduser);
 
@@ -40,6 +48,10 @@ class UsersController extends Controller
 
     public function add($id)
     {
+        $iduser = auth()->user()->id;
+        if(restrict($iduser, $id) == false){
+            return redirect()->route('home');
+        }
         $userlists = Users::where('idproject','=',$id)->get();
         $projectname = $this->getProjectName($id);
         $idUserLists = array_pluck($userlists, 'iduser');
@@ -48,6 +60,10 @@ class UsersController extends Controller
     }
 
     public function insert($id, Request $request){
+        $iduser = auth()->user()->id;
+        if(restrict($iduser, $id) == false){
+            return redirect()->route('home');
+        }
 
         $this->validate($request, [
         	'idproject'=>'required',
@@ -96,6 +112,10 @@ class UsersController extends Controller
     // }
     
     public function delete($id){
+        // $iduser = auth()->user()->id;
+        // if(restrict($iduser, $id) == false){
+        //     return redirect()->route('home');
+        // }
         //update post data
         $userlist = Users::find($id);
         $idproject = $userlist->idproject;

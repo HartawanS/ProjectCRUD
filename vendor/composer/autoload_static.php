@@ -16,6 +16,7 @@ class ComposerStaticInit6cc2996d664c3efd0d8a3fd4c389c884
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
         'e7223560d890eab89cda23685e711e2c' => __DIR__ . '/..' . '/psy/psysh/src/Psy/functions.php',
         'a1944ad99b2c9dde1f8975eab6b29a40' => __DIR__ . '/..' . '/acacha/helpers/src/helpers.php',
+        'e37a82cda3f0e00bc6442ff1e5b2002e' => __DIR__ . '/../..' . '/App/Helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -369,12 +370,15 @@ class ComposerStaticInit6cc2996d664c3efd0d8a3fd4c389c884
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\BuildController' => __DIR__ . '/../..' . '/app/Http/Controllers/BuildController.php',
+        'App\\Http\\Controllers\\ChangeController' => __DIR__ . '/../..' . '/app/Http/Controllers/ChangeController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\MasterUserController' => __DIR__ . '/../..' . '/app/Http/Controllers/masterUserController.php',
         'App\\Http\\Controllers\\ProjectListController' => __DIR__ . '/../..' . '/app/Http/Controllers/projectListController.php',
+        'App\\Http\\Controllers\\UsersController' => __DIR__ . '/../..' . '/app/Http/Controllers/UsersController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
+        'App\\Http\\Middleware\\ProjectVerify' => __DIR__ . '/../..' . '/app/Http/Middleware/ProjectVerify.php',
         'App\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
@@ -386,6 +390,7 @@ class ComposerStaticInit6cc2996d664c3efd0d8a3fd4c389c884
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
+        'App\\Users' => __DIR__ . '/../..' . '/app/Users.php',
         'BuildTableSeeder' => __DIR__ . '/../..' . '/database/seeds/BuildTableSeeder.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonInterval' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonInterval.php',

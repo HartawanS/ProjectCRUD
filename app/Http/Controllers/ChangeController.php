@@ -22,7 +22,6 @@ class ChangeController extends Controller
     	// dd(Hash::check());
         if( ! Hash::check( $input['oldpassword'] , $data->password) )
 		{
-			dd('Return error with current passowrd is not match.');
     		return redirect()->route('changepassword');
 		}
 
