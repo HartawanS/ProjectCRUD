@@ -103,7 +103,7 @@
                 </div>
                 <div class="pull-right">
                 <a  class=" btn btn-primary" href="{{ route('buildlist.index',$buildlist->idproject)}}">Back </a>
-                <button type="submit" class=" btn btn-success" id="create">Ok</button>
+                <button type="submit" class=" btn btn-success" id="create">Save</button>
                 </div>
 
               </form>

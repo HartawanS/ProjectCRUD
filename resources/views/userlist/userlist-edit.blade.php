@@ -108,7 +108,7 @@
 
                 <div class="pull-right">
                 <a  class=" btn btn-primary" href="{{ route('master.index')}}">Back </a>
-                <button type="submit"  class=" btn btn-success" id="create"> Ok
+                <button type="submit"  class=" btn btn-success" id="create"> Save
                 </div>
               </form>
 
