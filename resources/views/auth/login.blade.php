@@ -57,8 +57,10 @@
           <div class="row">
         <div class="col-xs-8">
         
-              <input type="checkbox" {{ old('remember') ? 'checked' : '' }}> Remember Me
-
+              {{-- <input type="checkbox" {{ old('remember') ? 'checked' : '' }}> Remember Me
+ --}}
+              <a href="{{ route('password.request') }}">I forgot my password</a><br>
+              <a href="{{ route('register') }}" class="text-center">Register a new membership</a>
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
@@ -68,10 +70,10 @@
       </div>
               </form>
             </div>
-            <div class="box-footer clearfix">
+{{--             <div class="box-footer clearfix">
               <a href="{{ route('password.request') }}">I forgot my password</a><br>
               <a href="{{ route('register') }}" class="text-center">Register a new membership</a>
-            </div>
+            </div> --}}
   </div>
   </div>
   {{-- Login Box Ends --}}
