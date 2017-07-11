@@ -28,13 +28,16 @@ class HomeController extends Controller
 
     public function error($id)
     {
-        switch ($err='503') {
-            case '503':
+        switch ($id) {
+            case 404:
+                return view('error.error-not-found');
+                break;
+            case 503:
                 return view('error.error-forbidden');
                 break;
             
             default:
-                return view('error.error-forbidden');
+                return view('error.error-not-found');
                 break;
         }
     }
