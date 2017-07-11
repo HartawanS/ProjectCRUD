@@ -71,7 +71,7 @@
 
 
 @include('error.errors')
-            
+
               <form class="col-md-4 col-md-offset-4 " action="{{ route('changeprofile.update', $Master->id) }}" method="post">
                 {{ csrf_field() }}
                 <div class="form-group">
@@ -84,10 +84,9 @@
 
                 <div class="form-group">
                   <select name="type" class="form-control">
-                  <option selected disabled hidden>{{$Master->type}}</option>
-                    <option value="Developer">Developer</option>
-                    <option value="Tester">Tester</option>
-                    <option value="Client">Client</option>
+                    <option value="Developer"{{$Master->type == 'Developer' ? 'selected' : ''}}>Developer</option>
+                    <option value="Tester"{{$Master->type == 'Tester' ? 'selected' : ''}}>Tester</option>
+                    <option value="Client"{{$Master->type == 'Client' ? 'selected' : ''}}>Client</option>
                   </select>
                 </div>
 

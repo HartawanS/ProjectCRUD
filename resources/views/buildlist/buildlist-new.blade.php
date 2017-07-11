@@ -87,7 +87,7 @@
                 <div class="form-group">
                   <select name="type" class="form-control">
                    {{--  <option selected disabled hidden>Type</option> --}}
-                    <option value="Development">Development</option>
+                    <option value="Development" selected>Development</option>
                     <option value="Staging">Staging</option>
                     <option value="Production">Production</option>
                   </select>

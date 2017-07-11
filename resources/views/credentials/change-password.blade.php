@@ -69,6 +69,7 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
+            @include('error.errors')
             <!-- <ul class="todo-list ui-sortable"> -->
              <form class="col-md-4 col-md-offset-4 " action="{{ route('changepassword.update', $Master->id) }}" method="post">
                 {{ csrf_field() }}

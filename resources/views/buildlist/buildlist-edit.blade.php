@@ -87,10 +87,10 @@
                 <div class="form-group">
                   <label>Type </label>
                   <select name="type" class="form-control">
-                  <option selected disabled hidden>{{$buildlist->type}}</option>
-                    <option value="Development">Development</option>
-                    <option value="Staging">Staging</option>
-                    <option value="Production">Production</option>
+                  {{-- <option selected disabled hidden>{{$buildlist->type}}</option> --}}
+                    <option value="Development"{{$buildlist->type== 'Development' ? 'selected' : ''}}>Development</option>
+                    <option value="Staging"{{$buildlist->type== 'Staging' ? 'selected' : ''}}>Staging</option>
+                    <option value="Production"{{$buildlist->type== 'Production' ? 'selected' : ''}}>Production</option>
                   </select>
                 </div>
                 <div class="form-group">

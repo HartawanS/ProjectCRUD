@@ -22,6 +22,7 @@ class ChangeController extends Controller
     	// dd(Hash::check());
         if( ! Hash::check( $input['oldpassword'] , $data->password) )
 		{
+             \Session::flash('error', 'Old Password Invalid');
     		return redirect()->route('changepassword');
 		}
 
@@ -37,8 +38,8 @@ class ChangeController extends Controller
         //     ]);
         $data->password = bcrypt($request['newpassword']);
         $data->save();
-
-        return redirect()->route('master.index');
+         \Session::flash('success', 'Password Updated');
+        return redirect()->route('changepassword');
     }
     public function change_profile()
     {
@@ -52,15 +53,24 @@ class ChangeController extends Controller
         
         $this->validate($request, [
             'name' => 'bail|required',
-            'email' => 'bail|required|unique:users'.($id ? ",id,$id" : ''),
+            'email' => 'bail|email|required|unique:users,email,'.$id,
             'type' => 'bail'
             ]);
-        //get post data
-        $postData = $request->all();
-        
-        //update post data
-        User::find($id)->update($postData);
-        $Master = auth()->user();
+
+        $user = auth()->user();
+
+        if($user->name!=$request->name||
+            $user->email!=$request->email||
+            $user->type!=$request->type){
+            //get post data
+            $postData = $request->all();
+            
+            //update post data
+            User::find($id)->update($postData);
+            
+            \Session::flash('success', 'Profile Updated');
+         }
+         $Master = auth()->user();
         return redirect()->route('changeprofile', ['Master' => $Master]);
     }
 }
