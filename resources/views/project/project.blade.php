@@ -78,7 +78,7 @@
 
                     <th width="10%" style="text-align: center">No</th>
                     <th>Name</th>
-                    <th>Created</th>
+                    <th>Created at</th>
                   
                   </tr>
                 </thead>

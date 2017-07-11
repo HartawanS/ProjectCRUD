@@ -26,6 +26,9 @@ class MasterUserController extends Controller
 
     public function detail($id)
     {
+        if(restInPiece_user($id) == false){
+            return redirect()->route('master.index');
+        }
         $MU = User::find($id);
 
          return view('home.user-detail', ['MU' => $MU]);

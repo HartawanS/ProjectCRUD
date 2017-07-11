@@ -14,4 +14,11 @@
 		}
 		return false;
 	}
+	function restInPiece_user($iduser){
+		$result = \DB::table('users')->where('id',$iduser)->count();
+		if($result > 0){
+			return true;
+		}
+		return false;
+	}
 ?>

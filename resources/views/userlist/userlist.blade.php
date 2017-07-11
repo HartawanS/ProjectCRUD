@@ -45,12 +45,12 @@
     <section class="content-header">
       <h1>
         {{$projectname->name}}
-        <small>Manage User List</small>
+        <small>Manage Users</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-files-o"></i> Project</a></li>
         <li class="">{{$projectname->name}}</li>
-        <li class="active">Manage User List</li>
+        <li class="active">Manage Users</li>
       </ol>
     </section>
 
@@ -60,9 +60,9 @@
       <div class="row">
       <div class="nav-tabs-custom">
             <ul class="nav nav-tabs">
-              <li><a href="{{route('buildlist.index',$id)}}">Build List</a></li>
+              <li><a href="{{route('buildlist.index',$id)}}">Builds</a></li>
               <!--data-toggle="tab"-->
-              <li class="active"><a href="#tab_2" data-toggle="tab">User List</a></li>
+              <li class="active"><a href="#tab_2" data-toggle="tab">Users</a></li>
 
             </ul>
             <div class="tab-content">
@@ -74,10 +74,10 @@
                 <div class="box-header ui-sortable-handle" style="cursor: move;">
                   <i class="fa fa-files-o"></i>
 
-                  <h3 class="box-title">Manage User List</h3>
+                  <h3 class="box-title">Manage Users</h3>
                   <div class="box-tools">
     {{--                 <a class="btn btn-primary" href="{{ route('home') }}"><i class="fa fa-angle-double-left"></i> Back</a> --}}
-                    <a class="btn btn-success" href="{{ route('userlist.add',$id) }}"><i class="fa fa-plus-circle"></i> <span>New user list</span></a>
+                    <a class="btn btn-success" href="{{ route('userlist.add',$id) }}"><i class="fa fa-plus-circle"></i> <span>New Users</span></a>
                   </div>
                 </div>
 
@@ -90,7 +90,7 @@
                         <th>Name</th>
                         <th>Email</th>
                         <th>Type</th>
-                        <th width="30%">Join At</th>
+                        <th width="30%">Created At</th>
                       </tr>
                     </thead>
                     <tbody>

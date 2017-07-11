@@ -44,12 +44,12 @@
     <section class="content-header">
       <h1>
         {{$projectname->name}}
-        <small>New User List</small>
+        <small>New Users</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-files-o"></i> Project</a></li>
         <li class="">{{$projectname->name}}</li>
-        <li class="active">New User List</li>
+        <li class="active">New Users</li>
       </ol>
     </section>
 
@@ -59,9 +59,9 @@
       <div class="row">
       <div class="nav-tabs-custom">
             <ul class="nav nav-tabs">
-              <li><a href="{{route('buildlist.index',$id)}}">Build List</a></li>
+              <li><a href="{{route('buildlist.index',$id)}}">Builds</a></li>
               <!--data-toggle="tab"-->
-              <li class="active"><a href="#tab_2" data-toggle="tab">User List</a></li>
+              <li class="active"><a href="#tab_2" data-toggle="tab">Users</a></li>
 
             </ul>
             <div class="tab-content">
@@ -73,7 +73,7 @@
                 <div class="box-header ui-sortable-handle" style="cursor: move;">
               <i class="fa fa-files-o"></i>
 
-              <h3 class="box-title">{{$projectname->name}} - New User List</h3>
+              <h3 class="box-title">{{$projectname->name}} - New Users</h3>
               <div class="box-tools">
               
               </div>
