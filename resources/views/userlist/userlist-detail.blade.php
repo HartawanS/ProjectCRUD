@@ -62,7 +62,7 @@
 
 <div class="nav-tabs-custom">
             <ul class="nav nav-tabs">
-              <li><a href="{{route('buildlist.index',$id)}}">Build List</a></li>
+              <li><a href="{{route('buildlist.index',$id)}}">Builds</a></li>
               <!--data-toggle="tab"-->
               <li class="active"><a href="#tab_2" data-toggle="tab">Users</a></li>
 
